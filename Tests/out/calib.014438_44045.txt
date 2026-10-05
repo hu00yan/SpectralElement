@@ -1,0 +1,15 @@
+TEST 1 SyntaxQ(3 chars) ==> True   sample=<>StringReplace[1+1, , \n]<>
+TEST 2 SyntaxQ(8 chars) ==> True   sample=<>StringReplace[(* hi *), , \n]<>
+TEST 3 SyntaxQ(18 chars) ==> True   sample=<>StringReplace[(* ::Package:: *), , \n]<>
+TEST 4 SyntaxQ(5 chars) ==> True   sample=<>StringReplace[a=1;, , \n]<>
+TEST 5 SyntaxQ(14 chars) ==> True   sample=<>StringReplace[f[x_] := x^2;, , \n]<>
+TEST 6 SyntaxQ(4 chars) ==> True   sample=<>StringReplace[1+1, , \n]<>
+TEST 7 SyntaxQ(8 chars) ==> True   sample=<>StringReplace[  1+1  , , \n]<>
+TEST 8 SyntaxQ(5 chars) ==> True   sample=<>StringReplace[   , , \n]<>
+                                                          1+1
+TEST 9 SyntaxQ(11 chars) ==> True   sample=<>StringReplace[a = "str";, , \n]<>
+TEST 10 SyntaxQ(23 chars) ==> True   sample=<>StringReplace[(* c1 *), , \n]<>
+                                                            (* c2 *)
+                                                            1+1;
+no-trailing-NL ==> True
+with-trailing-NL ==> True

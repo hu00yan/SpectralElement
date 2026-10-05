@@ -1,0 +1,52 @@
+release.sh: staging a clean copy into /path/to/SpectralElement/scratch/release-stage/SpectralElement
+release.sh: staged tree:
+          API.md
+          Kernel/AAA.wl
+          Kernel/Discretization.wl
+          Kernel/Geometry.wl
+          Kernel/init.m
+          Kernel/Solve.wl
+          Kernel/SpectralElement.wl
+          LICENSE
+          PacletInfo.wl
+          README.md
+release.sh: staged file count = 10
+release.sh: staging copy is clean (none of:Tests build wfr scratch .git docs Examples)
+ARC-EXISTS True
+ARC-BYTES Quantity[74.016, Kilobytes]
+release.sh: wrote /path/to/SpectralElement/build/SpectralElement-0.1.0.paclet
+release.sh: archive contents:
+          SpectralElement/
+          SpectralElement/API.md
+          SpectralElement/Kernel/
+          SpectralElement/Kernel/AAA.wl
+          SpectralElement/Kernel/Discretization.wl
+          SpectralElement/Kernel/Geometry.wl
+          SpectralElement/Kernel/init.m
+          SpectralElement/Kernel/Solve.wl
+          SpectralElement/Kernel/SpectralElement.wl
+          SpectralElement/LICENSE
+          SpectralElement/PacletInfo.wl
+          SpectralElement/README.md
+
+release.sh: ================ VERDICT ================
+release.sh: forbidden entries in the archive: NONE
+
+release.sh: --- end-to-end: installing the built archive ---
+          FOUND 1
+          LOCATION /path/to/Wolfram/Paclets/Repository/SpectralElement
+          VERSION 0.1.0
+          NEEDS Null-OK
+          SYMBOLS 8
+          FINDFILE /path/to/Wolfram/Paclets/Repository/SpectralElement/Kernel/SpectralElement.wl
+          PATCH-OK True
+          DISC-OK True
+          UNKNOWN-COUNT 49
+          AFTER-UNINSTALL-FOUND 0
+          INSTALL-DIR-GONE True
+release.sh: parsed from the verifier: SYMBOLS=8  AFTER-UNINSTALL-FOUND=0  UNKNOWN-COUNT=49
+
+release.sh: the built archive installs, loads, and uninstalls cleanly
+release.sh: summary written to build/release.lastout
+release.sh: RELEASE-OK  ->  /path/to/SpectralElement/build/SpectralElement-0.1.0.paclet
+release.sh: ==============================================

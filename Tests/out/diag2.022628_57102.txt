@@ -1,0 +1,3 @@
+"aaazfit defined? True"
+"aaaeval defined? True"
+"aaaderiv defined? True"

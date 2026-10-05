@@ -1,0 +1,10 @@
+  PASS  G0a loader defines SpectralNDSolve = 1.   (target >= 1.)
+  PASS  G0b loader defines SpectralNDSolveValue = 1.   (target >= 1.)
+  PASS  G0c SpectralNDSolve::nlnum has text = 141.   (target >= 20.)
+  PASS  G0d SpectralNDSolve::ncond has text = 113.   (target >= 20.)
+  PASS  G0e loading raised no message = 0.   (target == 0.)
+=== P1 LINEAR on Rectangle (region shorthand) ===
+  P1-LIN-RECT-n16  t=1.16  nodalErr=4.47  res=2.16  method=Linear  public={{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[SpectralElement`Private`qy$]], Indeterminate, Module[{SpectralElement`Private`ax$, SpectralElement`Private`ay$, SpectralElement`Private`k$, SpectralElement`Private  opc=-1.  msgs={Part, Part, Part, Part, Part, General, Part, General}
+  PASS  G2 operator sign: -Laplacian+u^3 assembles with opc = -1 = -1.   (target == -1.)
+  PASS  G3 method dispatch: linear equation -> LinearSolve = "Linear"
+  PASS  G1 SpectralNDSolve returns {{u -> Function}} = True

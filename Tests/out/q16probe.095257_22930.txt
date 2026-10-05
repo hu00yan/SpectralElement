@@ -1,0 +1,24 @@
+"================ q16probe START ================"
+"CONTROL first: a field name that cannot exist, plus a known-good one."
+"  ""wrote Category + TotallyInventedField"
+"    READ FAILED: "PacletObject[<|"Name" -> "P", "Version" -> "1.0.0", "Category" -> {"Mathematics"}, "TotallyInventedField" -> "control", "Extensions" -> {"Kernel", "Root" -> "Kernel", "Context" -> {"P`"}}|>]
+""
+"  ""wrote Categories + TotallyInventedField"
+"    READ FAILED: "PacletObject[<|"Name" -> "P", "Version" -> "1.0.0", "Categories" -> {"Mathematics"}, "TotallyInventedField" -> "control", "Extensions" -> {"Kernel", "Root" -> "Kernel", "Context" -> {"P`"}}|>]
+""
+"  ""wrote Tags + TotallyInventedField"
+"    READ FAILED: "PacletObject[<|"Name" -> "P", "Version" -> "1.0.0", "Tags" -> {"Mathematics"}, "TotallyInventedField" -> "control", "Extensions" -> {"Kernel", "Root" -> "Kernel", "Context" -> {"P`"}}|>]
+""
+"  ""wrote Category AND Categories together"
+"    READ FAILED: "PacletObject[<|"Name" -> "P", "Version" -> "1.0.0", "Category" -> {"A"}, "Categories" -> {"B"}, "TotallyInventedField" -> "control", "Extensions" -> {"Kernel", "Root" -> "Kernel", "Context" -> {"P`"}}..TRUNC
+""
+"  ""wrote Creator, PublisherID, URL, License as TODO-USER"
+"    READ FAILED: "PacletObject[<|"Name" -> "P", "Version" -> "1.0.0", "Creator" -> {"TODO-USER"}, "PublisherID" -> "TODO-USER", "URL" -> "TODO-USER", "License" -> "MIT", "TotallyInventedField" -> "control", "Extensions..TRUNC
+""
+"  ""wrote WolframVersion as 13.0+ (the free-text form Wolfram ships)"
+"    READ FAILED: "PacletObject[<|"Name" -> "P", "Version" -> "1.0.0", "WolframVersion" -> "13.0+", "TotallyInventedField" -> "control", "Extensions" -> {"Kernel", "Root" -> "Kernel", "Context" -> {"P`"}}|>]
+""
+"  ""wrote WolframVersion as a LIST (the structured form)"
+"    READ FAILED: "PacletObject[<|"Name" -> "P", "Version" -> "1.0.0", "WolframVersion" -> {"13.0", "14.3"}, "TotallyInventedField" -> "control", "Extensions" -> {"Kernel", "Root" -> "Kernel", "Context" -> {"P`"}}|>]
+"cleaned="True
+"================ DONE-q16probe ================"

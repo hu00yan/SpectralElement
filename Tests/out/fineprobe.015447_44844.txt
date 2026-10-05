@@ -1,0 +1,71 @@
+lines=375
+--- the failing region verbatim ---
+L321 | aaaeval[fit_Association, z_] := Module[{nodes = fit["Nodes"], vals = fit["Values"], ws = fit["Weights"], zl, scalarQ, b, ok, out, kk, hj},
+L322 |   scalarQ = !TrueQ[VectorQ[z, NumericQ]];
+L323 |   zl = N[If[scalarQ, {z}, z], MachinePrecision];
+L324 |   If[!TrueQ[VectorQ[zl, NumericQ]], Return[$Failed]];
+L325 |   b = aaabary(nodes, vals, ws, zl);
+L326 |   ok = Map[TrueQ[NumericQ[#]] &, b[[2]]];       (* is d(z) usable here? *)
+L327 |   out = b[[1]]/b[[2]];
+L328 |   Do[hj = b[[5]][[kk]];
+L329 |      If[TrueQ[!ok[[kk]] && hj >= 1], out[[kk]] = vals[[hj]]],
+L330 |    {kk, 1, Length[zl]}];
+L331 |   If[scalarQ, First[out], out]
+L332 | ];
+L333 | 
+L334 | (* ---------------------------------------------------------------------
+L335 |    aaaderiv[fit_, z_] : first derivative, analytic quotient rule of the
+L336 |    barycentric form.  CoonsPatch needs this for the surface metrics, so
+L337 |    it is a hard requirement rather than a convenience.
+L338 |        r = n/d,   r' = (n' d - n d')/d^2 = (n' - r d')/d
+L339 |    At a support node the barycentric form is singular term by term while
+L340 |    the rational function itself is perfectly regular, so those points are
+L341 |    evaluated through the p/q view instead:  r' = (p' q - p q')/q^2.
+L342 |    --------------------------------------------------------------------- *)
+--- prefix Get 321..342 ---
+PREFIX-END 321 ==> OK
+PREFIX-END 322 ==> OK
+PREFIX-END 323 ==> OK
+PREFIX-END 324 ==> OK
+PREFIX-END 325 ==> SYNTAX-FAIL
+PREFIX-END 326 ==> SYNTAX-FAIL
+PREFIX-END 327 ==> SYNTAX-FAIL
+PREFIX-END 328 ==> SYNTAX-FAIL
+PREFIX-END 329 ==> SYNTAX-FAIL
+PREFIX-END 330 ==> SYNTAX-FAIL
+PREFIX-END 331 ==> SYNTAX-FAIL
+PREFIX-END 332 ==> SYNTAX-FAIL
+PREFIX-END 333 ==> SYNTAX-FAIL
+PREFIX-END 334 ==> SYNTAX-FAIL
+PREFIX-END 335 ==> SYNTAX-FAIL
+PREFIX-END 336 ==> SYNTAX-FAIL
+PREFIX-END 337 ==> SYNTAX-FAIL
+PREFIX-END 338 ==> SYNTAX-FAIL
+PREFIX-END 339 ==> SYNTAX-FAIL
+PREFIX-END 340 ==> SYNTAX-FAIL
+PREFIX-END 341 ==> SYNTAX-FAIL
+PREFIX-END 342 ==> SYNTAX-FAIL
+--- is each LINE alone syntactically complete? ---
+LINE 321 SyntaxQ ==> False   | aaaeval[fit_Association, z_] := Module[{nodes = fit["Nodes"]
+LINE 322 SyntaxQ ==> True   | <>StringTake[  scalarQ = !TrueQ[VectorQ[z, NumericQ]];, 60]<>
+LINE 323 SyntaxQ ==> True   | <>StringTake[  zl = N[If[scalarQ, {z}, z], MachinePrecision];, 60]<>
+LINE 324 SyntaxQ ==> True   | <>StringTake[  If[!TrueQ[VectorQ[zl, NumericQ]], Return[$Failed]];, 60]<>
+LINE 325 SyntaxQ ==> False   | <>StringTake[  b = aaabary(nodes, vals, ws, zl);, 60]<>
+LINE 326 SyntaxQ ==> True   |   ok = Map[TrueQ[NumericQ[#]] &, b[[2]]];       (* is d(z) u
+LINE 327 SyntaxQ ==> True   | <>StringTake[  out = b[[1]]/b[[2]];, 60]<>
+LINE 328 SyntaxQ ==> False   | <>StringTake[  Do[hj = b[[5]][[kk]];, 60]<>
+LINE 329 SyntaxQ ==> False   |      If[TrueQ[!ok[[kk]] && hj >= 1], out[[kk]] = vals[[hj]]]
+LINE 330 SyntaxQ ==> False   | <>StringTake[   {kk, 1, Length[zl]}];, 60]<>
+LINE 331 SyntaxQ ==> True   | <>StringTake[  If[scalarQ, First[out], out], 60]<>
+LINE 332 SyntaxQ ==> False   | <>StringTake[];, 60]<>
+LINE 333 SyntaxQ ==> False   | <>StringTake[, 60]<>
+LINE 334 SyntaxQ ==> False   | (* ---------------------------------------------------------
+LINE 335 SyntaxQ ==> False   |    aaaderiv[fit_, z_] : first derivative, analytic quotient 
+LINE 336 SyntaxQ ==> False   |    barycentric form.  CoonsPatch needs this for the surface 
+LINE 337 SyntaxQ ==> False   | <>StringTake[   it is a hard requirement rather than a convenience., 60]<>
+LINE 338 SyntaxQ ==> False   | <>StringTake[       r = n/d,   r' = (n' d - n d')/d^2 = (n' - r d')/d, 60]<>
+LINE 339 SyntaxQ ==> True   |    At a support node the barycentric form is singular term b
+LINE 340 SyntaxQ ==> False   |    the rational function itself is perfectly regular, so tho
+LINE 341 SyntaxQ ==> True   |    evaluated through the p/q view instead:  r' = (p' q - p q
+LINE 342 SyntaxQ ==> False   |    ---------------------------------------------------------
+FINE-DONE

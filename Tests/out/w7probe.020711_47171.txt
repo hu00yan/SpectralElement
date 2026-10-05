@@ -1,0 +1,29 @@
+"=== w7probe START ==="
+"=== ""n1.wl"" ==="
+"  text: ""If[True, sf[\"a\"]]; <NL> "
+"  SyntaxQ="True
+"=== ""n2.wl"" ==="
+"  text: ""If[True, <NL>   sf[\"a\"]]; <NL> "
+"  SyntaxQ="True
+"=== ""n3.wl"" ==="
+"  text: ""hits = {}; <NL> If[Length[hits] =/= 4, <NL>    sf[\"a\"]]; <NL> "
+"  SyntaxQ="False
+"=== ""n4.wl"" ==="
+"  text: ""badGet = {}; <NL> If[Length[badGet] > 0, <NL>    sf[\"a\"]]; <NL> "
+"  SyntaxQ="True
+"=== ""n5.wl"" ==="
+"  text: ""fatal[a___] := (Print[Row[{a}]]; Quit[9]); <NL> fatal[\"hello\", 1, \"there\"]; <NL> "
+"  SyntaxQ="True
+"=== ""n6.wl"" ==="
+"  text: ""If[True, (Print[1]; Print[2])]; <NL> "
+"  SyntaxQ="True
+"=== ""n7.wl"" ==="
+"  text: ""hits = {}; <NL> If[Length[hits] =/= 4, <NL>    fatal[\"expected exactly 4 Get statements, found \", Length[hits], <NL>           \".  The loader contract chang..TRUNC
+"  SyntaxQ="False
+"=== ""n8.wl"" ==="
+"  text: ""hits = {}; <NL> badGet = {}; <NL> If[Length[badGet] > 0, <NL>    fatal[\"a Get statement matched the loader pattern at line(s) \", badGet, <NL>           \" bu..TRUNC
+"  SyntaxQ="False
+"=== ""n9.wl"" ==="
+"  text: ""Do[sf[\"  line \", hits[[k, 1]], \" -> Kernel/\", hits[[k, 2]], \"  exists=\", FileExistsQ[FileNameJoin[{root, \"Kernel\", hits[[k, 2]]}]]], {k, Length[hits]}]..TRUNC
+"  SyntaxQ="False
+"=== w7probe DONE ==="

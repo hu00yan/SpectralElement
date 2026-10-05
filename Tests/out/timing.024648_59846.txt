@@ -1,0 +1,13 @@
+"TINY m=SpectralElement`Private`aaazfit[{0., 1., 2., 3., 4., 5.}, {0., 1., 2., 3., 4., 5.}, 1.*^-13, 10][\"Iterations\"] err=SpectralElement`Private`aaazfit[{0.
+"N=50 mmax=10 m=SpectralElement`Private`aaazfit[{-1., -0.9591836734693877, -0.9183673469387755, -0.8775510204081632, -0.8367346938775511 err=SpectralElement`Pri
+"N=100 mmax=10 m=SpectralElement`Private`aaazfit[{-1., -0.9797979797979798, -0.9595959595959596, -0.9393939393939394, -0.9191919191919192 err=SpectralElement`Pr
+"N=200 mmax=10 m=SpectralElement`Private`aaazfit[{-1., -0.9899497487437185, -0.9798994974874372, -0.9698492462311558, -0.9597989949748744 err=SpectralElement`Pr
+"N=200 mmax=5 m=SpectralElement`Private`aaazfit[{-1., -0.9899497487437185, -0.9798994974874372, -0.9698492462311558, -0.9597989949748744 err=SpectralElement`Pri
+"N=200 mmax=10 m=SpectralElement`Private`aaazfit[{-1., -0.9899497487437185, -0.9798994974874372, -0.9698492462311558, -0.9597989949748744 err=SpectralElement`Pr
+"N=200 mmax=20 m=SpectralElement`Private`aaazfit[{-1., -0.9899497487437185, -0.9798994974874372, -0.9698492462311558, -0.9597989949748744 err=SpectralElement`Pr
+"fit30 m=SpectralElement`Private`aaazfit[{-1., -0.9899497487437185, -0.9798994974874372, -0.9698492462311558, -0.9597989949748744"
+"aaapolyform secs=0.000015`1.6276362525516535"
+"aaapoles secs=0.000014`1.5976730291742114  npoles=1"
+"aaaeval 200 pts secs=0.000143`2.606881030961037"
+"aaaderiv 200 pts secs=0.000096`2.433816226535541"
+"TIMING-DONE"

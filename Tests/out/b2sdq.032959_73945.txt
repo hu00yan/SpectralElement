@@ -1,0 +1,6 @@
+"seAssemble DownValues = 0"
+"seExactGlobal DownValues = 1"
+"call head = seAssemble"
+"call InputForm 200 = seAssemble[{<|\"Type\" -> \"CoonsPatch\", \"Edges\" -> {{#1, -1} & , {#1, 1} & , {-1, #1} & , {1, #1} & }, \"Corners\" -> {{-1, -1}, {1, -1}, {-1, 1}, {1, 1}}, \"CornerClosure\" -> 0., \"CornerConsistency\" -> <|"
+"messages = {}"
+"DONE"

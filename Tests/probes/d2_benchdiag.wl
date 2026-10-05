@@ -1,0 +1,48 @@
+(* D2: (a) what does $MessageList really hold, (b) why does the capped-Newton
+   negative control return a solution, (c) where do P1's Part messages come
+   from, (d) confirm the exactNodal ordering fix. *)
+$HistoryLength = 0;
+p[args___] := Print[Row[{args}]];
+Get["/path/to/SpectralElement/Kernel/SpectralElement.wl"];
+uexz[x_, y_] := Sin[2 x + 1] Cos[3 y - 1] + x y/5;
+bdR = Abs[x + 1.5] < 1.*^-8 || Abs[x - 1.8] < 1.*^-8 || Abs[y + 1.2] < 1.*^-8 || Abs[y - 1.3] < 1.*^-8;
+regR = Rectangle[{-1.5, -1.2}, {1.8, 1.3}];
+fLin = -Laplacian[uexz[x, y], {x, y}];
+fNl = -Laplacian[uexz[x, y], {x, y}] + uexz[x, y]^3;
+eqLin = {-Laplacian[u[x, y], {x, y}] == fLin, DirichletCondition[u[x, y] == uexz[x, y], bdR]};
+eqNl = {-Laplacian[u[x, y], {x, y}] + u[x, y]^3 == fNl, DirichletCondition[u[x, y] == uexz[x, y], bdR]};
+p["=== (a)+(c) P1 linear n=16, full message dump ==="];
+m0 = Length[$MessageList];
+P1 = SpectralElement`SpectralNDSolve[eqLin, u, {x, y} \[Element] regR, 16];
+ml = $MessageList[[m0 + 1 ;; Length[$MessageList]]];
+p["  count=", Length[ml]];
+Do[p["  [", i, "] ", ToString[ml[[i]], InputForm]], {i, 1, Length[ml]}];
+p["=== (b) capped Newton at n=16 ==="];
+m0 = Length[$MessageList];
+rFail = SpectralElement`SpectralNDSolve[eqNl, u, {x, y} \[Element] regR, 16, MaxIterations -> 1, Tolerance -> 1.*^-30];
+iF = SpectralElement`Private`seLastSolve;
+p["  Head[rFail]=", Head[rFail], "  sameQFailed=", TrueQ[rFail === $Failed]];
+p["  seLastSolve Reason=", Lookup[iF, "Reason"], " Method=", Lookup[iF, "Method"], " NonlinearQ=", Lookup[iF, "NonlinearQ"], " Tolerance=", Lookup[iF, "Tolerance"]];
+ml2 = $MessageList[[m0 + 1 ;; Length[$MessageList]]];
+p["  msgs after capped solve, count=", Length[ml2]];
+Do[p["  [", i, "] ", ToString[ml2[[i]], InputForm]], {i, 1, Length[ml2]}];
+p["=== (b2) does the ::nlnum pattern match? ==="];
+p["  head of a message entry = ", Head[First[ml2]]];
+p["=== (d) nodal error with the OLD and the FIXED exactNodal ordering ==="];
+i1 = SpectralElement`Private`seLastSolve;
+m0 = Length[$MessageList];
+P1b = SpectralElement`SpectralNDSolve[eqLin, u, {x, y} \[Element] regR, 16];
+i1 = SpectralElement`Private`seLastSolve;
+d16 = Lookup[i1, "Disc"];
+o16 = Lookup[d16, "PatchOps"];
+nn16 = Lookup[d16, "NodeCount"];
+lf16 = Lookup[Lookup[i1, "Parts"], "Lift"];
+g16 = SpectralElement`Private`seGather[d16, lf16, Lookup[i1, "Global"]];
+eOld = Table[0., {p, 1, Length[o16]}, {ix, 1, nn16}, {iy, 1, nn16}];
+Do[eOld[[p, ix, iy]] = N[uexz[o16[[p]]["Xs"][[ix, iy]], o16[[p]]["Ys"][[ix, iy]]]];, {iy, 1, nn16}, {ix, 1, nn16}, {p, 1, Length[o16]}];
+eNew = Table[0., {p, 1, Length[o16]}, {k, 1, nn16^2}];
+Do[kk = 1 + (ix - 1) + nn16 (iy - 1); eNew[[p, kk]] = N[uexz[o16[[p]]["Xs"][[ix, iy]], o16[[p]]["Ys"][[ix, iy]]]];, {iy, 1, nn16}, {ix, 1, nn16}, {p, 1, Length[o16]}];
+p["  dims g16=", Dimensions[g16], " eOld=", Dimensions[eOld], " eNew=", Dimensions[eNew]];
+p["  err OLD ordering = ", N[Max[Abs[Flatten[Flatten[g16] - Flatten[eOld]]]]]];
+p["  err NEW ordering = ", N[Max[Abs[Flatten[Flatten[g16] - Flatten[eNew]]]]]];
+p["DONE-d2_benchdiag"];

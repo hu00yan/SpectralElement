@@ -1,0 +1,46 @@
+"=== w4probe START ==="
+"--- 0. build a SYNTAX-CLEAN copy pp2 (AAA/Geometry/Discretization/Solve stubbed) ---"
+"  ""AAA.wl"" SyntaxQ="True
+"  ""Geometry.wl"" SyntaxQ="True
+"  ""Discretization.wl"" SyntaxQ="True
+"  ""Solve.wl"" SyntaxQ="True
+"  ""SpectralElement.wl"" SyntaxQ="True
+"  PacletInfo Name=""ZZPacletProbe""  Context="{"ZZPacletProbe`"}
+"  Repository before="DirectoryNames[1, "/path/to/Wolfram/Paclets/Repository"]
+"--- 1. attempt A: PacletInstall[dir] on the syntax-clean copy ---"
+"  returned="Function[{m, a}, AppendTo[msglog, StringJoin[ToString[m, InputForm], " :: ", (ToString[#1, InputForm] & ) /@ a]]]
+"  messages: "{"<none>"}
+"  PacletFind count="0
+"  Location=""NONE"
+"--- 2. attempt B: PacletInstall[File[dir]] ---"
+"  returned="Function[{m, a}, AppendTo[msglog, StringJoin[ToString[m, InputForm], " :: ", (ToString[#1, InputForm] & ) /@ a]]]
+"  messages: "{"<none>"}
+"  PacletFind count="0
+"--- 3. attempt C: .paclet archive, then install the archive ---"
+"  CreateArchive returned=""/path/to/SpectralElement/.agent-scratch/ZZPacletProbe.paclet""  exists="True"  bytes="Quantity[5.1370000000000005, "Kilobytes"]
+"  PacletInstall[archive] returned="PacletObject[<|"Name" -> "ZZPacletProbe", "Version" -> "0.1.0", "WolframVersion" -> "13.0+", "Creator" -> "SpectralElement contributors", "Description" -> "Spectral multi-domain (spectral-element) solvers for PDEs on arbitrary curved 2D domains.", "Category" -> {"Developer Tools", "Mathematics"}, "K..TRUNC
+"  messages: "{"<none>"}
+"  PacletFind count="1
+"  Location=""/path/to/Wolfram/Paclets/Repository/pp2"
+"  --- Needs from the INSTALLED copy ---"
+"  Needs returned=""RAISED"
+"  on $ContextPath="True
+"  Names="{"CoonsPatch", "CoonsPatchMap", "CoonsPatchQ", "SpectralDomain", "SpectralDomainData", "SpectralDomainQ", "SpectralNDSolve", "SpectralNDSolveValue"}
+"  FindFile="$Failed
+"  PacletDirectoryLoad[pp2] also="{"/path/to/SpectralElement/.agent-scratch/pp2"}
+"  PacletUninstall="Null
+"  PacletFind count after uninstall="1
+"  Repository after uninstall="DirectoryNames[1, "/path/to/Wolfram/Paclets/Repository"]
+"--- 4. leftover check ---"
+"  Repository now="DirectoryNames[1, "/path/to/Wolfram/Paclets/Repository"]
+"  PacletFind[ZZPacletProbe]="1
+"  PacletFind[SpectralElement]="0
+"  scratch arc removed="False
+"--- 5. parse trap: does a bare context mark survive <>? ---"
+"  ""cand7.wl"" SyntaxQ="False
+"  ""cand8.wl"" SyntaxQ="False
+"  ""cand9.wl"" SyntaxQ="True
+"  ""cand10.wl"" SyntaxQ="True
+"  ""cand11.wl"" SyntaxQ="True
+"  ""cand12.wl"" SyntaxQ="True
+"=== w4probe DONE ==="

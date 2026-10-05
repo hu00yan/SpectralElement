@@ -1,0 +1,12 @@
+"loaded; msgs during load = "0
+"A no-option linear rectangle: t="0.068497"  head="Function"  f(0,0)="0.5484426692394953"  msgs="{}
+"B no-option nonlinear rectangle: t="0.048754"  method=""Newton""  iters="6"  converged="True"  msgs="{}
+"C CoonsPatchQ = "True
+"D SpectralDomainQ = "True"  patchCount="1"  degree="12"  unknowns="121"  ifacePairs="{}
+"E minJ = "{1.999999999999973}
+"F keys sample: "List" "List" "List
+"G solve on prebuilt disc: t="0.007906"  converged="True"  msgs="{}
+"H annulus: t="0.022029"  f(1.5,1.0)="0.5389613978944082"  exact="0.5389488413540798"  msgs="{}
+"I Disk -> "$Failed"  msgs="{SpectralDomain}
+"J AAA patch Q = "True"  msgs="{}
+"DONE e_probe1"

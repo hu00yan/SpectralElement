@@ -1,0 +1,210 @@
+"================ installprobe START ================"
+"repo=""/path/to/SpectralElement/"
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"NOTE: the solver layer is IMPLEMENTED.  Section 8 asserts what it""     computes, through the two public entry points only -- no Private""     symbol is touched, because a user has only the eight public ones."
+"--- 0. baseline: is a SpectralElement paclet already installed? ---"
+"PacletFind[SpectralElement] before="0
+"on $ContextPath before="False
+"  a previous run left """" installed; removing it first"
+"PacletFind[SpectralElement] after the pre-clean="0
+"the machine is in a clean state before the install="True
+"--- 1. PacletInfo metadata (PacletInfo.wl is READ, not evaluated) ---"
+"Name=""SpectralElement"
+"Version=""0.1.0"
+"WolframVersion=""13.0+"
+"Creator=""TODO-USER"
+"License (custom field)=""MIT"
+"URL=""TODO-USER"
+"Category="{"Developer Tools", "Mathematics"}
+"Keywords="{"spectral element method", "spectral methods", "transfinite interpolation", "Coons patch", "PDE", "finite element", "multi-domain", "Chebyshev", "NDSolve"}
+"Extensions="{{"Kernel", "Root" -> "Kernel", "Context" -> {"SpectralElement`"}}}
+"Context="{"SpectralElement`"}
+"Extensions has exactly the Kernel extension with Root and Context="True
+"metadata has Name/Version/Context/Extensions="True
+"--- 2. build the .paclet archive PacletInstall actually accepts ---"
+"CreateArchive=""/path/to/SpectralElement/scratch/P/SpectralElement.paclet"
+"archive=""/path/to/SpectralElement/scratch/P/SpectralElement.paclet""  exists="True"  bytes="Quantity[1.1573353240000002, "Gigabytes"]
+"--- 3. PacletInstall ---"
+"PacletInstall raised a message="False
+"PacletFind[SpectralElement] after="1
+"  Location=""/path/to/Wolfram/Paclets/Repository/SpectralElement"
+"registered from a location OTHER than the checkout="True"  (else Needs would read the working tree and the install channel""   would not actually be under test)"
+"--- 4. Needs, and where the context resolves ---"
+"Needs returned="Null"   (Null = success)"
+"the load raised NO message="True
+"on $ContextPath="True
+"FindFile[SpectralElement`SpectralElement`]=""/path/to/Wolfram/Paclets/Repository/SpectralElement/Kernel/SpectralElement.wl"
+"FindFile points INSIDE the installed copy="True
+"contexts matching 'SpectralElement="{"SpectralElement`", "SpectralElement`Private`"}
+"--- 5. the eight public symbols ---"
+"Length[Names[SpectralElement`*]]="8
+"Names="{"CoonsPatch", "CoonsPatchMap", "CoonsPatchQ", "SpectralDomain", "SpectralDomainData", "SpectralDomainQ", "SpectralNDSolve", "SpectralNDSolveValue"}
+"Context /@ pub ="{"SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`"}
+"all eight in context SpectralElement`="True
+"missing=""NONE"
+"unexpected extras=""NONE"
+"DownValues counts (a symbol with only ::usage has none):"
+"   ""CoonsPatch"" -> "{HoldPattern[CoonsPatch[SpectralElement`Private`edges_List, SpectralElement`Private`opts:OptionsPattern[]]] :> Module[{SpectralElement`Private`ed = SpectralElement`Private`edges, SpectralElement`Private`tol, SpectralElement`Private`meth, SpectralElement`Private`ns, SpectralElement`Private`naa, SpectralElement`Private`fr, SpectralElement`Private`fEdges, SpectralElement`Private`fInfo, SpectralElemen..TRUNC""
+"   ""CoonsPatchQ"" -> "{HoldPattern[CoonsPatchQ[SpectralElement`Private`obj_]] :> TrueQ[AssociationQ[SpectralElement`Private`obj] && Lookup[SpectralElement`Private`obj, "Type"] === "CoonsPatch" && MatchQ[Lookup[SpectralElement`Private`obj, "Edges", {}], {_Function, _Function, _Function, _Function}] && MatchQ[Lookup[SpectralElement`Private`obj, "Corners", {}], {_?ListQ, _?ListQ, _?ListQ, _?ListQ}] && MatchQ[Lookup[Spectr..TRUNC""
+"   ""CoonsPatchMap"" -> "{HoldPattern[CoonsPatchMap[SpectralElement`Private`p_Association, SpectralElement`Private`x_, SpectralElement`Private`y_] /; TrueQ[CoonsPatchQ[SpectralElement`Private`p]]] :> Lookup[SpectralElement`Private`p, "Map"][SpectralElement`Private`x, SpectralElement`Private`y], HoldPattern[CoonsPatchMap[___]] :> $Failed}""
+"   ""SpectralDomain"" -> "{HoldPattern[SpectralDomain[SpectralElement`Private`patches_List, SpectralElement`Private`n_Integer, SpectralElement`Private`opts:OptionsPattern[]]] :> Module[{SpectralElement`Private`o = SpectralElement`Private`seResolveDomainOpts[], SpectralElement`Private`bad}, If[SpectralElement`Private`n < 2, Message[SpectralDomain::nrange, SpectralElement`Private`n]; Return[$Failed]]; SpectralElement`Private..TRUNC""
+"   ""SpectralDomainQ"" -> "{HoldPattern[SpectralDomainQ[SpectralElement`Private`disc_]] :> TrueQ[AssociationQ[SpectralElement`Private`disc] && Lookup[SpectralElement`Private`disc, "Type"] === "SpectralDiscretization" && AssociationQ[Lookup[SpectralElement`Private`disc, "System", {}]] && Length[Lookup[SpectralElement`Private`disc, "PatchOps", {}]] >= 1]}""
+"   ""SpectralDomainData"" -> "{HoldPattern[SpectralDomainData[SpectralElement`Private`disc_]] :> SpectralElement`Private`disc, HoldPattern[SpectralDomainData[SpectralElement`Private`disc_, SpectralElement`Private`key_String] /; TrueQ[SpectralDomainQ[SpectralElement`Private`disc]]] :> Module[{SpectralElement`Private`o = SpectralElement`Private`disc["PatchOps"], SpectralElement`Private`s = SpectralElement`Private`disc["System"],..TRUNC""
+"   ""SpectralNDSolve"" -> "{HoldPattern[SpectralNDSolve[SpectralElement`Private`eq_, SpectralElement`Private`u_, SpectralElement`Private`dom_, SpectralElement`Private`n_, SpectralElement`Private`opts:OptionsPattern[SpectralNDSolve]]] :> Module[{SpectralElement`Private`o, SpectralElement`Private`r}, SpectralElement`Private`o = Association["Method" -> OptionValue[Method], "Tolerance" -> SpectralElement`Private`seTolerance[Opt..TRUNC""
+"   ""SpectralNDSolveValue"" -> "{HoldPattern[SpectralNDSolveValue[SpectralElement`Private`eq_, SpectralElement`Private`u_, SpectralElement`Private`dom_, SpectralElement`Private`n_, SpectralElement`Private`opts:OptionsPattern[SpectralNDSolveValue]]] :> Module[{SpectralElement`Private`o, SpectralElement`Private`r}, SpectralElement`Private`o = Association["Method" -> OptionValue[Method], "Tolerance" -> SpectralElement`Private`seTol..TRUNC""
+"private helper symbols created="777
+"  (a non-zero count proves the subfiles really executed, not just""   that the usage messages were read)"
+"  sample="{"SpectralElement`Private`a", "SpectralElement`Private`A", "SpectralElement`Private`A0", "SpectralElement`Private`A0$", "SpectralElement`Private`aa", "SpectralElement`Private`AA"}
+"--- 6. geometry layer responds ---"
+"CoonsPatch on a four-corner patch -> ""a CoonsPatch object"
+"CoonsPatchQ[patch]="True
+"CoonsPatchMap[patch, 0.3, -0.5]="{0.5999999999999999, -0.5}"  (exact answer {0.6, -0.5}; this is""   floating point, so the gate is a tolerance, not ===)"
+"map value matches the analytic one to 1e-14="True
+"map at corner (-1,-1)="{-2., -1.}"  (the BL vertex, {-2,-1})"
+"corner closure is exact="True
+"CoonsPatch with only three edges -> "$Failed"  (expected $Failed)"
+"CoonsPatch on edges that do not close -> "$Failed"  (expected $Failed)"
+"CoonsPatch[..., Method -> \"AAA\"] -> ""a CoonsPatch object""  (expected a patch now: AAA is wired)"
+"  CoonsPatchQ on it="True
+"  its Method field=""AAA""  (must be \"AAA\": a value of \"Analytic\" would be a silent fallback)"
+"  corner closure of the AAA patch="2.220446049250313*^-16
+"  AAA fit record=""<|\"Samples\" -> 65, \"Fits\" -> {<|\"X\" -> <|\"Status\" -> \"Converged\", \"Type\" -> {1, 1}, \"RelError\" -> 1.019762463258548*^-15, \"SupportSize\" -> 2, \"Support\" -> {1.00025, -1.00025}|>, \"Y\" -> <|\"Status\" -> \"Converged\", \"Type\" -> {0, 0}, \"RelError\" -> 1.1102230246251565*^-16, \"SupportSize\" -> 1, \"Support\" -> {1.00025}|>|>, <|\"X\" -> <|\"Status\" -> \"Converged\", \"Type\"..TRUNC
+"CoonsPatch[..., Method -> \"NoSuchMethod\"] -> "$Failed"  (expected $Failed)"
+"--- 7. discretization layer responds ---"
+"SpectralDomain[{patch}, 8] -> ""a SpectralDiscretization"
+"SpectralDomainQ[disc]="True
+"PatchCount="1"  (expected 1)"
+"Degree="8"  (expected 8)"
+"UnknownCount="49"   expected (n-1)^2 = "49" for one patch, no interface"
+"  UnknownCount is a NUMBER="True
+"RowCount="49
+"  rows == unknowns (Dirichlet nodes are LIFTED, so the system is square)="True
+"Nodes per direction="9"  (expected n+1 = 9)"
+"InterfacePairs on a ONE-patch domain="0"  (expected 0: no second patch exists to match against)"
+"MinJacobian="{1.9999999999999882}"  (one entry per patch; analytic value 2 here,""   because dx/dxi = 2 and dy/deta = 1)"
+"  min over patches="1.9999999999999882
+"  relative deviation from the analytic 2="5.88418203051333*^-15
+"  matches the analytic 2 to a relative 1e-12="True
+"SpectralDomainData[disc, \"NoSuchKey\"] -> "$Failed"  (expected $Failed)"
+"Rectangle shorthand: PatchCount="1"  (expected 1)"
+"Annulus[{1,2},{0,Pi}]: PatchCount="1"  (expected 1: span Pi is one sector)"
+"Annulus[{1,2},{0,2 Pi}]: PatchCount="2"  (expected 2 sectors)"
+"SpectralDomain[Disk[], 6] -> "$Failed"  (expected $Failed: J = 0 at r = 0)"
+"--- 8. solver layer: does it SOLVE, through the public API? ---"
+"installed Solve.wl = "39.048" KB  (the one-line stub was 63 bytes)"
+"Solve.wl in the INSTALLED copy is not a stub (> 1.5 KB)="True
+"SpectralNDSolve has DownValues="True
+"SpectralNDSolveValue has DownValues="True
+"solver layer status=""IMPLEMENTED -- behaviour asserted below"
+"SpectralNDSolve[-Laplacian[u] == f, DirichletCondition, Rectangle, 12] -> ""a list of rules""  (expected {{u -> fn}})"
+"  it is {{u -> Function[...]}}: the NDSolve shape="True
+"  u[-0.5, 0.3] through the returned function -> "-0.030000128144266197"   (exact answer "-0.03")"
+"  max |u - manufactured| at five interior points = "1.2541848011249357*^-6"   (spectral convergence at degree 12; degree 16 reaches 4.5e-11)"
+"linear solve recovers the manufactured solution="True
+"SpectralNDSolve[-Laplacian[u] + u^3 == f, DirichletCondition, 12] -> ""a list of rules""  (expected {{u -> fn}}, Newton path)"
+"  max |u - manufactured| at the same five points = "1.2506850232130162*^-6"   (Newton converged: the step sequence in Tests/out/d2_newton_FINAL.txt""    gains ~2 digits per step, 1.39 -> 0.059 -> 7.1e-4 -> 1.2e-7 -> 4.1e-15)"
+"nonlinear solve recovers the manufactured solution="True
+"the same solve with MaxIterations -> 1 -> ""$Failed (expected: ::nlnum fired)""  (expected $Failed: ::nlnum fires and the call gives up)"
+"a capped Newton gives $Failed, it does not return a wrong answer="True
+"Method -> \"Newton\" explicitly -> differs from the default dispatch by "0."  (0: Automatic really resolves to Newton)"
+"Method -> \"Newton\" is accepted and matches the automatic dispatch="True
+"Method -> \"NoSuchMethod\" -> "$Failed"  (expected $Failed, ::method)"
+"an unknown Method is refused, never silently downgraded="True
+"SpectralDomain[Rectangle, 12] built for reuse -> ""a SpectralDiscretization"
+"SpectralNDSolve[..., Omega = that discretization, 12] -> ""a list of rules"
+"  the two independent solves differ by = "0."  (they must agree)"
+"a pre-built discretization is accepted and reproduces the answer="True
+"SpectralNDSolveValue[..., 12] -> ""a pure Function"
+"SpectralNDSolveValue gives the function itself, with no rule wrapper="True
+"--- 9. messages seen in this run's stdout: the message NAMES ---"
+"  repeating the message-raising calls unquieted:"
+"  CoonsPatch[three edges]:"
+"  CoonsPatch[edges that do not close]:"
+"  CoonsPatch[Method -> \"NoSuchMethod\"] (must fire ::method):"
+"  SpectralDomainData[disc, \"NoSuchKey\"]:"
+"  SpectralDomain[Disk[], 6]:"
+"  their values: "{$Failed, $Failed, $Failed, $Failed, $Failed}
+"stdout lines read back="132
+"lines containing \"::\"="9
+"    ""DownValues counts (a symbol with only ::usage has none):"
+"    ""the same solve with MaxIterations -> 1 -> $Failed (expected: ::nlnum fired)  (expected $Failed: ::nlnum fires and the call gives up)"
+"    ""Method -> \"NoSuchMethod\" -> $Failed  (expected $Failed, ::method)"
+"    ""CoonsPatch::edges: CoonsPatch[{bottom, top, left, right}] wants FOUR pure functions of one variable returning {x, y}: bottom and top take xi in [-1,1] (bottom sits at eta = -1, top at eta = +1), left and right take eta in [-1,1] (left sits at xi = -1, right at xi = +1)."
+"    ""CoonsPatch::corners: CoonsPatch: the four edges do not close at the corners: max corner mismatch = 0.5 exceeds the tolerance 1. 10   . The transfinite (Coons) map needs exactly closing edges."
+"    ""  CoonsPatch[Method -> \"NoSuchMethod\"] (must fire ::method):"
+"    ""CoonsPatch::method: CoonsPatch: Method -> NoSuchMethod cannot produce a patch. Reason: unrecognised method name. The two implemented methods are \"Analytic\", which evaluates the four edge curves exactly, and \"AAA\", which samples each edge on an equispaced grid and fits it with the AAA rational core. An unrecognised method name, an edge that does not sample to a finite real numeric vector, and ..TRUNC
+"    ""SpectralDomain::key: SpectralDomainData: NoSuchKey is not a key of a SpectralDiscretization.  Known keys: {\"PatchCount\", \"Degree\", \"Nodes\", \"NodeCount\", \"NodesPerPatch\", \"UnknownCount\", \"RowCount\", \"Patches\", \"PatchMap\", \"Coordinates\", \"X\", \"Y\", \"Jacobian\", \"MinJacobian\", \"NonPositiveJacobianCount\", \"CornerJacobian\", \"FDJacobian\", \"Laplacian\", \"InteriorRows\",..TRUNC
+"    ""SpectralDomain::nreg: SpectralDomain: the region Disk[{0, 0}] is not supported: only a CoonsPatch list, Rectangle or Annulus are supported"
+"expected message names, each fired at least once:"
+"   ""CoonsPatch::edges"" -> "True
+"   ""CoonsPatch::corners"" -> "True
+"   ""CoonsPatch::method"" -> "True
+"   ""SpectralDomain::key"" -> "True
+"   ""SpectralDomain::nreg"" -> "True
+"messages naming a Kernel file="0"  (0 expected: the load was already proved message-free in section 4)"
+"--- 10. uninstall, and PROVE nothing is left behind ---"
+"PacletUninstall returned="Null
+"archive still present="False
+"install dir still on disk="False
+"PacletFind[SpectralElement] after uninstall="0
+"on $ContextPath after uninstall (loaded in THIS kernel only, harmless)="True
+"--- 11. verdict ---"
+"  ""the machine had no SpectralElement installed before this run"" -> "True
+"  ""PacletInfo has Name/Version/Context/Extensions"" -> "True
+"  ""the .paclet archive was created"" -> "True
+"  ""PacletInstall registered the paclet"" -> "True
+"  ""install location is the installed copy, not the checkout"" -> "True
+"  ""PacletInstall raised no message"" -> "True
+"  ""Needs returned Null"" -> "True
+"  ""the load raised no message"" -> "True
+"  ""context on $ContextPath"" -> "True
+"  ""FindFile resolves inside the installed copy"" -> "True
+"  ""no public symbol missing"" -> "True
+"  ""all eight in context SpectralElement`"" -> "True
+"  ""no unexpected public symbols"" -> "True
+"  ""the subfiles executed (private symbols exist)"" -> "True
+"  ""CoonsPatch built a patch"" -> "True
+"  ""CoonsPatchQ accepted it"" -> "True
+"  ""CoonsPatchMap is exact on a linear patch"" -> "True
+"  ""CoonsPatchMap is exact at a corner"" -> "True
+"  ""three edges rejected"" -> "True
+"  ""non-closing edges rejected"" -> "True
+"  ""Method -> AAA never silently downgrades to Analytic"" -> "True
+"  ""unrecognised Method rejected, no silent fallback"" -> "True
+"  ""CoonsPatch::edges was the message"" -> "True
+"  ""CoonsPatch::corners was the message"" -> "True
+"  ""CoonsPatch::method was the message (no silent fallback)"" -> "True
+"  ""SpectralDomain built a discretization"" -> "True
+"  ""SpectralDomainQ accepted it"" -> "True
+"  ""PatchCount == 1"" -> "True
+"  ""Degree == 8"" -> "True
+"  ""UnknownCount == (n-1)^2 == 49"" -> "True
+"  ""UnknownCount is numeric (Sum[nInt] defect)"" -> "True
+"  ""RowCount == UnknownCount (square system)"" -> "True
+"  ""nodes per direction == n+1 == 9"" -> "True
+"  ""one-patch domain has 0 interfaces"" -> "True
+"  ""MinJacobian == 2 (analytic, rel. tol 1e-12)"" -> "True
+"  ""unknown key rejected"" -> "True
+"  ""SpectralDomain::key was the message"" -> "True
+"  ""Rectangle shorthand gives 1 patch"" -> "True
+"  ""Annulus span Pi gives 1 sector"" -> "True
+"  ""Annulus span 2 Pi gives 2 sectors"" -> "True
+"  ""Disk rejected (J = 0 at the centre)"" -> "True
+"  ""SpectralDomain::nreg was the message"" -> "True
+"  ""the solver layer is implemented, not a stub"" -> "True
+"  ""installed Solve.wl is a real solver file, not the 63-byte stub"" -> "True
+"  ""SpectralNDSolve returns {{u -> Function}} on a linear problem"" -> "True
+"  ""linear solve recovers the manufactured solution"" -> "True
+"  ""SpectralNDSolve returns {{u -> Function}} on a nonlinear problem"" -> "True
+"  ""nonlinear solve recovers the manufactured solution"" -> "True
+"  ""MaxIterations -> 1 caps Newton and yields $Failed"" -> "True
+"  ""Method -> Newton matches the automatic dispatch"" -> "True
+"  ""an unknown Method is refused, not downgraded"" -> "True
+"  ""a pre-built discretization is consumed as-is"" -> "True
+"  ""SpectralNDSolveValue returns the function itself"" -> "True
+"  ""uninstall removed the install dir"" -> "True
+"  ""PacletFind empty after uninstall"" -> "True
+"  ""no message named a Kernel file"" -> "True
+"checks run="56"  passed="56
+"INSTALLPROBE-ALL-PASS"
+"================ DONE-installprobe ================"

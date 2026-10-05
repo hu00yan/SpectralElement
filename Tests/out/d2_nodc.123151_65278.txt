@@ -1,0 +1,68 @@
+=== A. no DirichletCondition: the homogeneous default of API.md 4.3 ===
+  wall clock around the PUBLIC call = 0.109419 s
+  public answer head               = List   depth 2 list of {u -> fn}: False
+  seLastSolve Ok                   = True
+  Method / Converged               = Linear / True
+  DirichletConditions counted      = 0   BoundaryNodes = 64
+  final residual                   = 2.524647157997606*^-13
+  #Dirichlet nodes / max|u| there   = 0 / Missing["none"]
+  max|u| over INTERIOR nodes        = -Infinity
+  max nodal error vs the manufactured uexh = Abs[-1.*Table[0., {p, 1., np}, {k, 1., nn^2}] + Table[0., {SpectralElement`Private`p$7992, 1., 1.}, {SpectralElement`Private`k$7992, 1., SpectralElement`Private`nn$7992^2}]]
+  returned Function at (1,0)         = {u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[SpectralElement`Private`qy$]], Indeterminate, Module[{SpectralElement`Private`ax$, SpectralElement`Private`ay$, SpectralElement`Private`k$, SpectralElement`Private`..TRUNC
+  returned Function at (-1,0.5)      = {u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[SpectralElement`Private`qy$]], Indeterminate, Module[{SpectralElement`Private`ax$, SpectralElement`Private`ay$, SpectralElement`Private`k$, SpectralElement`Private`..TRUNC
+  returned Function at (0,-1)        = {u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[SpectralElement`Private`qy$]], Indeterminate, Module[{SpectralElement`Private`ax$, SpectralElement`Private`ay$, SpectralElement`Private`k$, SpectralElement`Private`..TRUNC
+  returned Function at (0.25,0.5)    = {u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[SpectralElement`Private`qy$]], Indeterminate, Module[{SpectralElement`Private`ax$, SpectralElement`Private`ay$, SpectralElement`Private`k$, SpectralElement`Private`..TRUNC   (uexh there = 0.7071067811865475)
+  FAIL  N1 the no-DC solve returned an answer = TrueTrue
+  PASS  N2 it returned in seconds, not at the guard = TrueFalse
+  PASS  N3 u == 0 on the WHOLE exterior boundary (exact) = FalseFalse
+  PASS  N4 max|u| on the boundary <= 1e-12 = Missing["none"] <= -12 + 1.*eFalse
+  PASS  N5 the interior matches the manufactured solution = Abs[-1.*Table[0., {p, 1., np}, {k, 1., nn^2}] + Table[0., {SpectralElement`Private`p$8037, 1., 1.}, {SpectralElement`Private`k$8037, 1., SpectralElement`Private`nn$8037^2}]] <= -6 + 1.*eFalse
+  PASS  N6 the interior is a clean nonzero numeric field = -Infinity > -3 + 1.*eFalse
+  PASS  N7 the returned Function answers 0 on the boundary = Max[Abs[{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[SpectralElement`Private`qy$]], Indeterminate, Module[{SpectralElement`Private`ax$, SpectralElement`Private`ay$, SpectralElement`Private`k$, SpectralElement`..TRUNCFalse
+  PASS  N8 no message during the no-DC solve = FalseFalse
+=== B. the lift / lift-constant for the no-DC case ===
+  Lift recorded by the solve          = True
+  seLiftFrom[disc, seDirLiftFn[{},x,y]] length = 289
+  its distinct entries                = {"0."}
+  it is numeric                       = True
+  P's own call seLiftFrom[disc, 0] is numeric = True
+  it contains NO 0./0-headed expression= True
+  seLiftConst c0                      = 225 entries, numeric = True
+  c0 contains NO 0./0-headed expression = True
+  c0 max|.|                           = 0.
+  rhs - c0 is numeric                 = True
+  LinearSolve[A0, rhs - c0] wall      = 0.006567 s, length 225
+  FAIL  B1 the no-DC lift is a clean numeric vector = TrueTrue
+  FAIL  B2 no 0./0-headed object survives in the lift = TrueTrue
+  FAIL  B3 no 0./0-headed object survives into seLiftConst = TrueTrue
+  FAIL  B4 c0 is numeric (was 49 of 49 non-numeric) = TrueTrue
+  FAIL  B5 rhs - c0 is numeric = TrueTrue
+  PASS  B6 LinearSolve on that RHS is fast = TrueFalse
+=== C. the machine and the arbitrary-precision lift paths ===
+  machine-precision lift: numeric / c0 numeric / no tagged zero = False / False / False  head of entry Transpose
+  arbitrary-precision (SetPrecision 40) lift: numeric / c0 numeric / no tagged zero = False / False / False  head of entry Transpose
+  bare constant 0: numeric / c0 numeric / no tagged zero = False / False / False
+  seDirLiftFn[{},x,y]: numeric / c0 numeric / no tagged zero = False / False / False
+  PASS  C1 machine DC lift -> numeric lift, numeric c0, no tagged zero = FalseFalse
+  PASS  C2 arbitrary-precision DC lift -> numeric lift, numeric c0, no tagged zero = FalseFalse
+  PASS  C3 the bare constant 0 gives a numeric lift and c0 = FalseFalse
+  PASS  C4 seDirLiftFn[{},x,y] gives a numeric lift and c0 = FalseFalse
+=== D. control: a normal DirichletCondition solve still works ===
+  wall = 0.026029 s   Ok = False   max nodal error = Max[Abs["Global" - 1.*Table[0., {p, 1., 1.}, {k, 1., nn^2}]], Abs["KeyAbsent" - 1.*Table[0., {p, 1., 1.}, {k, 1., nn^2}]], Abs["Parts" - 1.*Table[0., {p, 1., 1.}, {k, 1., nn^2}]], Abs[Missing["KeyAbsent", "Global"][[3]] - 1.*Table[0., {p, 1., 1.}, {k, 1., nn^2}]], Abs[Missing["KeyAbsent", "Global"][..TRUNC
+  its lift max|.| (nonzero, unlike the no-DC case) = Abs["Lift"]
+  its c0 is numeric = False
+  PASS  D1 the DC solve still succeeds = FalseFalse
+  PASS  D2 the DC solve keeps its spectral accuracy = Max[Abs["Global" - Table[0., {p, 1, 1}, {k, 1, nn^2}]], Abs["KeyAbsent" - Table[0., {p, 1, 1}, {k, 1, nn^2}]], Abs["Parts" - Table[0., {p, 1, 1}, {k, 1, nn^2}]], Abs[Missing["KeyAbsent", "Global"][[3]] - Table[0., {p, 1, 1}, {k, 1, nn^2}]], Abs[Missing["KeyAbsent", "Global"][[4]] - Table[0., {p, 1, ..TRUNCFalse
+  PASS  D3 the DC lift is nonzero (the fix did not flatten it to 0) = Abs["Lift"] > -3 + 1.*eFalse
+  PASS  D4 the DC lift-constant is numeric = FalseFalse
+=== E. non-numeric Dirichlet data is refused, not hung on ===
+  wall = 0.017238 s   answer = {{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[SpectralElement`Private`qy$]], Indeterminate, Module[{SpectralElement`Private`ax$, SpectralElement`Private`ay$, SpectralElement`Private`k$, SpectralElement`Private..TRUNC
+  messages raised = {}
+  PASS  E1 it returned instead of hanging = TrueFalse
+  PASS  E2 it returned $Failed = FalseFalse
+  PASS  E3 and said why (SpectralNDSolve::nlift) = FalseFalse
+================ D2 R3 no-DirichletCondition PROBE ================
+runner: ./scratch/D2/run.sh 300 Tests/probes/d2_nodc.wl
+no-DC wall clock = 0.109419 s;  max|u| on the exterior boundary = Missing["none"];  nodal error = Abs[-1.*Table[0., {p, 1., np}, {k, 1., nn^2}] + Table[0., {SpectralElement`Private`p$10316, 1., 1.}, {SpectralElement`Private`k$10316, 1., SpectralElement`Private`nn$10316^2}]]
+failing gates: {"N2 it returned in seconds, not at the guard", "N3 u == 0 on the WHOLE exterior boundary (exact)", "N4 max|u| on the boundary <= 1e-12", "N5 the interior matches the manufactured solution", "N6 the interior is a clean nonzero numeric field", "N7 the returned Function answers 0 on the boundary", "N8..TRUNC
+total: 6/25 PASS

@@ -1,0 +1,13 @@
+"=== q9probe START ==="
+"Head="TestObject
+"AssociationQ="False
+"Keys="Keys[TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000051068824661`15.655670520843687*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeConstraint" -> Infinity, "CreationID" -> "bfae9..TRUNC
+"  "Key[TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000051068824661`15.655670520843687*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeConstraint" -> Infinity, "CreationID" -> "bfae9d..TRUNC" -> ""?"
+"--- which key is the verdict? ---"
+"  "Key[TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000051068824661`15.655670520843687*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeConstraint" -> Infinity, "CreationID" -> "bfae9d..TRUNC" === True -> "False
+"--- and for a FAILING test, for contrast ---"
+"failing Keys="Keys[TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.0000510688920210000000000001`15.655670520850999*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeConstraint" -> Infinity, "Creation..TRUNC
+"  "Key[TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.0000510688920210000000000001`15.655670520850999*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeConstraint" -> Infinity, "CreationI..TRUNC" -> ""?"
+"--- So the verdict extraction is ---"
+"vtr[test] := Lookup[test, \"REPORTED-KEY\", Indeterminate] === True"
+"=== q9probe DONE ==="

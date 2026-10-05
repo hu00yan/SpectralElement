@@ -1,0 +1,29 @@
+"=== w1probe START ==="
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 1. syntax state NOW (per file, loop done with Map) ---"
+"  "#1"  SyntaxQ=""ERR""  bytes=""ERR""  mtime="DateList[FileDateTime[FileNameJoin[{"/path/to/SpectralElement", #1}]]]
+"--- 1b. SyntaxQ on Tests/*.wl and README ---"
+"  "#1"  SyntaxQ=""ERR"
+"--- 2. FunctionRepository symbols ---"
+"Names[\"*FunctionRepositor*\"]="{}
+"Contexts matching FunctionRepository="{}
+"syms = {FunctionResource, FunctionRepositoryLoad, FunctionRepositoryInstall, FunctionResourceFunction, ResourceFunction, FunctionRepository}:"
+"   "#1" -> System?="False"  Global?="False
+"--- 3. paclet install machinery ---"
+"Options[PacletInstallSubmit]="{AllowVersionUpdate -> True, ForceVersionInstall -> False, KeepExistingVersion -> Automatic, AllowPrereleaseVersions -> False, PacletSite -> Automatic, UpdatePacletSites -> Automatic, "CompletionFunction" -> Automatic, "InstallLocation" -> "User"}
+"Options[PacletUninstall]="{}
+"Options[PacletRemove]="{}
+"Options[PacletFind]="{"Location" -> All, "Qualifier" -> All, "SystemID" -> Automatic, "WolframVersion" -> Automatic, "ProductID" -> Automatic, "EvaluationEnvironment" -> Automatic, "Enabled" -> True, "Extension" -> All, "Creator" -> All, "Publisher" -> All, "PublisherID" -> All, "Context" -> All, "Loading" -> All, "IsPrereleaseVersion" -> All, "Collections" -> Automatic, "Internal" -> False}
+"Names[\"System`$*Paclet*\"]="{"$BasePacletsDirectory", "$UserBasePacletsDirectory"}
+"$PacletRepository="$PacletRepository
+"--- 4. user base / app support dir, BEFORE any install ---"
+"$UserBaseDirectory=""/path/to/Wolfram"
+"$HomeDirectory=""/path/to"
+"appdir guess=""/path/to/Wolfram/PacletInstall""  exists="False
+"PacletFind[SpectralElement] at session start=""NOT-REGISTERED"
+"$Path="{"/Applications/Wolfram.app/Contents/SystemFiles/Links", "/path/to/Wolfram/Kernel", "/path/to/Wolfram/Autoload", "/path/to/Wolfram/Applications", "/Library/Wolfram/Kernel", "/Library/Wolfram/Autoload", "/Library/Wolfram/Applications", ".", "/path/to", "/Applications/Wolfram.app/Contents/AddOns/Packages", "/Applications/Wolfram.app/Contents/SystemFile..TRUNC
+"--- 5. can I redirect the paclet install location? ---"
+"scratch userbase exists="True
+"after $UserBaseDirectory assignment=""ERR"
+"scratch appdir now exists="False
+"--- 6. SeeAlso candidates (existence only) ---"

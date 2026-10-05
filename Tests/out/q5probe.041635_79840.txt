@@ -1,0 +1,16 @@
+"=== q5probe START ==="
+"A. bare inline Check:                     ""RAISED"
+"B. via both[], RaisedQ:                   "False
+"C. via bothQ[], just the Check:           "False
+"D. inline Check, Quiet-wrapped:           ""RAISED"
+"E. inline Check, second time in a row:    ""RAISED"
+"F. Quiet[Check] inside Module:            ""RAISED"
+"G. does the FIRST call ever work?  calling again:"
+"   ""RAISED"
+"H. and with a distinct message name each time:"
+"   ""RAISED-A"
+"   ""RAISED-B"
+"--- conclusion input: is Check[expr, str] stateful in the number of\n   messages it has already seen for THIS expression? ---"
+"cleanup: "Null
+"cleaned="True
+"=== q5probe DONE ==="

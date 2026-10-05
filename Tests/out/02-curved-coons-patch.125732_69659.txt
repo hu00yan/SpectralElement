@@ -1,0 +1,31 @@
+"CoonsPatchQ                 = "True
+"method tag                  = ""Analytic"
+"corners                     = "{{-1., -1.}, {1., -1.}, {-1., 1.}, {1., 1.}}
+"corner closure (max gap)    = "0.
+"min |cross| of incident edges at a corner = "0.36000000000116406
+"map at the centre           = "{0., 0.}
+"map at (0.5, 0.5)           = "{0.3499999999999999, 0.3499999999999999}
+"map reproduces its 4 edges, max deviation = "9.600000000000001
+"degree n                    = "14
+"PatchCount                  = "1
+"NodeCount (per direction)   = "15
+"UnknownCount                = "169
+"RowCount                    = "169
+"InteriorRows per patch      = "{169}
+"BoundaryRows per patch      = "{56}
+"FluxRows per patch          = "{}
+"InterfacePairs              = "{}
+"min Jacobian over the patch = "{0.3599999999999903}
+"J at the four corners       = "{{0.36000000000002774, 0.35999999999999044, 0.3600000000000282, 0.3599999999999903}}
+"FD vs discrete Jacobian     = "{6.815662727952219*^-11}
+"wall clock                  = "0.067553" s"
+"messages raised             = "0
+"max nodal error vs uex      = "8.396047932457407*^-7
+"u(0, 0) computed            = "0.4546487121705494
+"u(0, 0) exact               = "0.4546487134128409
+"gamma = 0.5 over-pinched patch accepted? = "True
+"smooth closed boundary: messages from CoonsPatch = "{CoonsPatch}
+"smooth closed boundary: flagged non-degenerate  = ""$Failed"
+"smooth closed boundary: messages from SpectralDomain = "{SpectralDomain}
+"smooth closed boundary: SpectralDomain returned = "$refused
+"VERDICT: 02-curved-coons-patch OK (the messages above are the documented CoonsPatch::method / ::tangent and SpectralDomain::degen refusals)"

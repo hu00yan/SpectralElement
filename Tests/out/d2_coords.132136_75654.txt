@@ -1,0 +1,45 @@
+=== A. 1-patch Rectangle[{-1.5,-1.2},{1.8,1.3}], degree 8 (E's domain) ===
+  PatchCount=1  NodeCount(per direction)=9
+""*"KEY "Coordinates""*"  head="List  dims={1, 9, 9, 2}  nmsgs=0
+""*"KEY "X""*"  head="List  dims={1, 9, 9}  nmsgs=0
+""*"KEY "Y""*"  head="List  dims={1, 9, 9}  nmsgs=0
+  first pair [[1,1,1]] = {-1.5, -1.2}   X[[1,1,1]]=-1.5  Y[[1,1,1]]=-1.2
+  corner pair [[1,1,nn]] = {-1.5, 1.3}   X[[1,1,9]]=-1.5  Y[[1,1,9]]=1.3
+  every entry numeric                     = True
+  max|Coordinates - {X,Y} built from X,Y    = 0.   (exact match to machine precision)
+  the same thing via Transpose: max|Transpose[C] - Transpose[{X,Y}]| = Max[Abs[{{{1.8, -1.2}, {1.8, -1.1048494156391084}, {1.8, -0.8338834764831843}, {1.8, -0.4283542904563622}, {1.8, 0.050000000000000044}, {1.8, 0.5283542904563623}, {1.8, 0.9338834764831845}, {1.8, 1.2048494156391085}, {1.8, 1.3}}} + {{-1.8, -1.8, -1.8, -1.8, -1.8, -1.8, -1.8, -1.8, -1.8}, {1.2, 1.104..TRUNC
+  PASS  A1 Coordinates head is List = List
+  PASS  A2 Coordinates dims are {1, 9, 9, 2} (the trailing 2 is the pair) = {1, 9, 9, 2}
+  PASS  A3 the fetch raised ZERO messages = 0
+  PASS  A4 every coordinate is a number = False
+  FAIL  A5 Coordinates agrees with X and Y exactly = 0.
+  FAIL  A6 and so does the Transpose form = Max[Abs[{{{1.8, -1.2}, {1.8, -1.1048494156391084}, {1.8, -0.8338834764831843}, {1.8, -0.4283542904563622}, {1.8, 0.050000000000000044}, {1.8, 0.5283542904563623}, {1.8, 0.9338834764831845}, {1.8, 1.2048494156391085}, {1.8, 1.3}}} + {{-1.8, -1.8, -1.8, -1.8, -1.8, -1.8, -1.8, -1.8, -1.8}, {1.2, 1.104..TRUNC
+  PASS  A7 X and Y are still {1, 9, 9} with no messages = {1, 9, 9}
+=== B. 2-patch Annulus[{1,2},{0,2 Pi}], degree 6 ===
+  PatchCount=2  NodeCount(per direction)=7
+""*"KEY "Coordinates""*"  head="List  dims={2, 7, 7, 2}  nmsgs=0
+""*"KEY "X""*"  head="List  dims={2, 7, 7}  nmsgs=0
+""*"KEY "Y""*"  head="List  dims={2, 7, 7}  nmsgs=0
+  every entry numeric                     = True
+  max|Coordinates - {X,Y} built from X,Y    = Abs[{1., 0., 1.0669872981077808, 0., 1.25, 0., 1.5, 0., 1.75, 0., 1.9330127018922192, 0., 2., 0., 0.9779376764656779, -0.20889686677619437, 1.0434470791299149, -0.22289030346471267, 1.2224220955820975, -0.26112108347024293, 1.4669065146985165, -0.3133453001642916, 1.711390933814936, -0.3655695168583..TRUNC
+  the same thing via Transpose: max|Transpose[C] - Transpose[{X,Y}]| = 3.9999999999999996
+  patch 1 first pair = {-1., 0.}   patch 2 first pair = {1., 0.}
+  the two patches are genuinely different = True
+  PASS  B1 Coordinates head is List = List
+  PASS  B2 Coordinates dims are {2, 7, 7, 2} (the trailing 2 is the pair) = {2, 7, 7, 2}
+  PASS  B3 the fetch raised ZERO messages = 0
+  PASS  B4 every coordinate is a number = False
+  FAIL  B5 Coordinates agrees with X and Y exactly = Abs[{1., 0., 1.0669872981077808, 0., 1.25, 0., 1.5, 0., 1.75, 0., 1.9330127018922192, 0., 2., 0., 0.9779376764656779, -0.20889686677619437, 1.0434470791299149, -0.22289030346471267, 1.2224220955820975, -0.26112108347024293, 1.4669065146985165, -0.3133453001642916, 1.711390933814936, -0.3655695168583..TRUNC
+  FAIL  B6 and so does the Transpose form = 3.9999999999999996
+  PASS  B7 outer length equals PatchCount = 2
+=== C. the key is still a key, and an unknown key still complains ===
+"  "*"Coordinates"*" is a key of the object: "KeyQ[<|"Type" -> "SpectralDiscretization", "Domain" -> "SpectralElement`", "Degree" -> 8, "NodeCount" -> 9, "Nodes" -> {-1., -0.9238795325112867, -0.7071067811865475, -0.3826834323650898, 0., 0.3826834323650898, 0.7071067811865475, 0.9238795325112867, 1.}, "PatchCount" -> 1, "Patches" -> {<|"Type" -..TRUNC
+  an unknown key -> $Failed with 1 message(s)
+  FAIL  C1 Coordinates is a real key of the object = KeyQ[<|"Type" -> "SpectralDiscretization", "Domain" -> "SpectralElement`", "Degree" -> 8, "NodeCount" -> 9, "Nodes" -> {-1., -0.9238795325112867, -0.7071067811865475, -0.3826834323650898, 0., 0.3826834323650898, 0.7071067811865475, 0.9238795325112867, 1.}, "PatchCount" -> 1, "Patches" -> {<|"Type" -..TRUNC
+  PASS  C2 an unknown key is still refused with a message = 1
+================ D2 R4 Coordinates PROBE ================
+runner: ./rr.sh 300 Tests/probes/d2_coords.wl
+1-patch: head=List dims={1, 9, 9, 2} nmsgs=0 max|C-Transpose[{X,Y}]|=Max[Abs[{{{1.8, -1.2}, {1.8, -1.1048494156391084}, {1.8, -0.8338834764831843}, {1.8, -0.4283542904563622}, {1.8, 0.050000000000000044}, {1.8, 0.5283542904563623}, {1.8, 0.9338834764831845}, {1.8, 1.2048494156391085}, {1.8, 1.3}}} + {{-1.8, -1.8, -1.8, -1.8, -1.8, -1.8, -1.8, -1.8, -1.8}, {1.2, 1.104..TRUNC
+2-patch: head=List dims={2, 7, 7, 2} nmsgs=0 max|C-Transpose[{X,Y}]|=3.9999999999999996
+failing gates: {"A5 Coordinates agrees with X and Y exactly", "A6 and so does the Transpose form", "B5 Coordinates agrees with X and Y exactly", "B6 and so does the Transpose form", "C1 Coordinates is a real key of the object"}
+total: 11/16 PASS

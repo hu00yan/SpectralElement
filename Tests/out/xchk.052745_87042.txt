@@ -1,0 +1,15 @@
+"nodes = {1., -1.}  values = {2.718281828459045, 0.36787944117144233}  ip len = 200"
+"A dims = {200, 2}"
+"A singvals = SingularValueList[{{1.1752011936438014, Indeterminate}, {1.1792692083072982, 0.3697342902714157}
+"aaasvdw w = SingularValueDecomposition[{{1.1752011936438014, Indeterminate}, {1.1792692083072982, 0.369734290
+"fit2 weights (stored) = {-0.3861686783597104, 1.}"
+"phase-aligned diff stored-vs-svdw = {Abs[-0.3861686783597104 - (1.`6.*Conjugate[{-0.3861686783597104, 1.} . (
+"H eigvals = Eigenvalues[{{Indeterminate, Indeterminate}, {Indeterminate, Indeterminate}}]"
+"eigvec(smallest) = {{Indeterminate, Indeterminate}, {Indeterminate, Indeterminate}}"
+"phase-aligned diff svdw-vs-eig = {{Indeterminate, Indeterminate}, {Indeterminate, Indeterminate}}"
+"||A.w_svd|| = Norm[{{1.1752011936438014, Indeterminate}, {1.1792692083072982, 0.3697342902714157}, {1.1833595
+"||A.w_eig|| = Norm[{{Indeterminate, Indeterminate}, {Indeterminate, Indeterminate}, {Indeterminate, Indetermi
+"||A||_F      = Indeterminate"
+"inLoopError   = 2.3186446199273694"
+"resid check: max|f_i - A.w| over ip = Max[Abs[0.36787944117144233 - 1.`10.*{{1.1752011936438014, Indeterminat
+"XCHK-DONE"

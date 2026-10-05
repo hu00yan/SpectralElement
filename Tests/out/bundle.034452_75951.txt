@@ -1,0 +1,31 @@
+"================ bundle START ================"
+"root=""/path/to/SpectralElement/"
+"loader=""/path/to/SpectralElement/Kernel/SpectralElement.wl""  exists="True
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 1. read the loader and find the Get statements ---"
+"loader lines="117"  chars="5827
+"SyntaxQ[loader as imported]="True
+"Get statements found="4
+"  line "110" -> Kernel/""AAA.wl""  exists="True
+"  line "111" -> Kernel/""Geometry.wl""  exists="True
+"  line "112" -> Kernel/""Discretization.wl""  exists="True
+"  line "113" -> Kernel/""Solve.wl""  exists="True
+"order="{"AAA.wl", "Geometry.wl", "Discretization.wl", "Solve.wl"}
+"--- 2. read each source verbatim ---"
+"  Kernel/""AAA.wl""  lines="433"  chars="22597"  sha256=""45465643958713904957543217082348713352929326674240048646821577288461716292825"
+"  Kernel/""Geometry.wl""  lines="251"  chars="13665"  sha256=""112100229070239417854635371294718996578883645391327588141834433028704836624694"
+"  Kernel/""Discretization.wl""  lines="659"  chars="35870"  sha256=""62553691361394981857293466792496470924696570265685320032685616597779070934503"
+"  Kernel/""Solve.wl""  lines="1"  chars="60"  sha256=""82089124596226990098885961557555929309214416151869460486082368300122085614000"
+"--- 3. assemble the bundle ---"
+"bundle body lines="1465
+"every body line is a string="True
+"bundle chars="80561
+"--- 3b. write with Export and READ BACK (Put writes nothing here) ---"
+"wrote=""/path/to/SpectralElement/wfr/SpectralNDSolve.wl""  exists="True
+"intended chars="80561"  read-back chars="80560
+"  canon lengths: read-back="StringLength[StringTrimRight["(* ::Package:: *)\n\n(* ====================================================================\n   GENERATED FILE -- DO NOT EDIT.\n   \n   This is the single-file build of the SpectralElement paclet, produced\n   for the Wolfram Function Repository by build/bundle.wl.  It..TRUNC"  intended="StringLength[StringTrimRight["(* ::Package:: *)\n\n(* ====================================================================\n   GENERATED FILE -- DO NOT EDIT.\n   \n   This is the single-file build of the SpectralElement paclet, produced\n   for the Wolfram Function Repository by build/bundle.wl.  It..TRUNC
+"read-back matches the intended text (modulo trailing newline)="False
+"  first differing character position=""NO-DIFF-POS"
+"file bytes="Quantity[80.563, "Kilobytes"]
+"bundle sha256="12538321032732623659685878025372044188
+"FATAL: ""read-back mismatch: the file on disk is not what was built"

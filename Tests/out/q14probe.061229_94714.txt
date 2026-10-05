@@ -1,0 +1,26 @@
+"================ q14probe START ================"
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 0. sanity: Part works on a PacletObject, Lookup does not ---"
+"  po0[\"Name\"]=""SpectralElement"
+"  Lookup[po0, \"Name\"]="Lookup[po0, "Name"]
+"  Keys[po0]="Keys[PacletObject[<|"Name" -> "SpectralElement", "Version" -> "0.1.0", "WolframVersion" -> "13.0+", "Creator" -> "SpectralElement contributors", "Description" -> "Spectral multi-domain (spectral-element) solvers for PDEs on arbitrary curved..TRUNC
+"--- 1. Category vs Categories (does the reader keep either?) ---"
+"  wrote \"Category\" -> {\"Mathematics\",\"Developer Tools\"}"
+"  wrote \"Categories\" -> {\"Mathematics\",\"Developer Tools\"}"
+"--- 2. WolframVersion forms ---"
+"--- 3. Creator / PublisherID / URL / License as TODO-USER ---"
+"--- 4. control: an invented field must come back ABSENT ---"
+"--- 5. what the CURRENT PacletInfo.wl reports ---"
+"  ""Category"" -> "{"Developer Tools", "Mathematics"}
+"  ""Categories"" -> ""<<ABSENT>>"
+"  ""WolframVersion"" -> ""13.0+"
+"  ""MathVersion"" -> ""<<ABSENT>>"
+"  ""Creator"" -> ""SpectralElement contributors"
+"  ""PublisherID"" -> ""<<ABSENT>>"
+"  ""URL"" -> ""https://github.com/spectralelement/SpectralElement"
+"  ""License"" -> ""MIT"
+"  ""Contributors"" -> ""<<ABSENT>>"
+"  ""TotallyMadeUpField"" -> ""<<ABSENT>>"
+"--- 6. cleanup ---"
+"probe dir removed="True
+"================ DONE-q14probe ================"

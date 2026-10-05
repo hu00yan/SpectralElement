@@ -1,0 +1,15 @@
+"plain"
+"A OwnValues[w] = {}"
+"A DownValues[w] = {HoldPattern[w[e_]] :> (WriteString[st, StringJoin[ToString[e, InputForm], \"\\n\"]]; Flush[st])}"
+"A NameQ[w] = True"
+"A Definition[w] = w[e_] := (WriteString[st, StringJoin[ToString[e, InputForm], \"\\n\"]]; Flush[st])"
+"A Context[w] = Global`"
+"A SymbolQ[w] = SymbolQ[w]"
+"A HoldFirstQ = False"
+"A ProtectedQ = False"
+"B OwnValues[wn] = {}"
+"C rewrite wn"
+StringJoin["tag2 = ", ToString[3.5, 8]]
+StringJoin["tag3 = ", ToString[{1., 2.}, 8]]
+raw
+"D Direct WriteString test: Null"

@@ -1,0 +1,23 @@
+"================ PACLET AUDIT 2 ================"
+"Name=""SpectralElement""  ""scalar"
+"Version=""0.1.0""  ""scalar"
+"Creator=""SpectralElement contributors""  ""scalar"
+"Description=""Spectral multi-domain (spectral-element) solvers for PDEs on arbitrary curved 2D domains.""  ""scalar"
+"WolframVersion=""13.0+""  ""scalar"
+"Category="{"Developer Tools", "Mathematics"}"  ""scalar"
+"Categories="Lookup[po, "Categories", "<<ABSENT>>"]"  ""scalar"
+"Keywords="{"spectral element method", "spectral methods", "transfinite interpolation", "Coons patch", "PDE", "finite element", "multi-domain"}"  ""scalar"
+"License=""MIT""  ""scalar"
+"URL=""https://github.com/spectralelement/SpectralElement""  ""scalar"
+"Extensions="{{"Kernel", "Root" -> "Kernel", "Context" -> {"SpectralElement`"}}}
+"Context="{"SpectralElement`"}
+"PublisherID="Lookup[po, "PublisherID", "<<ABSENT>>"]"  ""scalar"
+"Contributors="Lookup[po, "Contributors", "<<ABSENT>>"]"  ""scalar"
+"Documentation="Lookup[po, "Documentation", "<<ABSENT>>"]"  ""scalar"
+"MinVersion="Lookup[po, "MinVersion", "<<ABSENT>>"]
+"MaxVersion="Lookup[po, "MaxVersion", "<<ABSENT>>"]
+"PacletSite="Lookup[po, "PacletSite", "<<ABSENT>>"]
+"Loading="Lookup[po, "Loading", "<<ABSENT>>"]
+"--- is WolframVersion a REAL paclet field?  probe on a bare PacletObject ---"
+"bare object with WolframVersion -> ""13.0+"
+"  round-tripped through the file reader: ""13.0+"

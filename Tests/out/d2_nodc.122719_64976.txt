@@ -1,0 +1,8 @@
+=== E. non-numeric Dirichlet data is refused, not hung on ===
+  wall = 6.*^-6 s   answer = SpectralElement`SpectralNDSolve[{-Derivative[0, 2][u][x, y] - Derivative[2, 0][u][x, y] == 1, DirichletCondition[u == gBad, u, {x, 1}], DirichletCondition[u == 0, u, {x, -1}], DirichletCondition[u == 0, u, {y, 1}], DirichletCondition[u == 0, u, {y, -1}]}, u, Element[{x, y}, regH], 12]
+  messages raised = {}
+================ D2 R3 no-DirichletCondition PROBE ================
+runner: ./scratch/D2/run.sh 300 Tests/probes/d2_nodc.wl
+no-DC wall clock = tA s;  max|u| on the exterior boundary = bA[[2]];  nodal error = nodalErr[iA]
+failing gates: none
+total: 0/0 PASS

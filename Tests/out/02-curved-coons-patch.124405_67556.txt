@@ -1,0 +1,3 @@
+"CoonsPatchQ                 = "True
+"method tag                  = ""Analytic"
+"corners                     = "{{-1., -1.}, {1., -1.}, {-1., 1.}, {1., 1.}}

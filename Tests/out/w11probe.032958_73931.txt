@@ -1,0 +1,25 @@
+"=== w11probe START ==="
+"Solve.wl file bytes="Quantity[63., "Bytes"]
+"--- 1. reading the source: how many chars does each form give? ---"
+"  Import[.., \"String\"] chars="63
+"  Import[.., \"Text\"]   chars="60
+"  Import[.., \"Byte\"]   length="63
+"  String and Text agree="False
+"  String form, first 60 chars=""(* placeholder a^\200\224 real content written by its owning agent "
+"  Text   form, first 60 chars=""(* placeholder -- real content written by its owning agent *)"
+"--- 2. write each, read back the same way ---"
+"  written from the String form: bytes="Quantity[66., "Bytes"]"  read-back chars="66"  round-trips="False
+"  written from the Text   form: bytes="Quantity[62., "Bytes"]"  read-back chars="62"  round-trips="False
+"--- 3. is the CHAR COUNT difference an encoding artefact? ---"
+"  bundle bytes on disk="Quantity[79.862, "Kilobytes"]
+"  bundle chars as String="79862
+"  bundle chars as Text  ="79858
+"  the two readings agree="False
+"  non-ASCII characters in the String reading="0
+"--- 4. the control test the bundler should use instead: two identical\n   writes of the same text must produce the same FileHash ---"
+"  FileHash SHA256="79426857054928759254718222460226451388719977809940743910220225101732799798735
+"  two identical writes have equal bytes="True
+"  re-Export of the SAME text is byte-stable= "True
+"  Export twice more from the String form: "True
+"--- 5. cleanup ---"
+"=== w11probe DONE ==="

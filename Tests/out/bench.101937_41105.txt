@@ -1,0 +1,86 @@
+  PASS  G0a loader defines SpectralNDSolve = 1.   (target >= 1.)
+  PASS  G0b loader defines SpectralNDSolveValue = 1.   (target >= 1.)
+  PASS  G0c SpectralNDSolve::nlnum has text = 141.   (target >= 20.)
+  PASS  G0d SpectralNDSolve::ncond has text = 113.   (target >= 20.)
+  PASS  G0e loading raised no message = 0.   (target == 0.)
+=== P1 LINEAR on Rectangle (region shorthand) ===
+  P1-LIN-RECT-n16  t=3.36  nodalErr=-9.99  res=NONNUM  method=Missing["KeyAbsent", "Method"]  public=$Failed  opc=Missing["KeyAbsent", "OpCoefficient"]  msgs={Lookup, Lookup, Lookup, General, SpectralNDSolve}
+  FAIL  G2 operator sign: -Laplacian+u^3 assembles with opc = -1 = Missing["KeyAbsent", "OpCoefficient"]   (target == -1.)
+  FAIL  G3 method dispatch: linear equation -> LinearSolve = Missing["KeyAbsent", "Method"]
+  FAIL  G1 SpectralNDSolve returns {{u -> Function}} = False
+  FAIL  G1c that Rule is u -> fn = False
+  PASS  G1b G0a-G0e style: loading was clean, so the solver is usable = 5.   (target >= 5.)
+=== P2 NONLINEAR on Rectangle ===
+  P2-NL-RECT-n10  t=2.06  nodalErr=-9.99  res=NONNUM  iters=Missing["KeyAbsent", "Iterations"]  dels=Missing["KeyAbsent", "Dels"]
+  FAIL  G3b method dispatch: nonlinear equation -> Newton = Missing["KeyAbsent", "Method"]
+  FAIL  G2b nonlinear flag = Missing["KeyAbsent", "NonlinearQ"]
+  FAIL  G2c Newton converged = Missing["KeyAbsent", "Converged"]
+=== P3 LINEAR on Annulus (region shorthand) ===
+  P3-LIN-ANN-n16  t=2.11  nodalErr=-9.99  res=NONNUM  msgs={SpectralNDSolve, General}
+=== P4 NONLINEAR on Annulus ===
+  P4-NL-ANN-n10  t=8.1  nodalErr=-9.99  res=NONNUM  iters=Missing["KeyAbsent", "Iterations"]  dels=Missing["KeyAbsent", "Dels"]
+=== P5 NONLINEAR on two coupled patches (flux rows exercised) ===
+  P5-NL-2PATCH-n10  t=7.7  nodalErr=-9.99  res=NONNUM  patchCount=Missing["KeyAbsent", "Disc"]["PatchCount"]  msgs=none
+  FAIL  G14 P5 really used two patches = Missing["KeyAbsent", "Disc"]["PatchCount"]   (target == 2.)
+=== G5 Newton quadratic convergence (P2) ===
+  dels = Missing["KeyAbsent", "Dels"]
+  -log10|dels| = -0.43429448190325176*Log[Abs[Missing["KeyAbsent", "Dels"]]]
+  NEW DIGITS per step = Differences[-0.43429448190325176*Log[Abs[Missing["KeyAbsent", "Dels"]]]]
+  digit-growth ratios (quadratic -> 2) = Map[Divide, Differences[], Differences[-0.43429448190325176*Log[Abs[Missing["KeyAbsent", "Dels"]]]]]
+  reference p11 sequence = {1.157, 0.0520, 2.78e-4, 7.41e-9, 1.90e-13, 8.77e-14}
+  FAIL  G5a Newton history recorded (>= 4 deltas) = 2.   (target >= 4.)
+  FAIL  G5b Newton final step < 1e-12 = "Dels"   (target < 1.*^-12)
+  PASS  G5c Newton cheap (<= 12 iterations) = 2.   (target <= 12.)
+  FAIL  G5d quadratic: the digit gain roughly doubles (max ratio >= 1.8) = Map[Divide, Differences[], Differences[-(Log[Abs[Missing["KeyAbsent", "Dels"]]]/Log[10])]]   (target >= 1.8)
+  FAIL  G5e superlinear: every step after the first gains more digits than the one before = Differences[]
+=== G6 spectral accuracy against the manufactured solution (degree as given) ===
+  FAIL  G6a P1 LINEAR  Rectangle max nodal error = -999.   (target < 1.*^-8)
+  FAIL  G6b P2 NONLIN  Rectangle max nodal error = -999.   (target < 1.*^-8)
+  FAIL  G6c P3 LINEAR  Annulus   max nodal error = -999.   (target < 0.01)
+  FAIL  G6d P4 NONLIN  Annulus   max nodal error = -999.   (target < 0.01)
+  FAIL  G6e P5 NONLIN  2 patches max nodal error = -999.   (target < 0.01)
+  FAIL  G6f P1 residual at the computed solution = Missing["KeyAbsent", "FinalResidual"]   (target < 1.*^-10)
+  FAIL  G6g P2 residual at the computed solution = Missing["KeyAbsent", "FinalResidual"]   (target < 1.*^-10)
+  FAIL  G6h no unexpected message from P1..P5 = 8.   (target == 0.)
+=== G10/G11 negative controls ===
+  capped Newton returned Symbol   ::nlnum seen = False
+  FAIL  G10 ::nlnum fires when Newton is capped = False
+  PASS  G10b capped Newton returns $Failed = True
+  no-PDE call returned Symbol   ::ncond seen = False
+  FAIL  G11 ::ncond fires when there is no PDE for the boundary data = False
+  PASS  G11b that call returns $Failed = True
+=== G12 reuse of a pre-built SpectralDiscretization ===
+  FAIL  G12 the SAME pre-built association is consumed as-is = False
+  PASS  G12b reuse returns the same shape as the from-scratch run = Symbol
+  PASS  G12c reuse reproduces the from-scratch answer = True
+  PASS  G12d reuse raised no message = 0.   (target == 0.)
+=== NDSolve FEM comparison: same problem, same points, matched goals ===
+  Option semantics probed, not assumed: on a PDE over an ElementMesh, AccuracyGoal is the
+  requested accuracy of the SOLUTION and PrecisionGoal the requested precision of its
+  values; NDSolve derives the working precision from them.  Both are passed explicitly so
+  the comparison is at a stated, matched target rather than at an implicit default.
+=== PRE-FEM VERDICT (all gates that do not need NDSolve) ===
+runner: ./rr.sh 3000 Tests/bench.wl
+failing gates so far: {"G2 operator sign: -Laplacian+u^3 assembles with opc = -1", "G3 method dispatch: linear equation -> LinearSolve", "G1 SpectralNDSolve returns {{u -> Function}}", "G1c that Rule is u -> fn", "G3b method dispatch: nonlinear equation -> Newton", "G2b nonlinear flag", "G2c Newton converged", "G14 P5 re..TRUNC
+subtotal: 12/35 PASS
+  FEM-LIN-RECT-coarse  AG=8  maxCellMeasure=0.05  nElem=180  tMesh=1.29  tSolve=4.86  tTotal=6.15  nodalErr=-9.99  msgs=none
+  FEM-LIN-RECT-fine  AG=10  maxCellMeasure=0.03  nElem=300  tMesh=5.47  tSolve=1.36  tTotal=1.91  nodalErr=-9.99  msgs=none
+  FEM-NL-RECT-coarse  AG=8  maxCellMeasure=0.05  nElem=180  tMesh=4.64  tSolve=1.6  tTotal=1.65  nodalErr=-9.99  msgs=none
+  FEM-NL-RECT-fine  AG=10  maxCellMeasure=0.03  nElem=300  tMesh=5.  tSolve=1.59  tTotal=1.64  nodalErr=-9.99  msgs=none
+  FEM-NL-ANN-coarse  AG=8  maxCellMeasure=0.05  nElem=154  tMesh=8.81  tSolve=1.5  tTotal=2.38  nodalErr=-9.99  msgs=none
+  FEM-NL-ANN-fine  AG=10  maxCellMeasure=0.03  nElem=238  tMesh=3.39  tSolve=1.51  tTotal=1.85  nodalErr=-9.99  msgs=none
+  FAIL  G13 NDSolve FEM comparison produced finite numbers (linear rect) = False
+  FAIL  G13b NDSolve FEM comparison produced finite numbers (nonlinear rect) = False
+  FAIL  G13c NDSolve FEM comparison produced finite numbers (nonlinear annulus) = False
+  FAIL  G13d spectral linear is more accurate than FEM linear at the SAME points = False
+  FAIL  G13e spectral nonlinear is more accurate than FEM nonlinear at the SAME points = False
+  PASS  G13f spectral nonlinear is faster than FEM+mesh on the SAME problem = True
+=== SUMMARY: SpectralNDSolve vs NDSolve (the numbers a reader checks) ===
+  problem            | spectral t | spectral err | FEM fine t | FEM fine err | speedup | err ratio
+  StringPad["LINEAR Rectangle", 17] | StringPad[0.033635, 11] | StringPad[-999., 13] | StringPad[0.019085, 10] | StringPad[-999., 13] | StringPad[0.567414895198454, 8] | 1.
+  StringPad["NONLIN Rectangle", 17] | StringPad[0.000206, 11] | StringPad[-999., 13] | StringPad[0.163571, 10] | StringPad[-999., 13] | StringPad[794.0339805825242, 8] | 1.
+  StringPad["NONLIN Annulus", 17] | StringPad[0.000081, 11] | StringPad[-999., 13] | StringPad[0.184972, 10] | StringPad[-999., 13] | StringPad[2283.6049382716046, 8] | 1.
+================ D BENCH DELIVERY ================
+runner: ./rr.sh 3000 Tests/bench.wl
+failing gates: {"G2 operator sign: -Laplacian+u^3 assembles with opc = -1", "G3 method dispatch: linear equation -> LinearSolve", "G1 SpectralNDSolve returns {{u -> Function}}", "G1c that Rule is u -> fn", "G3b method dispatch: nonlinear equation -> Newton", "G2b nonlinear flag", "G2c Newton converged", "G14 P5 re..TRUNC
+total: 13/41 PASS

@@ -1,0 +1,26 @@
+"=== w7probe START ==="
+"=== ""o1.wl"" ==="
+"  text: ""x = {}; <NL> If[Length[x] =/= 4, sf[\"a\"]]; <NL> "
+"  SyntaxQ="False
+"=== ""o2.wl"" ==="
+"  text: ""x = {}; <NL> If[x =/= 4, sf[\"a\"]]; <NL> "
+"  SyntaxQ="False
+"=== ""o3.wl"" ==="
+"  text: ""x = {}; <NL> If[Length[x] != 4, sf[\"a\"]]; <NL> "
+"  SyntaxQ="True
+"=== ""o4.wl"" ==="
+"  text: ""x = {}; <NL> If[Length[x] > 4, sf[\"a\"]]; <NL> "
+"  SyntaxQ="True
+"=== ""o5.wl"" ==="
+"  text: ""x = {}; <NL> If[Length[hits] > 4, sf[\"a\"]]; <NL> "
+"  SyntaxQ="True
+"=== ""o6.wl"" ==="
+"  text: ""x = {}; <NL> If[Length[hits] === 4, sf[\"a\"]]; <NL> "
+"  SyntaxQ="True
+"=== ""o7.wl"" ==="
+"  text: ""x = {}; <NL> If[Length[hits] =!= 4, sf[\"a\"]]; <NL> "
+"  SyntaxQ="True
+"=== ""o8.wl"" ==="
+"  text: ""x = {}; <NL> y = Length[hits] =/= 4; <NL> "
+"  SyntaxQ="False
+"=== w7probe DONE ==="

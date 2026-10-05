@@ -1,0 +1,18 @@
+=== GET Kernel/SpectralElement.wl
+SYNTAX-ERR-IN Kernel/SpectralElement.wl
+GET-OK Kernel/SpectralElement.wl
+=== GET Kernel/AAA.wl
+SYNTAX-ERR-IN Kernel/AAA.wl
+GET-OK Kernel/AAA.wl
+=== GET Kernel/Geometry.wl
+SYNTAX-ERR-IN Kernel/Geometry.wl
+GET-OK Kernel/Geometry.wl
+=== GET Kernel/Discretization.wl
+GET-OK Kernel/Discretization.wl
+=== GET Kernel/Solve.wl
+GET-OK Kernel/Solve.wl
+=== SYNTAXQ Tests/aaaprobe.wl ==> False
+=== SYNTAXQ Tests/loadprobe.wl ==> True
+=== SYNTAXQ Tests/synprobe.wl ==> True
+=== SYNTAXQ PacletInfo.wl ==> True
+SYNPROBE-DONE

@@ -1,0 +1,72 @@
+"=== w5probe START ==="
+"--- 1. candidates ---"
+"      "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"      ""   MSG "" :: "msg
+"  ""c13.wl""  SyntaxQ="True"  msgs="2
+"      "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"      ""   MSG "" :: "msg
+"  ""c14.wl""  SyntaxQ="False"  msgs="2
+"      "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"      ""   MSG "" :: "msg
+"  ""c15.wl""  SyntaxQ="False"  msgs="2
+"      "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"      ""   MSG "" :: "msg
+"  ""c16.wl""  SyntaxQ="True"  msgs="2
+"      "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"      ""   MSG "" :: "msg
+"  ""c17.wl""  SyntaxQ="True"  msgs="2
+"      "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"      ""   MSG "" :: "msg
+"  ""c18.wl""  SyntaxQ="True"  msgs="2
+"--- 2. prefix sweep of build/bundle.wl ---"
+"total lines="197
+"  prefix through line "70"  msgs="2"  "msg_
+"  prefix through line "71"  msgs="2"  "msg_
+"  prefix through line "72"  msgs="2"  "msg_
+"  prefix through line "73"  msgs="2"  "msg_
+"  prefix through line "74"  msgs="2"  "msg_
+"  prefix through line "75"  msgs="2"  "msg_
+"  prefix through line "76"  msgs="2"  "msg_
+"  prefix through line "77"  msgs="2"  "msg_
+"  prefix through line "78"  msgs="2"  "msg_
+"  prefix through line "79"  msgs="2"  "msg_
+"  prefix through line "80"  msgs="2"  "msg_
+"  prefix through line "81"  msgs="2"  "msg_
+"  prefix through line "82"  msgs="2"  "msg_
+"  prefix through line "83"  msgs="2"  "msg_
+"  prefix through line "84"  msgs="2"  "msg_
+"  prefix through line "85"  msgs="2"  "msg_
+"  prefix through line "86"  msgs="2"  "msg_
+"  prefix through line "87"  msgs="2"  "msg_
+"  prefix through line "88"  msgs="2"  "msg_
+"  prefix through line "89"  msgs="2"  "msg_
+"  prefix through line "90"  msgs="2"  "msg_
+"  prefix through line "91"  msgs="2"  "msg_
+"  prefix through line "92"  msgs="2"  "msg_
+"  prefix through line "93"  msgs="2"  "msg_
+"  prefix through line "94"  msgs="2"  "msg_
+"  prefix through line "95"  msgs="2"  "msg_
+"  prefix through line "96"  msgs="2"  "msg_
+"  prefix through line "97"  msgs="2"  "msg_
+"  prefix through line "98"  msgs="2"  "msg_
+"  prefix through line "99"  msgs="2"  "msg_
+"  prefix through line "100"  msgs="2"  "msg_
+"  prefix through line "101"  msgs="2"  "msg_
+"  prefix through line "102"  msgs="2"  "msg_
+"  prefix through line "103"  msgs="2"  "msg_
+"  prefix through line "104"  msgs="2"  "msg_
+"  prefix through line "105"  msgs="2"  "msg_
+"  prefix through line "106"  msgs="2"  "msg_
+"  prefix through line "107"  msgs="2"  "msg_
+"  prefix through line "108"  msgs="2"  "msg_
+"  prefix through line "109"  msgs="2"  "msg_
+"  prefix through line "110"  msgs="2"  "msg_
+"  prefix through line "111"  msgs="2"  "msg_
+"  prefix through line "112"  msgs="2"  "msg_
+"  prefix through line "113"  msgs="2"  "msg_
+"  prefix through line "114"  msgs="2"  "msg_
+"  prefix through line "115"  msgs="2"  "msg_
+"--- 3. exact messages for the whole file ---"
+"  "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"  ""   MSG "" :: "msg
+"=== w5probe DONE ==="

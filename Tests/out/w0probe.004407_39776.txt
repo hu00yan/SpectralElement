@@ -1,0 +1,25 @@
+"=== w0probe START ==="
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 1. SyntaxQ per Kernel file (this instant) ---"
+FileNameJoin[{"/path/to/SpectralElement", #1}]"  SyntaxQ=""ERR""  bytes=""ERR"
+FileNameJoin[{"/path/to/SpectralElement", #1}]"  SyntaxQ=""ERR""  bytes=""ERR"
+FileNameJoin[{"/path/to/SpectralElement", #1}]"  SyntaxQ=""ERR""  bytes=""ERR"
+FileNameJoin[{"/path/to/SpectralElement", #1}]"  SyntaxQ=""ERR""  bytes=""ERR"
+FileNameJoin[{"/path/to/SpectralElement", #1}]"  SyntaxQ=""ERR""  bytes=""ERR"
+FileNameJoin[{"/path/to/SpectralElement", #1}]"  SyntaxQ=""ERR""  bytes=""ERR"
+"mtimes:"
+"   "#1"  "DateList[FileDateTime[FileNameJoin[{"/path/to/SpectralElement", #1}]]]
+"   "#1"  "DateList[FileDateTime[FileNameJoin[{"/path/to/SpectralElement", #1}]]]
+"   "#1"  "DateList[FileDateTime[FileNameJoin[{"/path/to/SpectralElement", #1}]]]
+"   "#1"  "DateList[FileDateTime[FileNameJoin[{"/path/to/SpectralElement", #1}]]]
+"   "#1"  "DateList[FileDateTime[FileNameJoin[{"/path/to/SpectralElement", #1}]]]
+"   "#1"  "DateList[FileDateTime[FileNameJoin[{"/path/to/SpectralElement", #1}]]]
+"--- 2. Options[PacletInstall] ---"
+"Options[PacletInstall]="{AllowVersionUpdate -> True, ForceVersionInstall -> False, AllowPrereleaseVersions -> False, KeepExistingVersion -> Automatic, PacletSite -> Automatic, UpdatePacletSites -> Automatic, "ShowProgress" -> False, "InstallLocation" -> "User", "IgnoreVersion" -> False, "KeepExisting" -> Automatic, "Site" -> Automatic, "UpdateSites" -> Automatic}
+"Options[PacletDirectoryLoad]="{}
+"Attributes[PacletInstall]="{Protected, ReadProtected}
+"--- 3. FunctionRepository symbols ---"
+"Names[\"FunctionRepository*\"]="{}
+"Names[\"System`FunctionResourc*\"]="{}
+"Names[\"System`PacletInstall*\"]="{"PacletInstall", "PacletInstallSubmit"}
+"--- 4. candidate built-ins for SeeAlso existence ---"

@@ -1,0 +1,18 @@
+FRAGMENTS count=16
+FRAGMENT-OK   aaamaxabs
+FRAGMENT-OK   aaasub
+FRAGMENT-FAIL aaacauchy
+FRAGMENT-OK   aaahit
+FRAGMENT-OK   aaasvdw
+FRAGMENT-OK   aaaprodp
+FRAGMENT-OK   aaahorner
+FRAGMENT-OK   aaapolyder
+FRAGMENT-OK   aaacomp
+FRAGMENT-OK   aaapolyform
+FRAGMENT-OK   aaapoles
+FRAGMENT-OK   aaabary
+FRAGMENT-OK   aaazfit
+FRAGMENT-FAIL aaaeval
+FRAGMENT-FAIL aaaderiv
+FRAGMENT-FAIL aaainfo
+FRAGMENT-PROBE-DONE

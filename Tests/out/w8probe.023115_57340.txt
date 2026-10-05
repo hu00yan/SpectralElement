@@ -1,0 +1,27 @@
+"=== w8probe START ==="
+"--- 0. is Put working at all? ---"
+"  Put ok, exists="False"  content=""ERR"
+"--- 1. rebuild the bundle text exactly as build/bundle.wl does ---"
+"  hits="{{110, "AAA.wl"}, {111, "Geometry.wl"}, {112, "Discretization.wl"}, {113, "Solve.wl"}}
+"  names="{"AAA.wl", "Geometry.wl", "Discretization.wl", "Solve.wl"}
+"  sha strings ok="4"  first=""35568133811217871059224729543626373524428904891591096944048421127826587166009"
+"  outLines="117
+"  outLines all strings="False
+"  outText chars="73088"  lines="9
+"--- 2. write it out; does Put succeed this time? ---"
+"  wrote.  exists="False"  bytes=""ERR"
+"--- 3. SyntaxQ, and a Get of a scratch copy for file:line ---"
+"  SyntaxQ[bundle]="False
+"  scratch copy=""/path/to/SpectralElement/.agent-scratch/bundlecopy.wl"" bytes="Quantity[73.09100000000001, "Kilobytes"]
+"  Get[scratch copy]=""GET-SYNTAX-ERROR"
+"--- 4. skeleton: loader with the four Get lines blanked ---"
+"    line "110" now reads: ""Get[FileNameJoin[{DirectoryName[$InputFileName], \"AAA.wl\"}]]"
+"    line "111" now reads: ""Get[FileNameJoin[{DirectoryName[$InputFileName], \"Geometry.wl\"}]]"
+"    line "112" now reads: ""Get[FileNameJoin[{DirectoryName[$InputFileName], \"Discretization.wl\"}]]"
+"    line "113" now reads: ""Get[FileNameJoin[{DirectoryName[$InputFileName], \"Solve.wl\"}]]"
+"  SyntaxQ[skeleton]="False
+"  Get[skeleton]=""GET-SYNTAX-ERROR"
+"--- 5. is the header itself parseable? ---"
+"  SyntaxQ[header]="Check[SyntaxQ[StringJoin[header, {"End[]", "EndPackage[]"}], "\n"]]"ERR"
+"  blanked line numbers should be "Null
+"=== w8probe DONE ==="

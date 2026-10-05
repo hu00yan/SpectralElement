@@ -1,0 +1,40 @@
+"================ bundle START ================"
+"root=""/path/to/SpectralElement/"
+"loader=""/path/to/SpectralElement/Kernel/SpectralElement.wl""  exists="True
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 1. read the loader and find the Get statements ---"
+"loader lines="117"  chars="5828
+"Get statements found="4
+"  line "110" -> Kernel/""AAA.wl""  exists="True
+"  line "111" -> Kernel/""Geometry.wl""  exists="True
+"  line "112" -> Kernel/""Discretization.wl""  exists="True
+"  line "113" -> Kernel/""Solve.wl""  exists="True
+"order="{"AAA.wl", "Geometry.wl", "Discretization.wl", "Solve.wl"}
+"--- 2. read each source verbatim ---"
+"  Kernel/""AAA.wl""  lines="375"  chars="19381"  sha256="74871797256997493250642555985290436878989620842330154694199498417931083235367
+"  Kernel/""Geometry.wl""  lines="240"  chars="12818"  sha256="11790996473581323885250718707064088332557235391781744876850293282077916950879
+"  Kernel/""Discretization.wl""  lines="621"  chars="34046"  sha256="87513975553119254510775968800342742402092986818009181030098893465574056393395
+"  Kernel/""Solve.wl""  lines="1"  chars="63"  sha256="82089124596226990098885961557555929309214416151869460486082368300122085614000
+"--- 3. assemble the bundle ---"
+"bundle body lines="117
+"wrote=""/path/to/SpectralElement/wfr/SpectralNDSolve.wl"
+"bundle bytes=""ERR"
+"bundle sha256="Quiet[Check[FileHash[outPath], "SHA256"], "ERR"]
+"bundle lines=""ERR"
+"--- 4. load-time independence assertions ---"
+"  surviving Get[FileNameJoin[{DirectoryName[$InputFileName],...}]] statements="2
+"  $InputFileName occurrences="0
+"  path-free="False
+"--- 5. parse check: whole bundle, then EACH inlined block alone ---"
+"  SyntaxQ[whole bundle]=""ERR"
+"  SyntaxQ[inlined Kernel/""AAA.wl""]="True
+"  SyntaxQ[inlined Kernel/""Geometry.wl""]="True
+"  SyntaxQ[inlined Kernel/""Discretization.wl""]="True
+"  SyntaxQ[inlined Kernel/""Solve.wl""]="True
+"  SyntaxQ[loader skeleton with the four inlined blocks removed]=""ERR"
+"  BROKEN SOURCE BLOCKS=""NONE"
+"  (a FALSE here names the file whose block breaks the bundle; it is""   NOT fixed here -- Kernel/ belongs to its owning agent.)"
+"--- 6. verdict ---"
+"VERDICT=""BUNDLE-BROKEN"
+"  ACTION: fix the source named above, then re-run ./build/bundle.sh""  (the bundler is idempotent, so re-running is always safe)."
+"================ DONE-bundle ================"

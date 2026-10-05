@@ -1,0 +1,84 @@
+"=== q8probe START ==="
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"bundle exists="True"  bytes="Quantity[80.563, "Kilobytes"]
+"--- 1. the bundle is self-contained and parses ---"
+"SyntaxQ[bundle]="True
+"literal $InputFileName occurrences="0
+"Get[ occurrences="0
+"FileNameJoin[ occurrences="0
+"INLINED VERBATIM markers="4
+"--- 2. Get the BUNDLE and run the doc's own tests ---"
+"Get[bundle] -> ""GET-FAILED"
+"on $ContextPath="True
+"Length[Names[SpectralElement`*]]="8
+"Names="{"CoonsPatch", "CoonsPatchMap", "CoonsPatchQ", "SpectralDomain", "SpectralDomainData", "SpectralDomainQ", "SpectralNDSolve", "SpectralNDSolveValue"}
+"--- 3. the doc's Basic Examples, value by value ---"
+"patch is an Association="True
+"corner closure="0.
+"CoonsPatchMap[patch, 0.3, -0.5]="{0.5999999999999999, -0.5}
+"CoonsPatchMap[patch, -1., -1.]="{-2., -1.}
+"PatchCount="1
+"Degree="8
+"UnknownCount="Sum[SpectralElement`Private`nInt$7286]"  (doc says 49)"
+"RowCount="49
+"Nodes per direction="9"  (doc says 9)"
+"InterfacePairs="0
+"MinJacobian="{1.9999999999999882}"  scalar="1.9999999999999882"  relative deviation="5.88418203051333*^-15
+"--- 4. every VerificationTest from the doc ---"
+"  ""patch is an Association"" -> "True
+"  ""CoonsPatchQ[patch]"" -> "True
+"  ""map is exact at a corner"" -> "True
+"  ""map is exact at an interior point"" -> "True
+"  ""three edges rejected"" -> "True
+"  ""Method -> AAA rejected"" -> "True
+"  ""Disk rejected"" -> "True
+"  ""PatchCount === 1"" -> "True
+"  ""Degree === 8"" -> "True
+"  ""UnknownCount === 49"" -> "False
+"  ""RowCount === UnknownCount"" -> "False
+"  ""nodes per direction === 9"" -> "True
+"  ""InterfacePairs === 0"" -> "True
+"  ""Rectangle -> 1 patch"" -> "True
+"  ""Annulus span Pi -> 1 sector"" -> "True
+"  ""Annulus span 2 Pi -> 2 sectors"" -> "True
+"doc tests run="16"  passed="14
+"--- 5. and run them THROUGH VerificationTest, as the doc presents them ---"
+"  VT[""AssociationQ[patch]""] -> "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000050165102852`15.655670422724583*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeCo..TRUNC
+"  VT[""CoonsPatchQ[patch]""] -> "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000050165103054`15.655670422724608*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeCo..TRUNC
+"  VT[""UnknownCount === 49""] -> "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000050165103199`15.65567042272462*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeCon..TRUNC
+"  VT[""RowCount === UnknownCount""] -> "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000050165103341`15.655670422724635*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeCo..TRUNC
+"  VT[""nodes === 9""] -> "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.00005016510348`15.65567042272465*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeCons..TRUNC
+"  VT[""three edges rejected""] -> "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000050165103609`15.655670422724665*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeCo..TRUNC
+"  VT[""SyntaxQ[bundle]""] -> "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000050165103744`15.65567042272468*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeCon..TRUNC
+"  VT[""no $InputFileName""] -> "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000050165106552`15.655670422724985*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeCo..TRUNC
+"  VT true count="0" of "8
+"--- 6. doc self-consistency: the numbers it quotes ---"
+"  doc mentions \"""49""\": "Count[{"49", "49", "49"}]
+"  doc mentions \"""0.5999999999999999""\": "Count[{"0.5999999999999999"}]
+"  doc mentions \"""1.9999999999999882""\": "Count[{"1.9999999999999882"}]
+"  doc mentions \"""6\[CenterDot]10^-15""\": "Count[{"6\[CenterDot]10^-15"}]
+"  doc mentions \"""0.5""\": "Count[{"0.5", "0.5", "0.5", "0.5", "0.5", "0.5", "0.5"}]
+"  doc has frontmatter fence, starts with ---="True
+"  doc declares every frontmatter key:"
+"    ""Template: FunctionResource"" -> "True
+"    ""Name: SpectralNDSolve"" -> "True
+"    ""ContributedBy:"" -> "True
+"    ""Description:"" -> "True
+"    ""Categories:"" -> "True
+"    ""Keywords:"" -> "True
+"    ""SeeAlso:"" -> "True
+"    ""Links:"" -> "True
+"    ""EntrySymbol: SpectralNDSolve"" -> "True
+"--- 7. WFR section names vs the style guide ---"
+"    section present: ""## Definition"
+"    section present: ""## Usage"
+"    section present: ""## Basic Examples"
+"    section present: ""## Details and Options"
+"    section present: ""## Tests"
+"    section present: ""## Author Notes"
+"    section present: ""## Submission Notes"
+"--- 8. solver state (must be reported as PENDING) ---"
+"SpectralNDSolve DownValues="{}
+"SpectralNDSolveValue DownValues="{}
+"=> the doc's PENDING markers are correct iff both are {}"
+"================ WFRDOC-VERDICT ================"

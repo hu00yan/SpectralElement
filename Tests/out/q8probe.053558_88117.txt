@@ -1,0 +1,86 @@
+"=== q8probe START ==="
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"bundle exists="True"  bytes="Quantity[83.756, "Kilobytes"]
+"--- 1. the bundle is self-contained and parses ---"
+"SyntaxQ[bundle]="True
+"literal $InputFileName occurrences (needs an escaped dollar)="0
+"  the UNESCAPED pattern finds this many (0 expected, dollar is an anchor)="1
+"Get[ occurrences="0
+"FileNameJoin[ occurrences="0
+"INLINED VERBATIM markers="4
+"--- 2. Get the BUNDLE and run the doc's own tests ---"
+"Get[bundle] -> ""GET-FAILED"
+"on $ContextPath="True
+"Length[Names[SpectralElement`*]]="8
+"Names="{"CoonsPatch", "CoonsPatchMap", "CoonsPatchQ", "SpectralDomain", "SpectralDomainData", "SpectralDomainQ", "SpectralNDSolve", "SpectralNDSolveValue"}
+"--- 3. the doc's Basic Examples, value by value ---"
+"patch is an Association="True
+"corner closure="0.
+"CoonsPatchMap[patch, 0.3, -0.5]="{0.5999999999999999, -0.5}
+"CoonsPatchMap[patch, -1., -1.]="{-2., -1.}
+"PatchCount="1
+"Degree="8
+"UnknownCount="49"  (doc says 49)"
+"RowCount="49
+"Nodes per direction="9"  (doc says 9)"
+"InterfacePairs="0
+"MinJacobian="{1.9999999999999882}"  scalar="1.9999999999999882"  relative deviation="5.88418203051333*^-15
+"--- 4. every VerificationTest from the doc ---"
+"  ""patch is an Association"" -> "True
+"  ""CoonsPatchQ[patch]"" -> "True
+"  ""map is exact at a corner"" -> "True
+"  ""map is exact at an interior point"" -> "True
+"  ""three edges rejected"" -> "True
+"  ""Method -> AAA rejected"" -> "True
+"  ""Disk rejected"" -> "True
+"  ""PatchCount === 1"" -> "True
+"  ""Degree === 8"" -> "True
+"  ""UnknownCount === 49"" -> "True
+"  ""RowCount === UnknownCount"" -> "True
+"  ""nodes per direction === 9"" -> "True
+"  ""InterfacePairs === 0"" -> "True
+"  ""Rectangle -> 1 patch"" -> "True
+"  ""Annulus span Pi -> 1 sector"" -> "True
+"  ""Annulus span 2 Pi -> 2 sectors"" -> "True
+"doc tests run="16"  passed="16
+"--- 5. and run them THROUGH VerificationTest, as the doc presents them ---"
+"  VT[""AssociationQ[patch]""] Outcome -> ""Success""   ActualOutput -> "HoldForm[True]
+"  VT[""CoonsPatchQ[patch]""] Outcome -> ""Success""   ActualOutput -> "HoldForm[True]
+"  VT[""UnknownCount === 49""] Outcome -> ""Success""   ActualOutput -> "HoldForm[True]
+"  VT[""RowCount === UnknownCount""] Outcome -> ""Success""   ActualOutput -> "HoldForm[True]
+"  VT[""nodes === 9""] Outcome -> ""Success""   ActualOutput -> "HoldForm[True]
+"  VT[""three edges rejected""] Outcome -> ""Success""   ActualOutput -> "HoldForm[True]
+"  VT[""SyntaxQ[bundle]""] Outcome -> ""Success""   ActualOutput -> "HoldForm[True]
+"  VT[""no $InputFileName""] Outcome -> ""Success""   ActualOutput -> "HoldForm[True]
+"  VT pass count="8" of "8
+"  NB Count wants a PATTERN, not a function: Count[list, f] returns 0""     even when every element matches.  Select is the working form."
+"--- 6. doc self-consistency: the numbers it quotes ---"
+"  doc mentions \"""49""\": "3
+"  doc mentions \"""0.5999999999999999""\": "1
+"  doc mentions \"""1.9999999999999882""\": "1
+"  doc mentions \"""6\[CenterDot]10^-15""\": "1
+"  doc mentions \"""0.5""\": "7
+"  doc has frontmatter fence, starts with ---="True
+"  doc declares every frontmatter key:"
+"    ""Template: FunctionResource"" -> "True
+"    ""Name: SpectralNDSolve"" -> "True
+"    ""ContributedBy:"" -> "True
+"    ""Description:"" -> "True
+"    ""Categories:"" -> "True
+"    ""Keywords:"" -> "True
+"    ""SeeAlso:"" -> "True
+"    ""Links:"" -> "True
+"    ""EntrySymbol: SpectralNDSolve"" -> "True
+"--- 7. WFR section names vs the style guide ---"
+"    section present: ""## Definition"
+"    section present: ""## Usage"
+"    section present: ""## Basic Examples"
+"    section present: ""## Details and Options"
+"    section present: ""## Tests"
+"    section present: ""## Author Notes"
+"    section present: ""## Submission Notes"
+"--- 8. solver state (must be reported as PENDING) ---"
+"SpectralNDSolve DownValues="{}
+"SpectralNDSolveValue DownValues="{}
+"=> the doc's PENDING markers are correct iff both are {}"
+"================ WFRDOC-VERDICT ================"

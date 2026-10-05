@@ -1,0 +1,9 @@
+"plain string"
+42
+{1., 2.}
+StringJoin["tag = ", ToString[3.5, 8]]
+StringJoin["joined = ", ToString["abc", 8]]
+"ToString test: \"x\""
+"Head[w] = Symbol"
+"Attributes[w] = {}"
+"OwnValues[w] = {}"

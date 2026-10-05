@@ -1,0 +1,4 @@
+TARGET <>If[$argc > 0, ToString[First[$argv]], Kernel/AAA.wl]<>  lines=2
+BOUNDARIES count=0
+FIRST-FAILING-BOUNDARY 0
+SYN-PREFIX-DONE

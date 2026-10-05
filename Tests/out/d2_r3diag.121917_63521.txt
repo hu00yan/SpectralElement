@@ -1,0 +1,39 @@
+--- 0. the tagged zero, in isolation ---
+  InputForm[0.[-1.,-1.]]  = InputForm[0.[-1., -1.]]
+  Head                     = 0.
+  NumericQ                 = False
+  N[0.[-1.,-1.]]          = InputForm[0.[-1., -1.]]
+  N[...] still numeric?    = False
+  zt === 0.               = False
+  Precision[zt]           = MachinePrecision
+  max over tagged zeros    = Abs[0.[-1., -1.]]
+--- 1. the lift FUNCTION with no DirichletCondition ---
+  seDirLiftFn[{},x,y]          = InputForm[0]
+  Head                        = Integer
+  g0[-1.,-1.]                 = InputForm[0[-1., -1.]]
+  Head[N[g0[-1.,-1.]]]        = 0.
+  InputForm[N[g0[-1.,-1.]]]  = InputForm[0.[-1., -1.]]
+  NumericQ of that            = False
+--- 2. seLiftFrom[disc, seDirLiftFn[{},x,y]] ---
+  Length                     = 81
+  class counts               = <|"Dirichlet" -> 32, "Interior" -> 49|>
+  #Dirichlet                 = 32
+  distinct element InputForms= {"0.", "0.[0., -1.]", "0.[0., 1.]", "0.[0.38268343236508984, -1.]", "0.[0.38268343236508984, 1.]", "0.[-0.38268343236508995, -0.9999999999999999]", "0.[-0.38268343236508995, 0.9999999999999999]", "0.[-0.7071067811865475, -1.]", "0.[-0.70710..TRUNC
+  VectorQ[., NumericQ]        = False
+  a Dirichlet element        = InputForm[0.[-1., -1.]]
+  Head of that               = 0.
+  #non-numeric entries in lift = 32
+--- 3. the four assembled objects ---
+  A0 dims                    = {49, 49}
+  A0 numeric                 = True
+  rhs numeric                = True
+  c0 numeric                 = False
+  b = rhs - c0 numeric       = False
+  #non-numeric entries in c0  = 49
+  c0[[1]] InputForm          = -1.*(0. + 2.624651482498921*^-13*0.[-1., -1.] + 131.14408626201995*0.[-1., -0.9238795325112867] - 1.8433100712318272*^-13*0.[-1., -0.7071067811865475] + 7.38326
+--- 4. control: A0 against a clean numeric zero vector ---
+  LinearSolve[A0, 0-vector] wall = 0.000415
+  returned head/len              = List/49
+  VectorQ[., NumericQ]           = True
+  max|A0.za|                     = 0.
+DONE-d2r3diag

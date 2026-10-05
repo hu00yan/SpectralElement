@@ -1,0 +1,46 @@
+"=== w6probe START ==="
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "FileName[FileNameJoin[{syn, StringJoin["p", ToString[n], ".wl"]}]]"  SyntaxQ=""ERR"
+"  "{"r89.wl", "r90.wl", "r94.wl"}"  SyntaxQ=""ERR"
+"--- messages of a few ---"
+"  ""p89.wl""  msgs="2
+"     "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"     ""   MSG "" :: "msg
+"  ""p90.wl""  msgs="2
+"     "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"     ""   MSG "" :: "msg
+"  ""p91.wl""  msgs="2
+"     "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"     ""   MSG "" :: "msg
+"  ""p92.wl""  msgs="2
+"     "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"     ""   MSG "" :: "msg
+"  ""p93.wl""  msgs="2
+"     "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"     ""   MSG "" :: "msg
+"  ""r89.wl""  msgs="2
+"     "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"     ""   MSG "" :: "msg
+"  ""r90.wl""  msgs="2
+"     "msg_" :: "Function[{msg_}, Print["   MSG ", msg]][[1,2]]
+"     ""   MSG "" :: "msg
+"--- minimal candidates ---"
+"  ""m1.wl""  SyntaxQ="False"  msgs="2
+"  ""m2.wl""  SyntaxQ="False"  msgs="2
+"  ""m3.wl""  SyntaxQ="False"  msgs="2
+"  ""m4.wl""  SyntaxQ="False"  msgs="2
+"  ""m5.wl""  SyntaxQ="False"  msgs="2
+"=== w6probe DONE ==="

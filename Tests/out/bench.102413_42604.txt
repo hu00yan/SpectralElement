@@ -1,0 +1,86 @@
+  PASS  G0a loader defines SpectralNDSolve = 1.   (target >= 1.)
+  PASS  G0b loader defines SpectralNDSolveValue = 1.   (target >= 1.)
+  PASS  G0c SpectralNDSolve::nlnum has text = 141.   (target >= 20.)
+  PASS  G0d SpectralNDSolve::ncond has text = 113.   (target >= 20.)
+  PASS  G0e loading raised no message = 0.   (target == 0.)
+=== P1 LINEAR on Rectangle (region shorthand) ===
+  P1-LIN-RECT-n16  t=1.31  nodalErr=4.47  res=2.16  method=Linear  public={{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[SpectralElement`Private`qy$]], Indeterminate, Module[{SpectralElement`Private`ax$, SpectralElement`Private`ay$, SpectralElement`Private`k$, SpectralElement`Private  opc=-1.  msgs={Part, Part, Part, Part, Part, General, Part, General}
+  PASS  G2 operator sign: -Laplacian+u^3 assembles with opc = -1 = -1.   (target == -1.)
+  PASS  G3 method dispatch: linear equation -> LinearSolve = "Linear"
+  PASS  G1 SpectralNDSolve returns {{u -> Function}} = True
+  PASS  G1c that Rule is u -> fn = True
+  PASS  G1b G0a-G0e style: loading was clean, so the solver is usable = 9.   (target >= 5.)
+=== P2 NONLINEAR on Rectangle ===
+  P2-NL-RECT-n10  t=3.27  nodalErr=1.38  res=2.84  iters=5  dels={1.3107864455074203, 0.05919538575047959, 0.0007142895777818889, 1.1341073147110752*^-7, 3.06288429332052*^-15}
+  PASS  G3b method dispatch: nonlinear equation -> Newton = "Newton"
+  PASS  G2b nonlinear flag = True
+  PASS  G2c Newton converged = True
+=== P3 LINEAR on Annulus (region shorthand) ===
+  P3-LIN-ANN-n16  t=4.09  nodalErr=7.88  res=8.19  msgs=none
+=== P4 NONLINEAR on Annulus ===
+  P4-NL-ANN-n10  t=3.2  nodalErr=4.27  res=2.27  iters=5  dels={1.1274468761838126, 0.053758194769591316, 0.0003379431871080576, 1.2070564268385919*^-8, 8.985888859303406*^-16}
+=== P5 NONLINEAR on two coupled patches (flux rows exercised) ===
+  P5-NL-2PATCH-n10  t=6.92  nodalErr=1.03  res=2.27  patchCount=2  msgs=none
+  PASS  G14 P5 really used two patches = 2.   (target == 2.)
+=== G5 Newton quadratic convergence (P2) ===
+  dels = {1.3107864455074203, 0.05919538575047959, 0.0007142895777818889, 1.1341073147110752*^-7, 3.06288429332052*^-15}
+  -log10|dels| = {-0.1175319418103013, 1.2277121449866404, 3.1461256866314935, 6.945345848457462, 14.513869409240298}
+  NEW DIGITS per step = {1.3452440867969417, 1.9184135416448531, 3.7992201618259687, 7.568523560782836}
+  digit-growth ratios (quadratic -> 2) = Map[Divide, {1.9184135416448531, 3.7992201618259687, 7.568523560782836}, {1.3452440867969417, 1.9184135416448531, 3.7992201618259687}]
+  reference p11 sequence = {1.157, 0.0520, 2.78e-4, 7.41e-9, 1.90e-13, 8.77e-14}
+  PASS  G5a Newton history recorded (>= 4 deltas) = 5.   (target >= 4.)
+  PASS  G5b Newton final step < 1e-12 = 3.06288429332052*^-15   (target < 1.*^-12)
+  PASS  G5c Newton cheap (<= 12 iterations) = 5.   (target <= 12.)
+  FAIL  G5d quadratic: the digit gain roughly doubles (max ratio >= 1.8) = Map[Divide, {1.9184135416448531, 3.7992201618259687, 7.568523560782836}, {1.3452440867969417, 1.9184135416448531, 3.7992201618259687}]   (target >= 1.8)
+  PASS  G5e superlinear: every step after the first gains more digits than the one before = 1.9184135416448531   (target > 1.3452440867969417)
+=== G6 spectral accuracy against the manufactured solution (degree as given) ===
+  PASS  G6a P1 LINEAR  Rectangle max nodal error = 4.4654946407263196*^-11   (target < 1.*^-8)
+  FAIL  G6b P2 NONLIN  Rectangle max nodal error = 0.000013750831185044277   (target < 1.*^-8)
+  PASS  G6c P3 LINEAR  Annulus   max nodal error = 0.0007883814287032997   (target < 0.01)
+  FAIL  G6d P4 NONLIN  Annulus   max nodal error = 0.04273835074669369   (target < 0.01)
+  FAIL  G6e P5 NONLIN  2 patches max nodal error = 1.032213850597342   (target < 0.01)
+  PASS  G6f P1 residual at the computed solution = 2.1600499167107046*^-12   (target < 1.*^-10)
+  PASS  G6g P2 residual at the computed solution = 2.842170943040401*^-14   (target < 1.*^-10)
+  FAIL  G6h no unexpected message from P1..P5 = 8.   (target == 0.)
+=== G10/G11 negative controls ===
+  capped Newton returned Symbol   ::nlnum seen = False
+  FAIL  G10 ::nlnum fires when Newton is capped = False
+  PASS  G10b capped Newton returns $Failed = True
+  no-PDE call returned Symbol   ::ncond seen = False
+  FAIL  G11 ::ncond fires when there is no PDE for the boundary data = False
+  PASS  G11b that call returns $Failed = True
+=== G12 reuse of a pre-built SpectralDiscretization ===
+  FAIL  G12 the SAME pre-built association is consumed as-is = False
+  FAIL  G12b reuse returns the same shape as the from-scratch run = Symbol
+  FAIL  G12c reuse reproduces the from-scratch answer = False
+  FAIL  G12d reuse raised no message = 12.   (target == 0.)
+=== NDSolve FEM comparison: same problem, same points, matched goals ===
+  Option semantics probed, not assumed: on a PDE over an ElementMesh, AccuracyGoal is the
+  requested accuracy of the SOLUTION and PrecisionGoal the requested precision of its
+  values; NDSolve derives the working precision from them.  Both are passed explicitly so
+  the comparison is at a stated, matched target rather than at an implicit default.
+=== PRE-FEM VERDICT (all gates that do not need NDSolve) ===
+runner: ./rr.sh 3000 Tests/bench.wl
+failing gates so far: {"G5d quadratic: the digit gain roughly doubles (max ratio >= 1.8)", "G6b P2 NONLIN  Rectangle max nodal error", "G6d P4 NONLIN  Annulus   max nodal error", "G6e P5 NONLIN  2 patches max nodal error", "G6h no unexpected message from P1..P5", "G10 ::nlnum fires when Newton is capped", "G11 ::ncond fi..TRUNC
+subtotal: 24/35 PASS
+  FEM-LIN-RECT-coarse  AG=8  maxCellMeasure=0.05  nElem=180  tMesh=1.57  tSolve=6.42  tTotal=7.98  nodalErr=1.85  msgs=none
+  FEM-LIN-RECT-fine  AG=10  maxCellMeasure=0.03  nElem=300  tMesh=5.42  tSolve=1.66  tTotal=2.2  nodalErr=9.85  msgs=none
+  FEM-NL-RECT-coarse  AG=8  maxCellMeasure=0.05  nElem=180  tMesh=4.89  tSolve=1.68  tTotal=1.73  nodalErr=1.71  msgs=none
+  FEM-NL-RECT-fine  AG=10  maxCellMeasure=0.03  nElem=300  tMesh=6.24  tSolve=1.75  tTotal=1.81  nodalErr=9.28  msgs=none
+  FEM-NL-ANN-coarse  AG=8  maxCellMeasure=0.05  nElem=154  tMesh=1.17  tSolve=1.55  tTotal=2.71  nodalErr=-9.99  msgs={InterpolatingFunction}
+  FEM-NL-ANN-fine  AG=10  maxCellMeasure=0.03  nElem=238  tMesh=4.15  tSolve=1.59  tTotal=2.  nodalErr=2.83  msgs=none
+  PASS  G13 NDSolve FEM comparison produced finite numbers (linear rect) = True
+  PASS  G13b NDSolve FEM comparison produced finite numbers (nonlinear rect) = True
+  PASS  G13c NDSolve FEM comparison produced finite numbers (nonlinear annulus) = True
+  PASS  G13d spectral linear is more accurate than FEM linear at the SAME points = True
+  PASS  G13e spectral nonlinear is more accurate than FEM nonlinear at the SAME points = True
+  PASS  G13f spectral nonlinear is faster than FEM+mesh on the SAME problem = True
+=== SUMMARY: SpectralNDSolve vs NDSolve (the numbers a reader checks) ===
+  problem            | spectral t | spectral err | FEM fine t | FEM fine err | speedup | err ratio
+  StringPad["LINEAR Rectangle", 17] | StringPad[0.131203, 11] | StringPad[4.4654946407263196*^-11, 13] | StringPad[0.022021, 10] | StringPad[0.0009847920952000405, 13] | StringPad[0.16783915001943556, 8] | 2.2053370890170023*^7
+  StringPad["NONLIN Rectangle", 17] | StringPad[0.032737, 11] | StringPad[0.000013750831185044277, 13] | StringPad[0.18107299999999998, 10] | StringPad[0.0009276963394028725, 13] | StringPad[5.531142132754986, 8] | 67.46474645197132
+  StringPad["NONLIN Annulus", 17] | StringPad[0.032027, 11] | StringPad[0.04273835074669369, 13] | StringPad[0.20013399999999998, 10] | StringPad[0.0028331610487492974, 13] | StringPad[6.248914977987322, 8] | 0.0662908371345723
+================ D BENCH DELIVERY ================
+runner: ./rr.sh 3000 Tests/bench.wl
+failing gates: {"G5d quadratic: the digit gain roughly doubles (max ratio >= 1.8)", "G6b P2 NONLIN  Rectangle max nodal error", "G6d P4 NONLIN  Annulus   max nodal error", "G6e P5 NONLIN  2 patches max nodal error", "G6h no unexpected message from P1..P5", "G10 ::nlnum fires when Newton is capped", "G11 ::ncond fi..TRUNC
+total: 30/41 PASS

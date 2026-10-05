@@ -1,0 +1,7 @@
+"=== q7probe START ==="
+"CreateNotebook result type: "String"  value: ""CREATE-NOTEBOOK-FAILED"
+"cell count (needs a NotebookObject, not the string)=""ERR"
+"a bare NotebookObject is constructible: "NotebookObject
+"styles used, in order:"
+"text of each cell:"
+"=== q7probe DONE ==="

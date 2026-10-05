@@ -1,0 +1,6 @@
+"aaazfit defined? True"
+"aaaeval defined? True"
+"aaaderiv defined? True"
+"CALL1 AssociationQ? True"
+"CALL1 keys= {\"Message\", \"Status\"}"
+"CALL1 Status= \"Failure\""

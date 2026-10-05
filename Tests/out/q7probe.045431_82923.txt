@@ -1,0 +1,6 @@
+"=== q7probe START ==="
+"CreateNotebook[\"FunctionResource\"] -> "String
+"cell count="0
+"styles used, in order:"
+"text of each cell:"
+"=== q7probe DONE ==="

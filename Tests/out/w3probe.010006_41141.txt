@@ -1,0 +1,45 @@
+"=== w3probe START ==="
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- (a) SyntaxQ per file (Import of the text) ---"
+"  ""Kernel/SpectralElement.wl""  SyntaxQ="True
+"  ""Kernel/AAA.wl""  SyntaxQ="False
+"  ""Kernel/Geometry.wl""  SyntaxQ="False
+"  ""Kernel/Discretization.wl""  SyntaxQ="True
+"  ""Kernel/Solve.wl""  SyntaxQ="True
+"  ""PacletInfo.wl""  SyntaxQ="True
+"  ""Kernel/init.m""  SyntaxQ="True
+"  ""Tests/loadprobe.wl""  SyntaxQ="True
+"  ""Tests/aaaprobe.wl""  SyntaxQ="True
+"  ""Tests/synprobe.wl""  SyntaxQ="True
+"--- (b) loop-form acceptance ---"
+"  ""cand1.wl""  SyntaxQ="True
+"  ""cand2.wl""  SyntaxQ="True
+"  ""cand3.wl""  SyntaxQ="True
+"  ""cand4.wl""  SyntaxQ="False
+"  ""cand5.wl""  SyntaxQ="True
+"  ""cand6.wl""  SyntaxQ="False
+"--- (c) install mechanics on the renamed scratch copy ---"
+"scratch copy=""/path/to/SpectralElement/.agent-scratch/pp""  exists="True
+"copy PacletObject Name=""ZZPacletProbe""  Context="{"ZZPacletProbe`"}
+"user paclet dirs before:"
+"  $UserBasePacletsDirectory=""/path/to/Wolfram/Paclets"
+"  Repository count="2
+"  has ZZPacletProbe before="False
+"PacletInstall[dir] returned=""PACLETINSTALL-RAISED""  seconds="AbsoluteTiming[][[1]]
+"PacletFind[ZZPacletProbe] count="0
+"  new dirs in Repository="DirectoryNames[]
+"Needs[ZZPacletProbe`]=""NEEDS-RAISED"
+"  on $ContextPath="False
+"  Names count="0
+"  Names="{}
+"  FindFile="$Failed
+"--- (d) uninstall the renamed copy ---"
+"PacletUninstall returned=""ERR"
+"  PacletFind count after uninstall="0
+"  Repository dirs back to original="True
+"  leftovers="DirectoryNames[]
+"  context still on $ContextPath (already loaded, harmless)="False
+"--- (e) real SpectralElement NOT installed anywhere ---"
+"PacletFind[SpectralElement]=""NOT-REGISTERED"
+"Repository contains SpectralElement="False
+"=== w3probe DONE ==="

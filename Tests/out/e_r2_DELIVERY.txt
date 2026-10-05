@@ -1,0 +1,152 @@
+================ E ROUND 2 DELIVERY: README.md only ================
+agent: W3-E (docs/release), micro-round 2
+runner: ./rr.sh 300 <file>          (the fixed runner; works again)
+ownership touched: README.md ONLY, plus these evidence files
+
+=====================================================================
+1. THE REWRITTEN PARAGRAPH (README.md, the "API" section)
+=====================================================================
+The paragraph that said the key was broken now reads, verbatim:
+
+  "All 33 data keys resolve and raise no message. `"Coordinates"` returns
+   one `{x, y}` pair per node, shaped `{patchCount, nn, nn, 2}`, and is the
+   pairing of `"X"` and `"Y"` — they differ by `0.` to machine precision on
+   both one-patch and multi-patch domains.
+
+   That key did not always work: an earlier build left the patch index
+   unbound inside that one branch, so the fetch raised `Part::pkspec1` and
+   handed back a `Symbol`. A key-by-key walk of all 33 keys is what caught
+   it — `Tests/out/e_probe5.115628_60497.txt`, whose `"Coordinates"` line
+   reads `head=Symbol ... nmsgs=12` while the other 32 read `nmsgs=0`. The
+   repair, and the 17 gates that verify it on a one-patch rectangle and a
+   two-patch annulus, are in `Tests/out/d2_coords.132405_75895.txt`. Read
+   `"Coordinates"` when you want pairs, and `"X"` / `"Y"` when you want to
+   index one coordinate directly."
+
+What it no longer says, and must not: that the key is broken, that it
+returns a Symbol, that it raises Part::pkspec1, that other keys should be
+used INSTEAD of it, or that "that file belongs to Kernel/Discretization.wl,
+which this wave did not touch" (stale ownership framing now that D2 has
+repaired it). The surrounding paragraph was read first: the v1-support
+paragraph above it (Rectangle / Annulus / no Disk / no Polygon) and the
+Examples + Benchmarks headings below it are untouched and do not
+contradict the new text.
+
+Also changed in that section: `"Coordinates"` was ADDED to the README's
+own SpectralDomainData code block, so the block now shows seven keys
+instead of six.
+
+=====================================================================
+2. THE STALENESS SWEEP
+=====================================================================
+WHAT I CHECKED, AND WHAT IT FOUND:
+
+(a) broken / hangy / limitation language anywhere in README:
+    grep -ni 'broken|hang|limitation|not supported|does not work|
+    unsupported|unusable|wrong|defect|stale|TODO'
+    3 hits. Line 72 "byte-identical bundle" (a determinism claim, true);
+    line 117 "want to see or change the discretization" (prose, true);
+    line 146 the Coordinates paragraph. ONLY line 146 needed changing.
+
+(b) the no-DirichletCondition / homogeneous-u==0 path:
+    grep -ni 'DirichletCondition|homogeneous|u == 0|boundary condition'
+    3 hits: line 96 (the Quickstart comment), line 102 (the Quickstart
+    call), line 225 (Roadmap: "Neumann, Robin and periodic boundary
+    conditions").
+    NOTHING NEEDED CHANGING. The README never claims the default
+    homogeneous path is broken or unusable -- it now works, and the README
+    is silent on it, which is correct. Line 225 is still true: only
+    Dirichlet data is implemented. Line 96 is a DIFFERENT claim and is
+    still true: it warns that a boundary PREDICATE that misses one side
+    leaves those nodes on the u == 0 default, which a manufactured
+    solution does not satisfy. That is about a PARTIAL predicate inside an
+    otherwise valid DirichletCondition, is unaffected by D2's fix, and was
+    measured directly (error 1.4157, growing 1.2360 at n=6 -> 1.4158 at
+    n=16). Left as is.
+
+(c) size / hash / byte claims:
+    grep -ni 'byte|sha|hash|151|733af4ac|KB|MB'
+    README quoted NO size and NO hash. The only "byte" is "byte-identical
+    bundle", a determinism claim. Checked the artifact anyway:
+        wfr/SpectralNDSolve.wl = 151810 bytes
+        sha256 = 733af4ac06369673f869ec6708bdb43af4286917e9fdf09ed29f8d93b5114f37
+    which matches the authoritative values exactly. Since it was verified
+    rather than assumed, the bundle section now states both, so the
+    determinism claim is checkable by a reader.
+
+(d) every Tests/out path cited in README still resolves after the
+    dispatcher's truncation and deletion pass:
+        Tests/out/bench_FINAL.txt                    OK  7,683 bytes
+        Tests/out/e_bench_recheck.122011_63783.txt   OK  7,816 bytes
+        Tests/out/e_probe5.115628_60497.txt          OK 66,292 bytes
+        Tests/out/02-curved-coons-patch.125953_70548.txt OK 1,619
+        Tests/out/04-convergence.130213_71659.txt    OK    968
+        Tests/out/05-aaa-boundary.130544_72337.txt   OK    919
+    The truncated e_probe5 file still contains all 33 KEY lines verbatim
+    (grep -c 'KEY ' = 33) under the dispatcher's truncation header, so the
+    citation of it in the rewritten paragraph resolves to real content.
+
+(e) other counts and claims: "Six scripts in Examples/" -- still six, and
+    Examples/ was not touched this round; the Benchmarks figures come from
+    bench_FINAL.txt and e_bench_recheck, both untouched by a
+    Coordinates-only repair in Discretization.wl, so none of them moved.
+
+=====================================================================
+3. THE RE-RUN BLOCKS  (README blocks 6 and 7, extracted verbatim)
+=====================================================================
+Extracted programmatically from README.md, not retyped, so the test is
+faithful to the file. Both blocks run with ZERO messages.
+
+  BLOCK 6  Quickstart, verbatim ....... PASS, 0 messages
+           sol[0,0] = 0.4546487121705494  == the number README quotes
+  BLOCK 7  the seven SpectralDomainData keys .... PASS, 0 messages
+           Coordinates dims  = {1, 15, 15, 2}
+           Coordinates[[1,1,1]] = {-1., -1.}   X[[1,1,1]] = -1.   Y[[1,1,1]] = -1.
+           max |Coordinates - pairs built from X and Y| = 0.
+           every entry numeric = True, 450 scalars = 225 pairs
+  all 33 SpectralDomainData keys walked again:
+           keys with messages = 0 of 33
+           (the "Coordinates" line now reads head=List dims={1, 15, 15, 2}
+            nmsgs=0 -- the same line read head=Symbol nmsgs=12 in round 1)
+
+The `= 0.` agreement was measured here, not taken from D2's file, because
+the README now asserts it. Two of my own checks in that runner were wrong
+before the final run and were fixed rather than shipped: one compared
+Coordinates against a Transpose of mismatched axes and returned 1.98 (the
+x-extent, i.e. a layout error, not a data error), and one indexed the pair
+list at the wrong depth. Both are corrected in the evidence above.
+
+=====================================================================
+4. EVIDENCE PATHS
+=====================================================================
+  Tests/out/e_r2.153308_84967.txt   <- the re-run quoted in section 3
+  (five superseded intermediate runs of the same script were deleted; the run
+   above is the only e_r2 script evidence left)
+  Tests/out/e_probe5.115628_60497.txt   <- historical 33-key audit (cited)
+  Tests/out/d2_coords.132405_75895.txt  <- D2's fix verification (cited)
+
+Runner script kept at scratch/E/e_r2.wl so section 3 can be re-run.
+
+=====================================================================
+5. BLOCKED
+=====================================================================
+Nothing blocked. No file outside README.md and my own Tests/out/e_r2_*
+evidence was written; Kernel/, wfr/, build/, Tests/*.wl, Examples/ and
+docs/AAA-NOTES.md were read only. No kernels were left running
+(pgrep -fl WolframKernel after every run: none). No .wl in the repo was
+modified, so brscan2 had only my scratch runner to check, and it is
+CLEAN.
+
+Side observation, not acted on: in D2's d2_coords evidence, gate lines
+A4 and B4 print "PASS ... every coordinate is a number = False" while the
+summary line above them prints "every entry numeric = True" -- the gate
+appears to print a different variable than the one it tests. All 17 gates
+report PASS and the substantive numbers (dims, 0 messages, 0. agreement)
+check out on re-run, so nothing is falsified; flagging it because a gate
+that prints False while reporting PASS will hide a real failure later.
+It is D2's file and was not touched.
+
+=====================================================================
+X/X PASS   (README blocks 6 and 7 re-run clean; all 33 keys clean)
+=====================================================================
+2/2 PASS

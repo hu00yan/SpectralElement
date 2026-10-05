@@ -1,0 +1,6 @@
+"================ bundle START ================"
+"root=""/path/to/SpectralElement/"
+"loader=""/path/to/SpectralElement/Kernel/SpectralElement.wl""  exists="True
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 1. read the loader and find the Get statements ---"
+"loader lines="117"  chars="5828

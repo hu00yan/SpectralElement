@@ -1,0 +1,8 @@
+"n="6"  nodal-vector err="1.2359957552992649"  pointwise err="1.2359957552992649"  msgs="0
+"n="8"  nodal-vector err="1.342828393224894"  pointwise err="1.342828393224894"  msgs="0
+"n="10"  nodal-vector err="1.3817666604034702"  pointwise err="1.3817666604034702"  msgs="0
+"n="12"  nodal-vector err="1.3999024774396611"  pointwise err="1.3999024774396611"  msgs="0
+"n="14"  nodal-vector err="1.4097764425550592"  pointwise err="1.4097764425550592"  msgs="0
+"n="16"  nodal-vector err="1.4157500265508414"  pointwise err="1.4157500265508414"  msgs="0
+"at (1.7682957126653303, 1.3):  fn="0."  uex="1.4157500265508414"  diff="-1.4157500265508414
+"DONE e_probe8"

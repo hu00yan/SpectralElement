@@ -1,0 +1,52 @@
+"================ bundle START ================"
+"root=""/path/to/SpectralElement/"
+"loader=""/path/to/SpectralElement/Kernel/SpectralElement.wl""  exists="True
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 1. read the loader and find the Get statements ---"
+"loader lines="117"  chars="5827
+"SyntaxQ[loader as imported]="True
+"Get statements found="4
+"  line "110" -> Kernel/""AAA.wl""  exists="True
+"  line "111" -> Kernel/""Geometry.wl""  exists="True
+"  line "112" -> Kernel/""Discretization.wl""  exists="True
+"  line "113" -> Kernel/""Solve.wl""  exists="True
+"order="{"AAA.wl", "Geometry.wl", "Discretization.wl", "Solve.wl"}
+"--- 2. read each source verbatim ---"
+"  Kernel/""AAA.wl""  lines="555"  chars="30315"  sha256=""84978144105247829370747821503475986528690961321585467825704081124747658218711"
+"  Kernel/""Geometry.wl""  lines="458"  chars="27169"  sha256=""34043981844021656785360837470512344082986557875797440370324063449957994590310"
+"  Kernel/""Discretization.wl""  lines="767"  chars="42572"  sha256=""42271896783225159089264689215214935078665964270041132687648579682187459158692"
+"  Kernel/""Solve.wl""  lines="734"  chars="39048"  sha256=""23475191243849113239046746313490404814603310129891072205000554241645734602248"
+"--- 3. assemble the bundle ---"
+"bundle body lines="2635
+"every body line is a string="True
+"bundle chars="147474
+"--- 3b. write with Export and READ BACK (Put writes nothing here) ---"
+"wrote=""/path/to/SpectralElement/wfr/SpectralNDSolve.wl""  exists="True
+"intended chars="147474"  read-back chars="147473
+"  lengths: read-back="147473"  intended="147473
+"read-back matches the intended text (modulo trailing newline)="True
+"  first differing character position=""N/A (identical)"
+"file bytes="Quantity[147.474, "Kilobytes"]
+"bundle sha256="271874497342860575363643095148786251219
+"--- 4. load-time independence assertions ---"
+"  loader Get-pattern lines surviving="0
+"  literal $InputFileName occurrences="0
+"  FileNameJoin[ occurrences="0
+"  Get[ occurrences="0
+"  path-free="True
+"--- 5. parse check: whole bundle, each block, and the skeleton ---"
+"  SyntaxQ[whole bundle as written]="True
+"  SyntaxQ[inlined Kernel/""AAA.wl""]="True
+"  SyntaxQ[inlined Kernel/""Geometry.wl""]="True
+"  SyntaxQ[inlined Kernel/""Discretization.wl""]="True
+"  SyntaxQ[inlined Kernel/""Solve.wl""]="True
+"  skeleton line "110" now reads: ""Null"
+"  skeleton line "111" now reads: ""Null"
+"  skeleton line "112" now reads: ""Null"
+"  skeleton line "113" now reads: ""Null"
+"  SyntaxQ[loader skeleton, Gets blanked]="True
+"  BROKEN SOURCE BLOCKS=""NONE"
+"  READING THIS TABLE: a FALSE under 'SyntaxQ[inlined Kernel/X.wl]' is a""  defect in that source file and belongs to its owning agent -- it is""  NOT fixed here.  If all four are True but the whole bundle is False,""  the fault is in the loader skeleton or in this bundler."
+"--- 6. verdict ---"
+"VERDICT=""BUNDLE-OK"
+"================ DONE-bundle ================"

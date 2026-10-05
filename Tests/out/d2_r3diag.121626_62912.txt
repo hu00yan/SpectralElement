@@ -1,0 +1,34 @@
+--- 0. the tagged zero, in isolation ---
+  InputForm[0.[-1.,-1.]]  = InputForm[0.[-1., -1.]]
+  Head                     = 0.
+  NumericQ                 = False
+  N[0.[-1.,-1.]]          = InputForm[0.[-1., -1.]]
+  N[...] still numeric?    = False
+  zt === 0.               = False
+  Precision[zt]           = MachinePrecision
+--- 1. the lift FUNCTION with no DirichletCondition ---
+  seDirLiftFn[{},x,y]          = InputForm[P`seDirLiftFn[{}, x, y]]
+  Head                        = P`seDirLiftFn
+  g0[-1.,-1.]                 = InputForm[P`seDirLiftFn[{}, x, y][-1., -1.]]
+  Head[N[g0[-1.,-1.]]]        = P`seDirLiftFn[{}, x, y]
+  InputForm[N[g0[-1.,-1.]]]  = InputForm[P`seDirLiftFn[{}, x, y][-1., -1.]]
+  NumericQ of that            = False
+--- 2. seLiftFrom[disc, seDirLiftFn[{},x,y]] ---
+  Length                     = 2
+  class counts               = Counts[P`seEnsureDisc[Rectangle[{-1, -1}, {1, 1}], 8, <|"BoundaryPredicate" -> Automatic|>]["Class"]]
+  distinct element InputForms= P`seLiftFrom["P`seDirLiftFn[{}, x, y]", "P`seEnsureDisc[Rectangle[{-1, -1}, {1, 1}], 8, <|\"BoundaryPredicate\" -> Automatic|>]"]
+  VectorQ[., NumericQ]        = False
+  any element with head 0.    = True
+--- 3. the four assembled objects ---
+  A0 dims                    = {2}
+  A0 numeric                 = False
+  rhs numeric                = False
+  c0 numeric                 = False
+  b = rhs - c0 numeric       = False
+  b[[1]] InputForm, first 200= P`seAssembleRHS[P`seEnsureDisc[Rectangle[{-1, -1}, {1, 1}], 8, <|"BoundaryPredicate" -> Automatic|>], P`seOperatorParts[-Derivative[0, 2][u][x, y] - Derivative[2, 0][u][x, y] == 2*Pi^2*Sin[Pi*x]*Sin[P
+--- 4. control: A0 against a clean numeric zero vector ---
+  LinearSolve[A0, 0-vector] wall = 0.000013
+  returned head/len              = LinearSolve/2
+  VectorQ[., NumericQ]           = False
+  max|A0.za - 0|                 = Abs[P`seStackOperator[P`seEnsureDisc[Rectangle[{-1., -1.}, {1., 1.}], 8., <|"BoundaryPredicate" -> Automatic|>], P`seOperatorParts[-1.*Derivative[0, 2][u][x, y] - 1.*Derivative[2, 0][u][x, y] == 19.739208802178716*Sin[3.141592653589793*x]*S..TRUNC
+DONE-d2r3diag

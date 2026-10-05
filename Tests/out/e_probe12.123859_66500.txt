@@ -1,0 +1,1 @@
+"A verbatim-copy nodal error (bench says 4.4654946407263196*^-11) = "1.4157500265508414

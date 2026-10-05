@@ -1,0 +1,7 @@
+"================ geoprobe START ================"
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"loader present="True"   internals in SpectralElement`Private`: "True
+"  ""FAIL""  ""G0a public symbols respond"" = ""False"If[False, "   (target ", "==", " ", tst[gn[True]], ")", ""]
+"--- G-B1 corner consistency (+ negative controls) ---"
+"  ""FAIL""  ""G-B1a rect CoonsPatchQ"" = ""CoonsPatchQ[CoonsPatch[{#1, -1} & , {#1, 1} & , {-1, #1} & , {1, #1} & ]]"If[False, "   (target ", "==", " ", tst[gn[True]], ")", ""]
+"  ""FAIL""  ""G-B1a rect corner closure"" = ""CoonsPatch[{#1, -1} & , {#1, 1} & , {-1, #1} & , {1, #1} & ][[\"CornerClosure\"]]"If[True, "   (target ", "<=", " ", tst[gn[0.]], ")", ""]
