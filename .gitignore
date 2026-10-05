@@ -22,3 +22,6 @@ scratch/
 # claim in API.md / README.md must be backed by one of these files, so they
 # are deliberately NOT ignored.  If a filter ever adds *.txt or Tests/,
 # remove it: the evidence is the point.
+
+# ---- built paclet archive (rebuild via ./build/release.sh) ----
+build/*.paclet
