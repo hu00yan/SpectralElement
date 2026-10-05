@@ -1,0 +1,12 @@
+A ops keys of patch1 = {Type, Patch, Order, Nodes, Nodes1D, Xs, Ys, Dm, D2m, J, MinJ, NonPositiveJ, CornerJ, al, be, ga, de, AA, AB, BB, CC, SQ, SQXi, Lop, InteriorRows, FDJ}
+B has Patch key = True  map head = Function  len pts = 81  Uv dims = {1, 81}
+C k = 30 node = {-1.0167261889578032, -0.4283542904563622} (patch,ix,iy) = {1., 3., 4.}
+D refInverse = {1., -0.7071067811865475, -0.3826834323650898}   head = List
+E xi numericQ = True eta numericQ = True xi = -0.7071067811865475 eta = -0.3826834323650898
+DONE-p1c
+I NODE REPRODUCTION  max |u(node) - nodal| = 0.
+J NODE ACCURACY      max |u(node) - exact| = 0.0004865586739575267
+K1 off-node midpoint  u = 0.025766310921652522   exact 0.02678166975046174   allNumeric = True
+K2 far outside (9,9)  u = 2.8726069485530023*^11
+K3 all mid-edge points numeric = True   n = 72
+DONE-p1c

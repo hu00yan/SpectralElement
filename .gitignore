@@ -1,0 +1,24 @@
+# ---- guarded-runner artifacts (specF r.sh / repo rr.sh) ----
+# *.lastout records the OUT= path of the most recent run; it is per-run
+# noise and must never be committed.
+*.lastout
+*.stdout
+*.stderr
+
+# ---- Wolfram / macOS noise ----
+.DS_Store
+*.mx
+*.mxb
+*~
+\#*\#
+
+# ---- scratch (non-dot only; dot-prefixed scratch dirs are forbidden by
+# API.md rule 4) ----
+scratch/
+*.scratch/
+
+# ---- NOTE: evidence IS committed ----
+# Tests/out/*.txt are the captured stdout of guarded runs.  Every numerical
+# claim in API.md / README.md must be backed by one of these files, so they
+# are deliberately NOT ignored.  If a filter ever adds *.txt or Tests/,
+# remove it: the evidence is the point.

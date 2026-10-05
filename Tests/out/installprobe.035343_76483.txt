@@ -1,0 +1,142 @@
+"================ installprobe START ================"
+"repo=""/Users/huyan00/mycode/SpectralElement/"
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"NOTE: Kernel/Solve.wl is a stub in this wave, so the SOLVER checks""     below assert that the solver layer REPORTS ITSELF INCOMPLETE.""     They are not a claim that SpectralNDSolve works."
+"--- 0. baseline: is a SpectralElement paclet already installed? ---"
+"PacletFind[SpectralElement] before="0
+"  its Location=""-"
+"on $ContextPath before="False
+"--- 1. PacletInfo metadata (read, not evaluated) ---"
+"Name=""SpectralElement"
+"Version=""0.1.0"
+"WolframVersion=""13.0+"
+"Creator=""SpectralElement contributors"
+"License (custom field)=""MIT"
+"URL=""https://github.com/spectralelement/SpectralElement"
+"Category="{"Developer Tools", "Mathematics"}
+"Keywords="{"spectral element method", "spectral methods", "transfinite interpolation", "Coons patch", "PDE", "finite element", "multi-domain"}
+"Extensions="{{"Kernel", "Root" -> "Kernel", "Context" -> {"SpectralElement`"}}}
+"Context="{"SpectralElement`"}
+"metadata has Name/Version/Context/Extensions="False
+"--- 2. build the .paclet archive PacletInstall actually accepts ---"
+"archive=""/Users/huyan00/mycode/SpectralElement/.agent-scratch/SpectralElement.paclet""  exists="True"  bytes="Quantity[8.267762, "Megabytes"]
+"--- 3. PacletInstall ---"
+"PacletInstall returned="PacletObject[<|"Name" -> "SpectralElement", "Version" -> "0.1.0", "WolframVersion" -> "13.0+", "Creator" -> "SpectralElement contributors", "Description" -> "Spectral multi-domain (spectral-element) solvers for PDEs on arbitrary curved 2D domains.", "Category" -> {"Developer Tools", "Mathematics"}, "Keywords" -> {"spectral element method", "spectral methods", "transfinite interpolation", "Coons pa..TRUNC
+"  messages during install: "{"<none>"}
+"PacletFind[SpectralElement] after="1
+"   found: Name=""SpectralElement""  Version=""0.1.0""  Location=""/Users/huyan00/Library/Wolfram/Paclets/Repository/SpectralElement""  Context="Missing["KeyAbsent", "Context"]
+"registered from a location OTHER than the checkout="True
+"  (it must be the copied install dir, otherwise Needs below would be""   reading the working tree and the install channel would not be tested)"
+"--- 4. Needs, and where the context resolves ---"
+"Needs returned="Null"   (Null = success)"
+"on $ContextPath="True
+"FindFile[SpectralElement`SpectralElement]="$Failed
+"FindFile points INSIDE the installed copy=""?"
+"contexts matching 'SpectralElement="{"SpectralElement`", "SpectralElement`Private`"}
+"--- 5. the eight public symbols ---"
+"Length[Names[SpectralElement`*]]="8
+"Names="{"CoonsPatch", "CoonsPatchMap", "CoonsPatchQ", "SpectralDomain", "SpectralDomainData", "SpectralDomainQ", "SpectralNDSolve", "SpectralNDSolveValue"}
+"Context /@ pub ="{"SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`"}
+"all eight in context SpectralElement`="True
+"missing=""NONE"
+"unexpected extras=""NONE"
+"private helpers defined="0
+"DownValues counts (per API.md section 4):"
+"   ""CoonsPatch"" -> "1""
+"   ""CoonsPatchQ"" -> "1""
+"   ""CoonsPatchMap"" -> "1""
+"   ""SpectralDomain"" -> "1""
+"   ""SpectralDomainQ"" -> "1""
+"   ""SpectralDomainData"" -> "1""
+"   ""SpectralNDSolve"" -> "1""
+"   ""SpectralNDSolveValue"" -> "1""
+"--- 6. geometry layer responds ---"
+"CoonsPatch on a four-corner patch -> ""a CoonsPatch object"
+"  messages: "{"<none>"}
+"CoonsPatchQ[patch]="True
+"CoonsPatchMap[patch, 0.3, -0.5]="{0.5999999999999999, -0.5}
+"map at the (-1,-1) corner ="0."  (expected {0,0} offset from {-2,-1})"
+"CoonsPatch with only three edges -> "Function[{m, a}, AppendTo[gm, ToString[m, InputForm]]]"  (expected $Failed)"
+"  messages: "{"<none>"}
+"  the CoonsPatch::edges message fired="False
+"CoonsPatch[..., Method -> \"AAA\"] -> "Function[{m, a}, AppendTo[gm, ToString[m, InputForm]]]"  (expected $Failed: not wired yet)"
+"  messages: "{"<none>"}
+"  the CoonsPatch::method message fired="False
+"--- 7. discretization layer responds ---"
+"SpectralDomain[{patch}, 8] -> "Function[{m, a}, AppendTo[dm, ToString[m, InputForm]]]
+"  messages: "{"<none>"}
+"SpectralDomainQ[disc]="False
+"SpectralDomainData[disc, \"PatchCount\"]="Function[{m, a}, AppendTo[dm, ToString[m, InputForm]]]"  (expected 1)"
+"SpectralDomainData[disc, \"Degree\"]="Function[{m, a}, AppendTo[dm, ToString[m, InputForm]]]"  (expected 8)"
+"SpectralDomainData[disc, \"UnknownCount\"]="Function[{m, a}, AppendTo[dm, ToString[m, InputForm]]]
+"SpectralDomainData[disc, \"RowCount\"]="Function[{m, a}, AppendTo[dm, ToString[m, InputForm]]]
+"Nodes per direction="Function[{m, a}, AppendTo[dm, ToString[m, InputForm]]]"  (expected n+1 = 9)"
+"InterfacePairs on a ONE-patch domain="Function[{m, a}, AppendTo[dm, ToString[m, InputForm]]]"  (expected 0: no other patch to match)"
+"MinJacobian="Function[{m, a}, AppendTo[dm, ToString[m, InputForm]]]"  (expected 2.0 = 4/2 in x times 2/2 in y)"
+"SpectralDomainData[disc, \"NoSuchKey\"] -> "Function[{m, a}, AppendTo[dm, ToString[m, InputForm]]]"  (expected $Failed)"
+"  messages: "{"<none>"}
+"  the SpectralDomain::key message fired="False
+"Rectangle shorthand, PatchCount=""ERR"
+"  (expected 1)"
+"Annulus[{1,2},{0,Pi}] shorthand, PatchCount=""ERR""  (expected 1: span Pi is one sector)"
+"SpectralDomain[Disk[], 6] -> "Function[{m, a}, AppendTo[dm, ToString[m, InputForm]]]"  (expected $Failed: J = 0 at r = 0)"
+"  messages: "{"<none>"}
+"  the SpectralDomain::nreg message fired="False
+"--- 8. solver layer: STUB STATE, reported explicitly ---"
+"SpectralNDSolve[Poisson, ..., 6] -> "SpectralNDSolve[Derivative[0, 2][u][x, y] + Derivative[2, 0][u][x, y] == 0, u, Element[{x, y}, Rectangle[{-1, -1}, {1, 1}]], 6]
+"  head="If[ExpressionQ[SpectralNDSolve[Derivative[0, 2][u][x, y] + Derivative[2, 0][u][x, y] == 0, u, Element[{x, y}, Rectangle[{-1, -1}, {1, 1}]], 6]], Head[Unevaluated[sol]], Head[sol]]
+"  messages: "{"<none>"}
+"  => as an UNevaluated expression (usage-only symbol, no definition)""     which is the EXPECTED state while Kernel/Solve.wl is a stub."
+"SpectralNDSolve has DownValues="False
+"SpectralNDSolveValue has DownValues="False
+"Solve.wl byte size="Quantity[63., "Bytes"]"  (63 = the one-line placeholder)"
+"solver layer status=""STUB -- SpectralNDSolve/Value have usage messages only (expected in this wave)"
+"--- 9. messages raised while the package LOADED ---"
+"messages seen in this run's stdout: ""see below"
+"    ""DownValues::sym: Argument pub[[k]] at position 1 is expected to be a symbol or the name of an existing symbol."
+"    ""DownValues::sym: Argument pub[[k]] at position 1 is expected to be a symbol or the name of an existing symbol."
+"    ""DownValues::sym: Argument pub[[k]] at position 1 is expected to be a symbol or the name of an existing symbol."
+"    ""General::stop: Further output of DownValues::sym will be suppressed during this calculation."
+"    ""  the CoonsPatch::edges message fired=False"
+"    ""  the CoonsPatch::method message fired=False"
+"    ""  the SpectralDomain::key message fired=False"
+"    ""  the SpectralDomain::nreg message fired=False"
+"--- 10. uninstall, and PROVE nothing is left behind ---"
+"PacletUninstall returned="Null
+"archive removed="False
+"install dir still on disk="False
+"  after rm -rf, still on disk="False
+"PacletFind[SpectralElement] after uninstall="0
+"on $ContextPath after uninstall (still loaded in THIS kernel, harmless)="True
+"--- 11. verdict ---"
+"  ""PacletInstall registered the paclet"" -> "True
+"  ""install location is the installed copy, not the checkout"" -> "True
+"  ""Needs did not return $Failed"" -> "True
+"  ""context on $ContextPath"" -> "True
+"  ""FindFile resolves inside the installed copy"" -> "False
+"  ""no public symbol missing"" -> "True
+"  ""all eight in context SpectralElement`"" -> "True
+"  ""no unexpected public symbols"" -> "True
+"  ""CoonsPatch built a patch"" -> "True
+"  ""CoonsPatchQ accepted it"" -> "True
+"  ""CoonsPatchMap evaluated"" -> "True
+"  ""three edges rejected"" -> "False
+"  ""Method -> AAA rejected loudly"" -> "False
+"  ""SpectralDomain built a discretization"" -> "False
+"  ""SpectralDomainQ accepted it"" -> "False
+"  ""PatchCount == 1"" -> "False
+"  ""Degree == 8"" -> "False
+"  ""UnknownCount and RowCount agree"" -> "True
+"  ""nodes per direction == n+1"" -> "False
+"  ""one-patch domain has 0 interfaces"" -> "False
+"  ""unknown key rejected"" -> "False
+"  ""Rectangle shorthand works"" -> "True
+"  ""Disk rejected with ::nreg"" -> "False
+"  ""PacletInstall raised no message"" -> "True
+"  ""package load raised no message"" -> "False
+"  ""uninstall removed the install dir"" -> "True
+"  ""PacletFind empty after uninstall"" -> "True
+"FLAKY="8
+"VERDICT=""INSTALLPROBE-FAIL"
+"FAILING ITEMS:"
+"================ DONE-installprobe ================"

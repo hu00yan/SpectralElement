@@ -1,0 +1,21 @@
+"=== w9probe START ==="
+"--- 1. Put ---"
+"  Head[Put]="Symbol"  Attributes="{Protected}
+"  Definition-ish: Put is "False
+"  Put returned="Null"  exists="False
+"  FullForm of Put =""Put"
+"--- 2. Export ---"
+"  Export returned=""/Users/huyan00/mycode/SpectralElement/.agent-scratch/exporttest.txt""  exists="True"  content=""hello\n"
+"--- 3. Export large text (73 KB) ---"
+"  big Export returned=""/Users/huyan00/mycode/SpectralElement/.agent-scratch/bigtest.txt""  exists="True
+"  round-trips byte-identical="True
+"  in chars="120894
+"--- 4. AppendTo nesting (the corruption) ---"
+"  after AppendTo[al, {\"A\",\"B\",\"C\"}]: length="1" content="{{"A", "B", "C"}}
+"  all strings="False
+"  the correct form, Join: length="4" content="{{"A", "B", "C"}, "A", "B", "C"}
+"--- 5. which is right for building the bundle? ---"
+"  AppendTo with Sequence gives length="2
+"--- 6. cleanup ---"
+"  removed="False
+"=== w9probe DONE ==="

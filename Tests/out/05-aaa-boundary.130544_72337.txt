@@ -1,0 +1,12 @@
+"Analytic patch: Method tag = ""Analytic""  messages = "0
+"AAA      patch: Method tag = ""AAA""  messages = "0
+"AAA record: samples per edge = "65"   fits recorded = "4
+"construction time: Analytic = "0.000322" s   AAA = "0.170296" s   ratio = "528.8695652173913
+"the two patches agree on the 4 corners, max = "2.220446049250313*^-16
+"max |AAA fit - true arc| on 401 off-sample points = "1.2212453270876722*^-15
+"discretization: min J Analytic = "{0.3599999999999997}"   AAA = "{0.3599999999999757}
+"AAASamples -> \"lots\" : accepted = "True"   samples actually used = "65
+"AAASamples -> 200       : accepted = "True"   samples actually used = "200
+"edge that cannot be evaluated: result = "$Failed"   messages = "{CoonsPatch}
+"edge that collapses to a point: result = "$Failed"   messages = "{CoonsPatch}
+"VERDICT: 05-aaa-boundary OK (the only messages are the two documented CoonsPatch refusals in the last section)"

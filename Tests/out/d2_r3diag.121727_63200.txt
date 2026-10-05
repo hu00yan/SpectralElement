@@ -1,0 +1,24 @@
+--- 0. the tagged zero, in isolation ---
+  InputForm[0.[-1.,-1.]]  = InputForm[0.[-1., -1.]]
+  Head                     = 0.
+  NumericQ                 = False
+  N[0.[-1.,-1.]]          = InputForm[0.[-1., -1.]]
+  N[...] still numeric?    = False
+  zt === 0.               = False
+  Precision[zt]           = MachinePrecision
+  max over tagged zeros    = Abs[0.[-1., -1.]]
+--- 1. the lift FUNCTION with no DirichletCondition ---
+  seDirLiftFn[{},x,y]          = InputForm[0]
+  Head                        = Integer
+  g0[-1.,-1.]                 = InputForm[0[-1., -1.]]
+  Head[N[g0[-1.,-1.]]]        = 0.
+  InputForm[N[g0[-1.,-1.]]]  = InputForm[0.[-1., -1.]]
+  NumericQ of that            = False
+--- 2. seLiftFrom[disc, seDirLiftFn[{},x,y]] ---
+  Length                     = 1
+  class counts               = Counts[SpectralDomain[Rectangle[{-1, -1}, {1, 1}], 8, <|"BoundaryPredicate" -> Automatic|>]["Class"]]
+  #Dirichlet                 = Counts[SpectralDomain[Rectangle[{-1, -1}, {1, 1}], 8, <|"BoundaryPredicate" -> Automatic|>]["Class"]]["Dirichlet"]
+  distinct element InputForms= {"Transpose[Table[If[TrueQ[SpectralElement`Private`cl$7117[[SpectralElement`Private`p]][[SpectralElement`Private`ix,SpectralElement`Private`iy]] === \"Dirichlet\"], N[0[SpectralElement`Private`o$7117[[SpectralElement`Private`p]][\"Xs\"][[Sp..TRUNC
+  VectorQ[., NumericQ]        = False
+  a Dirichlet element        = InputForm[Transpose[Table[If[TrueQ[SpectralElement`Private`cl$7117[[SpectralElement`Private`p]][[SpectralElement`Private`ix,SpectralElement`Private`iy]] === "Dirichlet"], N[0[SpectralElement`Private`o$7117[[SpectralElement`Private`p]]["Xs"]..TRUNC
+  Head of that               = Transpose

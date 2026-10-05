@@ -1,0 +1,11 @@
+==== idprobe START ====
+$Version=14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)
+P1 format-set msg=msg-fired  fallbackCount=1
+P2 pattern-arg result=$Failed  fallbackCount=2
+P3 Quiet-Check="CAUGHT"
+P4 ml={HoldForm[SetDelayed::write], HoldForm[N::indet]}  memberQ=False  val="CAUGHT"
+P5 ml={HoldForm[SetDelayed::write], HoldForm[N::indet], HoldForm[StringForm::sfr]}  memberQ=False
+P6 Check-outer-Quiet-inner=Null
+P7 Get Geometry=msg  catchallDefined=True
+P8 Get Geometry+Discretization=msg
+==== idprobe END ====

@@ -1,0 +1,26 @@
+"ts len="65" lo=""-1.00025"" hi=""1.00025"
+"pg len="201" lo=""-1.00025"" hi=""1.00025"
+"fitX tag=""OK"" type=""{1, 1}"" relerr=""1.019762463258548*^-15"" nodes=""{1.00025, -1.00025}"
+"fitY tag=""OK"" type=""{8, 8}"" relerr=""5.124106267500722*^-16"" nodes=""{-1.00025, 0., 1.00025, 0.4688671875000001, -0.8439609375000001, -0.6251562500000001, 0.7501875, -0.187546875, 0.9689921875}"
+"probe head="List" len="201" finiteQ="True
+"non-finite probe idx count="0" first idx=""{}"
+"  max |value| over probe=""1.3"
+"X finite="True" Y finite="True
+"X max=""1.00025"" Y max=""1.3"
+"X bad idx=""{}"
+"  X z=""{}"" X v=""{}"
+"Y bad idx=""{}"
+"  Y z=""{}"" Y v=""{}"
+"off-sample max |fitX - exact|="1.0269562977782698*^-15" max |fitY - exact|="8.881784197001252*^-16
+"endpoint fit(-1)=""{-1., -1.}"" exact=""{-1, -1.}"
+"endpoint fit(1)=""{0.9999999999999999, -1.0000000000000002}"" exact=""{1, -1.}"
+"seAAAFitEdge tag=""TAG-OK"" value=""{0.3000000000000009, -1.2673019572565105}"
+"seAAAFitDecide at top level: tag=""TAG-OK"" n="2
+"shadowing names: ""{}"
+"rawT len="4" rowHeads=""{Heads[{\"OK\", Function[{tt$}, {aaaeval[<|\"Status\" -> \"Converged\", \"Nodes\" -> {1.00025, -1.00025}, \"Values\" -> {1.00025, -1.00025}, \"Weights\" -> {-1., 0.9999999999999982}, \"Error\" -> 1.0200174038743626*^-15, \"RelError\" -> 1.019762463258548*^-15..TRUNC
+"rawT all2 len="4" all3 len="4
+"rawT row1 len="3" row1 head=""List"
+"shadowing names: ""{}"
+"seAAAFitEdges tag=""TAG-OK"" n="4
+"CP AAA Q="True" method=""AAA"" closure="2.220446049250313*^-16
+"P5 OK"

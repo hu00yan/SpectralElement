@@ -1,0 +1,1 @@
+"SETUP nsamp=6 mstop=5 scale=2.718281828459045"

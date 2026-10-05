@@ -1,0 +1,10 @@
+load: msgs={}
+
+Part::partd: Part specification Rule[[2]] is longer than depth of object.
+PUBLIC shape: List len=1 inner=List rhs=Rule[[2]]
+method=Linear opc=-1. conv=True res=1.7763568394002505*^-13
+BLOCKER residual of the EXACT nodal solution in the assembled system = 2901.6910025878747
+(A0.zz + c0 - rhs) at the COMPUTED solution = 1.7763568394002505*^-13
+|zz - exact nodal| = 2.9833143943191174
+msgs after solve={}
+DONE-final

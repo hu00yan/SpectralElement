@@ -1,0 +1,4 @@
+"moved-to-top: seAssemble DownValues = 0"
+"seBuildDomain DownValues = 1"
+"seRegionPatch DownValues = 1"
+"DONE"

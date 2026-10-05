@@ -1,0 +1,10 @@
+"runge m=3 relErr=7.03608243781029*^-15"
+"list call: length=4001  nonNumericCount=3"
+"list call: first bad positions={{0}, {4001}, {}}"
+"map call : nonNumericCount=3  first={{0}, {4001}, {}}"
+"d(grid[[2]]) head=List  val={0.9999937437844498, 0.038461538461538464, 0.9567533698253088}"
+"at node: b[[2]]={ComplexInfinity}   b[[5]] (hit index)={If[{0., -0.9994997498749375, 0.04302151075537769} == 
+"at node: aaaeval=Indeterminate   f_j=0.9999937437844498"
+"at node: aaaderiv head=Times  val=-599.9923361604004*SpectralElement`Private`aaahorner[Null, 0.00050025012506
+"node equals one of the grid points? False"
+"NODONE"

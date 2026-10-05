@@ -1,0 +1,5 @@
+"  ""PASS""  ""G0a loader defines SpectralNDSolve"" = ""1.""   (target \">=\" 1.)"
+"  ""PASS""  ""G0b loader defines SpectralNDSolveValue"" = ""1.""   (target \">=\" 1.)"
+"  ""PASS""  ""G0c SpectralNDSolve::nlnum has text"" = ""141.""   (target \">=\" 20.)"
+"  ""PASS""  ""G0d SpectralNDSolve::ncond has text"" = ""113.""   (target \">=\" 20.)"
+"  ""PASS""  ""G0e loading raised no message"" = ""0.""   (target \"==\" 0.)"

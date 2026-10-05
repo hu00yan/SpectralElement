@@ -1,0 +1,28 @@
+"================ bundle START ================"
+"root=""/Users/huyan00/mycode/SpectralElement/"
+"loader=""/Users/huyan00/mycode/SpectralElement/Kernel/SpectralElement.wl""  exists="True
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 1. read the loader and find the Get statements ---"
+"loader lines="117"  chars="5828
+"SyntaxQ[loader as imported]="True
+"Get statements found="4
+"  line "110" -> Kernel/""AAA.wl""  exists="True
+"  line "111" -> Kernel/""Geometry.wl""  exists="True
+"  line "112" -> Kernel/""Discretization.wl""  exists="True
+"  line "113" -> Kernel/""Solve.wl""  exists="True
+"order="{"AAA.wl", "Geometry.wl", "Discretization.wl", "Solve.wl"}
+"--- 2. read each source verbatim ---"
+"  Kernel/""AAA.wl""  lines="379"  chars="19658"  sha256=""35568133811217871059224729543626373524428904891591096944048421127826587166009"
+"  Kernel/""Geometry.wl""  lines="251"  chars="13666"  sha256=""112100229070239417854635371294718996578883645391327588141834433028704836624694"
+"  Kernel/""Discretization.wl""  lines="631"  chars="34759"  sha256=""111064245257168014844720103097633963239916507263672561632116052391607062348140"
+"  Kernel/""Solve.wl""  lines="1"  chars="63"  sha256=""82089124596226990098885961557555929309214416151869460486082368300122085614000"
+"--- 3. assemble the bundle ---"
+"bundle body lines="1383
+"every body line is a string="True
+"bundle chars="75103
+"--- 3b. write with Export and READ BACK (Put writes nothing here) ---"
+"wrote=""/Users/huyan00/mycode/SpectralElement/wfr/SpectralNDSolve.wl""  exists="True
+"read-back is byte-identical to the intended text="False
+"file bytes="Quantity[75.106, "Kilobytes"]
+"bundle sha256="Quiet[Check[FileHash[outPath], "SHA256"], "ERR"]
+"FATAL: ""read-back mismatch: the file on disk is not what was built"

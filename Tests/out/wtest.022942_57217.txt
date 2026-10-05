@@ -1,0 +1,15 @@
+"A: ww[1+1]"
+2
+"B: ww[StringJoin[a,b]]"
+"ab"
+"C: ww[<>] chain"
+"xy2"
+"D: ww[ToString[1+1]]"
+"2"
+"E: HoldAll test"
+"  q[1+1] = 2"
+"F: Attributes[ToString] = {Protected}"
+"G: ToString[1+1, InputForm] = 2"
+"H: ww after Clear"
+2
+"ab"

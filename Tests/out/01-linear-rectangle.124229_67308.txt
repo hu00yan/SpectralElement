@@ -1,0 +1,12 @@
+"context loaded = "True"   public symbols = "8
+"degree n                     = "16
+"wall clock (mesh + solve)    = "0.087417" s"
+"messages raised by the solve = ""none"
+"result shape                 = ""{{u -> Function}}"
+"head of the rule's right side= "Function
+"max nodal error vs uex       = "4.4654946407263196*^-11
+"u(0, 0) computed             = "0.4546487135937053
+"u(0, 0) exact                = "0.4546487134128409
+"SpectralNDSolveValue head    = "Function
+"the two agree at (0.3, -0.4) = "0.
+"VERDICT: 01-linear-rectangle OK (no messages)"

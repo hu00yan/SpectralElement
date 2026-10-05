@@ -1,0 +1,6 @@
+"plain (gamma=0, straight square)""  closure="0."  minJ="0.9999999999999941"  cornerJ="{1.0000000000000122, 1.0000000000000044, 1.0000000000000078, 1.}"  msgs=""none"
+"plain, gamma=0.6""  closure="0."  minJ="-0.4400000000000015"  cornerJ="{-0.4400000000000015, -0.44000000000000017, -0.4400000000000006, -0.4399999999999984}"  msgs=""none"
+"top reversed""  closure=""n/a""  minJ=""refused""  cornerJ=""refused""  msgs="{CoonsPatch}
+"left/right t negated""  closure=""n/a""  minJ=""refused""  cornerJ=""refused""  msgs="{CoonsPatch}
+"top reversed + left/right negated""  closure=""n/a""  minJ=""refused""  cornerJ=""refused""  msgs="{CoonsPatch, General}
+"DONE e_probe13"

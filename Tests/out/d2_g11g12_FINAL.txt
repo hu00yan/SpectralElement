@@ -1,0 +1,19 @@
+=== G11: PDE-less call ===
+
+SpectralNDSolve::ncond: SpectralNDSolve: no boundary condition was supplied and the homogeneous-Dirichlet default is not applicable: the equation list contains no PDE equation, so no boundary condition can be applied to anything.
+  seOperatorParts alone -> Symbol
+
+SpectralNDSolve::ncond: SpectralNDSolve: no boundary condition was supplied and the homogeneous-Dirichlet default is not applicable: the equation list contains no PDE equation, so no boundary condition can be applied to anything.
+  entries after PDE-less call count=1
+    [1] HoldForm[SpectralNDSolve::ncond]
+  rN === \$Failed : True
+=== G12: reuse of a pre-built discretization ===
+  dPre Q=True Degree=16 Type=SpectralDiscretization
+  entries after reuse solve count=0
+  Head[rRe]=List  Ok=True  Reason=Missing[KeyAbsent, Reason]
+  same disc object?  True
+  Region is dPre ?  True  Region Degree=16
+=== control: same call on the REGION shorthand ===
+  entries after region call count=0
+  Head[rCt]=List
+DONE-d2_g11g12

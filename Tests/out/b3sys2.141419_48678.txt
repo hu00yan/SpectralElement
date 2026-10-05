@@ -1,0 +1,8 @@
+Row[{"=== System[Matrix] vs the correct rank-2 stack ==="}]
+Row[{"=== the shipped expression, evaluated in isolation ==="}]
+Row[{"  ArrayPad[2-D matrix, {0,0,0,0}] -> Head=", ArrayPad, " messages=", {}}]
+Row[{"  ArrayPad[2-D matrix, {0,0,0,3}] -> Head=", ArrayPad, " Dimensions=", "n/a", " messages=", {}}]
+Row[{"  ArrayPad[2-D matrix, {{0,0},{0,3}}] -> Dimensions=", {2, 5}, " messages=", {}}]
+Row[{"  SparseArray[ArrayFlatten[{m},1], {2,5}] -> Head=", SparseArray, " Dimensions=", {2, 5}, " messages=", {}}]
+Row[{"  SparseArray[ArrayFlatten[{m},2], {2,5}] (the SHIPPED form) -> Head=", SparseArray, " messages=", {}}]
+Row[{"b3sys2 DONE"}]

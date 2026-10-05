@@ -1,0 +1,2 @@
+"max nodal error at n=16 = "1.4157500265508414"   (bench G6a: 4.4654946407263196*^-11)"
+"DONE e_probe6"

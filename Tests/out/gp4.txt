@@ -1,0 +1,41 @@
+"P4 start: len($MessageList)="0
+"names: ""{}"
+"after plain Message: +"1
+"after Quiet[Message]: +"0
+"after Quiet[Message] again: +"0
+"after Quiet[Check[Message]]: +"0"  (check fired="True")"
+"after clearing: len="2
+"after Get loader: len="2" names=""{SymbolName[HoldForm[CoonsPatch::method]], SymbolName[HoldForm[Set::wrsym]]}"
+"seAAAFitEdges: Length[r]="3
+"  r1 = ""\"OK\""
+"  Head[r2] = "List"  Length[r2] = "0
+"  Length[r3] = "0
+"  r3 first = "sfSafe[If[0] >= 1, {}[[1]]["X"]["Type"], "EMPTY"]
+"  new msgs="2" names=""cnt[{HoldForm[If::argbu], HoldForm[Part::partw]}]"
+"CP[ed, Method->AAA] head="Symbol" === $Failed: "True
+"  new msgs="4" names=""cnt[{HoldForm[Part::partw], HoldForm[Part::partw], HoldForm[General::stop], HoldForm[CoonsPatch::corners]}]"
+"seAAAFitEdges(bad): r1=""\"OK\""" r2=""{}"
+"CP[bad, AAA] === $Failed: "True"  new msgs="1" names=""cnt[{HoldForm[CoonsPatch::corners]}]"
+"seAAAFitEdges(zero): r1=""\"OK\""" r2=""{}"
+"CP[zero, AAA] === $Failed: "True"  new msgs="2" names=""cnt[{HoldForm[CoonsPatch::corners], HoldForm[General::stop]}]"
+"bot fit corner values: ""\"the AAA fit of this edge is not finite across the interval the transfinite map and the corner checks evaluate (a pole of the rational approximant lies inside it)\"[-1]"" ""\"the AAA fit of this edge is not finite across the interval the transfinite map and the corner checks evaluate (a pole of the rational approximant lies inside it)\"[1]"
+"lef fit corner values: ""\"the AAA fit of this edge is not finite across the interval the transfinite map and the corner checks evaluate (a pole of the rational approximant lies inside it)\"[-1]"" ""\"the AAA fit of this edge is not finite across the interval the transfinite map and the corner checks evaluate (a pole of the rational approximant lies inside it)\"[1]"
+"analytic bot[-1]=""{-1, -1.}"" bot[1]=""{1, -1.}"" lef[-1]=""{-1., -1}"" lef[1]=""{-1., 1}"
+"CP[ed] Q="True" closure="0."  new msgs="0
+"tsX head="List" Length="65
+"fsX head="List" Length="65" finiteQ="True" first=""-1.00025"" last=""1.00025"
+"Check sample head="Check" Length="3" val=""Check[N[Table[N[bot[t][[1]], 16], {t, tsX}], MachinePrecision], \"TAG\", seAAAFatalMsgs]"
+"seAAAFatalMsgs = ""seAAAFatalMsgs"" head="Symbol" len="0
+"cA=""\"TA\""" cB=""Check[Message[IterationLimit::itlim], \"TB\", seAAAFatalMsgs]"" cC=""\"TC\""" cD=""\"TD\""
+"seAAAFitCoord cX1=""\"OK\""" cX2=""\"<fit assoc>\""
+"fitX status=""Converged"" type=""{1, 1}"" relerr=""1.019762463258548*^-15"
+"fitY status=""Converged"" type=""{8, 8}"" relerr=""5.124106267500722*^-16"
+"fitX eval on grid: finiteQ="True" first=""-1.00025"" last=""1.00025"
+"fitY eval on grid: finiteQ="True" first=""-0.9998821902785182"" last=""-0.9998821902785183"
+"seAAAFitFn[0.3]=""{0.3000000000000009, -1.2673019572565105}"" fnP[-1]=""{-1., -1.}"" fnP[1]=""{0.9999999999999999, -1.0000000000000002}"
+"Module-captured [0.3]=""{0.3000000000000009, -1.2673019572565105}"" [-1]=""{-1., -1.}"
+"seAAAFitEdge[bot]: tag=""TAG-FAIL"" value=""\"the AAA fit of this edge is not finite across the interval the transfinite map and the corner checks evaluate (a pole of the rational approximant lies inside it)\""
+"seAAAFitEdges: tag=""TAG-OK"" nEdges="0
+"   edge1[0.3]=""{}[[1]][0.3]"" edge1[-1]=""{}[[1]][-1]"
+"CP[ed,AAA] Q="CPQ[$Failed]" method="$Failed[["Method"]]" closure="$Failed[["CornerClosure"]]" mincross="$Failed[["CornerConsistency"]]["MinTangentCross"]
+"P4 OK"

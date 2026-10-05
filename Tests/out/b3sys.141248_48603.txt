@@ -1,0 +1,8 @@
+Row[{"=== (1) Dot::dotsh in ISOLATION ==="}]
+Row[{"  SparseArray[IdentityMatrix[3]] . {1,2,3} = ", {1, 2, 3}, "   messages = ", {}}]
+Row[{"  SparseArray[Band[{1,1}]->v] . {1,1,1} = ", {1., 2., 3.}, "   messages = ", {}}]
+Row[{"  same via spaced Dot: Head = ", Dot, "; max = ", "NOT A VECTOR", "; messages = ", {}}]
+Row[{""}]
+Row[{"=== (2) System[\"Matrix\"] on a ONE-PATCH domain ==="}]
+Row[{"  RowCount = ", 49, "  UnknownCount = ", 49}]
+Row[{"  Dimensions[System[\"Matrix\"]] = ", {2}}]

@@ -1,0 +1,30 @@
+"=== w2probe START ==="
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 1. syntax state NOW ---"
+"  ""Kernel/SpectralElement.wl""  SyntaxQ="False"  bytes="Quantity[5.828, "Kilobytes"]"  mtime=""ERR"
+"  ""Kernel/AAA.wl""  SyntaxQ="False"  bytes="Quantity[19.381, "Kilobytes"]"  mtime=""ERR"
+"  ""Kernel/Geometry.wl""  SyntaxQ="False"  bytes="Quantity[13.075000000000001, "Kilobytes"]"  mtime=""ERR"
+"  ""Kernel/Discretization.wl""  SyntaxQ="False"  bytes="Quantity[34.046, "Kilobytes"]"  mtime=""ERR"
+"  ""Kernel/Solve.wl""  SyntaxQ="False"  bytes="Quantity[63., "Bytes"]"  mtime=""ERR"
+"  ""PacletInfo.wl""  SyntaxQ="False"  bytes="Quantity[1.917, "Kilobytes"]"  mtime=""ERR"
+"  ""Kernel/init.m""  SyntaxQ="False"  bytes="Quantity[1.649, "Kilobytes"]"  mtime=""ERR"
+"  ""Tests/loadprobe.wl""  SyntaxQ="False"  bytes="Quantity[9.21, "Kilobytes"]"  mtime=""ERR"
+"  ""Tests/aaaprobe.wl""  SyntaxQ="False"  bytes="Quantity[21.734, "Kilobytes"]"  mtime=""ERR"
+"  ""Tests/synprobe.wl""  SyntaxQ="False"  bytes="Quantity[0.931, "Kilobytes"]"  mtime=""ERR"
+"  ""README.md""  SyntaxQ="False"  bytes="Quantity[4.031, "Kilobytes"]"  mtime=""ERR"
+"  ""API.md""  SyntaxQ="False"  bytes="Quantity[27.366, "Kilobytes"]"  mtime=""ERR"
+"  "".gitignore""  SyntaxQ="False"  bytes="Quantity[0.627, "Kilobytes"]"  mtime=""ERR"
+"--- 2. paclet directories ---"
+"$BasePacletsDirectory=""/Library/Wolfram/Paclets""  Protected?="ProtectedQ["/Library/Wolfram/Paclets"]
+"$UserBasePacletsDirectory=""/Users/huyan00/Library/Wolfram/Paclets""  Protected?="ProtectedQ["/Users/huyan00/Library/Wolfram/Paclets"]
+"$UserBasePacletsDirectory exists="True
+"  contents="DirectoryNames[FileName[1], FileName["/Users/huyan00/Library/Wolfram/Paclets"]]
+"--- 3. FunctionRepository application ---"
+"path="FileNameJoin[{$InstallationBaseDirectory, "Applications", "FunctionRepository", "FunctionRepository.wl"}]"  exists="False
+"Applications dir listing (Function*)=""ERR"
+"Needs[FunctionRepository`]=""NEEDS-RAISED"
+"Names[FunctionRepository`*] (first 40)=""ERR"
+"ResourceFunction in Global?="False
+"--- 4. category symbols anywhere ---"
+"Names[\"System`*Categor*\"]=""ERR"
+"--- 5. SeeAlso candidates ---"

@@ -1,0 +1,39 @@
+"lines="174
+"msgs="24
+"  msg["1"] first 30 chars=""DownValues counts (a symbol wi""  startsWith CoonsPatch::edges -> "False
+"  msg["2"] first 30 chars=""CoonsPatch::edges: CoonsPatch[""  startsWith CoonsPatch::edges -> "True
+"  msg["3"] first 30 chars=""CoonsPatch::corners: CoonsPatc""  startsWith CoonsPatch::edges -> "False
+"  msg["4"] first 30 chars=""CoonsPatch::method: CoonsPatch""  startsWith CoonsPatch::edges -> "False
+"  msg["5"] first 30 chars=""SpectralDomain::key: SpectralD""  startsWith CoonsPatch::edges -> "False
+"  msg["6"] first 30 chars=""SpectralDomain::nreg: Spectral""  startsWith CoonsPatch::edges -> "False
+"  msg["7"] first 30 chars=""lines containing \"::\"=6""  startsWith CoonsPatch::edges -> "False
+"  msg["8"] first 30 chars=""    DownValues counts (a symbo""  startsWith CoonsPatch::edges -> "False
+"  msg["9"] first 30 chars=""    CoonsPatch::edges: CoonsPa""  startsWith CoonsPatch::edges -> "False
+"  msg["10"] first 30 chars=""    CoonsPatch::corners: Coons""  startsWith CoonsPatch::edges -> "False
+"  msg["11"] first 30 chars=""    CoonsPatch::method: CoonsP""  startsWith CoonsPatch::edges -> "False
+"  msg["12"] first 30 chars=""    SpectralDomain::key: Spect""  startsWith CoonsPatch::edges -> "False
+"  msg["13"] first 30 chars=""    SpectralDomain::nreg: Spec""  startsWith CoonsPatch::edges -> "False
+"  msg["14"] first 30 chars=""   CoonsPatch::edges -> False""  startsWith CoonsPatch::edges -> "False
+"  msg["15"] first 30 chars=""   CoonsPatch::corners -> Fals""  startsWith CoonsPatch::edges -> "False
+"  msg["16"] first 30 chars=""   CoonsPatch::method -> False""  startsWith CoonsPatch::edges -> "False
+"  msg["17"] first 30 chars=""   SpectralDomain::key -> Fals""  startsWith CoonsPatch::edges -> "False
+"  msg["18"] first 30 chars=""   SpectralDomain::nreg -> Fal""  startsWith CoonsPatch::edges -> "False
+"  msg["19"] first 30 chars=""  CoonsPatch::edges was the me""  startsWith CoonsPatch::edges -> "False
+"  msg["20"] first 30 chars=""  CoonsPatch::corners was the ""  startsWith CoonsPatch::edges -> "False
+"  msg["21"] first 30 chars=""  CoonsPatch::method was the m""  startsWith CoonsPatch::edges -> "False
+"  msg["22"] first 30 chars=""  SpectralDomain::key was the ""  startsWith CoonsPatch::edges -> "False
+"  msg["23"] first 30 chars=""  SpectralDomain::nreg was the""  startsWith CoonsPatch::edges -> "False
+"  msg["24"] first 30 chars=""If::argb: If called with 5 arg""  startsWith CoonsPatch::edges -> "False
+"saw1 (MemberQ + pure fn)  -> "False
+"saw2 (MemberQ, prefix op) -> "False
+"saw3 (AnyTrue)            -> "True
+"saw4 (Count + predicate) -> "0
+"--- is the problem that the pattern function sees the WRONG argument? ---"
+"direct: "False
+"--- and with a longer prefix ---"
+"prefix 'CoonsPatch::' -> "False
+"--- is there a hidden character? ---"
+"   msg["1"] chars: "{"D", "o", "w", "n", "V", "a", "l", "u", "e", "s", " ", "c", "o", "u", "n", "t", "s", " ", "(", "a", " ", "s", "y", "m", "b", "o", "l", " ", "w", "i", "t", "h", " ", "o", "n", "l", "y", " ", ":", ":",..TRUNC
+"   msg["2"] chars: "{"C", "o", "o", "n", "s", "P", "a", "t", "c", "h", ":", ":", "e", "d", "g", "e", "s", ":", " ", "C", "o", "o", "n", "s", "P", "a", "t", "c", "h", "[", "{", "b", "o", "t", "t", "o", "m", ",", " ", "t",..TRUNC
+"   msg["3"] chars: "{"C", "o", "o", "n", "s", "P", "a", "t", "c", "h", ":", ":", "c", "o", "r", "n", "e", "r", "s", ":", " ", "C", "o", "o", "n", "s", "P", "a", "t", "c", "h", ":", " ", "t", "h", "e", " ", "f", "o", "u",..TRUNC
+"=== q6probe DONE ==="

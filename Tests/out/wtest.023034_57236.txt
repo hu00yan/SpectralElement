@@ -1,0 +1,12 @@
+"Attributes[e] = {}"
+"Attributes[E] = {Constant, Protected, ReadProtected}"
+"N[Exp[1]] = 2.718281828459045"
+"Attributes[w] = {}"
+"Attributes[wn] = {}"
+"DownValues[wn] = {}"
+"call wn"
+StringJoin["tag2 = ", ToString[3.5, 8]]
+StringJoin["tag3 = ", ToString[{1., 2.}, 8]]
+"DownValues[wn] after = {HoldPattern[wn[tag_, e_]] :> ww[StringJoin[tag, \" = \", ToString[N[e], 8]]]}"
+"named w test"
+2

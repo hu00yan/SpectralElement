@@ -1,0 +1,32 @@
+"=== q4probe START ==="
+"--- 1. a message from a plain local function ---"
+"Check[Bad, \"RAISED\"] -> ""RAISED"
+"Check[Good, \"RAISED\"] -> "42
+"Check[Bad, {name}] -> "{"SpectralElement`CoonsPatch::qprobe"}
+"Check[Bad, name] -> ""qprobe message text"
+"Quiet[Check[Bad, name]] -> ""qprobe message text"
+"Check with a Function handler -> "(sf["   handler saw: ", #1]; $Marker) & 
+"Check with a Function handler, clean expr -> "42
+"--- 2. $MessageList / $MessageName based detection ---"
+"Block[{$MessageList = {}}] and read it back: ""N/A"
+"--- 3. the SAME test against the INSTALLED package functions ---"
+"installed=""/Users/huyan00/Library/Wolfram/Paclets/Repository/SpectralElement"
+"Check[CoonsPatch[3 edges], \"RAISED\"] -> ""RAISED"
+"Check[..., {::edges}] -> "{"SpectralElement`CoonsPatch::edges"}
+"Check[..., ::edges symbol] -> ""CoonsPatch[{bottom, top, left, right}] wants FOUR pure functions of one variable returning {x, y}: bottom and top take xi in [-1,1] (bottom sits at eta = -1, top at eta = +1), left and right take eta in [-1,1] (left sits at xi = -1, right at xi = +1)."
+"Check with Function handler -> "(sf["   handler saw: ", #1]; $Marker) & 
+"Quiet[Check[..., ::edges]] -> ""CoonsPatch[{bottom, top, left, right}] wants FOUR pure functions of one variable returning {x, y}: bottom and top take xi in [-1,1] (bottom sits at eta = -1, top at eta = +1), left and right take eta in [-1,1] (left sits at xi = -1, right at xi = +1)."
+"--- 4. the detector that DOES work: read the messages off stdout ---"
+"  $MessageList is not populated under wolframscript (see line above).""  The reliable detector is the stdout read-back already used by""  Tests/loadprobe.wl and by installprobe section 9."
+"--- 5. Sum[nInt] on the one-patch case ---"
+"UnknownCount as returned="Sum[SpectralElement`Private`nInt$14001]
+"RowCount as returned="49
+"Sum[{49}]=""RAISED"
+"Sum[{}]=""RAISED"
+"Total[{49}]="49
+"  => Sum of a LIST with one argument is not a sum: it needs""     Sum[f, {i, n}].  Total[list] is the sum of a list."
+"UnknownCount is numeric="False"  RowCount is numeric="True
+"Matrix dimensions from the object="{2}
+"--- 6. cleanup ---"
+"cleaned="True
+"=== q4probe DONE ==="

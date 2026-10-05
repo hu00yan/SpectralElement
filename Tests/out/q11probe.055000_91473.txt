@@ -1,0 +1,65 @@
+"================ PACLET READINESS AUDIT ================"
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 1. PacletObject round trip: every field present? ---"
+"   "PacletObject[<|"Name" -> "SpectralElement", "Version" -> "0.1.0", "WolframVersion" -> "13.0+", "Creator" -> "SpectralElement contributors", "Description" -> "Spectral multi-domain (spectral-element) solvers for PDEs on arbitrary curved 2D domains.", ..TRUNC" -> ""?"
+"   ""Name"" present="False
+"   ""Version"" present="False
+"   ""Creator"" present="False
+"   ""Description"" present="False
+"   ""WolframVersion"" present="False
+"   ""Category"" present="False
+"   ""Categories"" present="False
+"   ""Keywords"" present="False
+"   ""License"" present="False
+"   ""URL"" present="False
+"   ""Extensions"" present="False
+"   ""PublisherID"" present="False
+"   ""MathVersion"" present="False
+"   ""Documentation"" present="False
+"--- 2. does the paclet install cleanly from a .paclet archive? ---"
+"PacletInstall[archive]=""ok"
+"PacletFind count="1
+"installed at=""/Users/huyan00/Library/Wolfram/Paclets/Repository/SpectralElement"
+"Needs="Null
+"public symbols="8
+"=== BUT: is the SHIPPED paclet polluted by the dev tree? ==="
+"--- 3. what the .paclet archive actually contains ---"
+"CreateArchive[{dir}, file] entry names="DirectoryNames["/Users/huyan00/mycode/SpectralElement/.agent-scratch/audit.paclet"]
+"top-level entries of the INSTALLED tree:"
+"   ""/Users/huyan00/Library/Wolfram/Paclets/Repository/SpectralElement"
+"--- 4. dev-only trees that would ship ---"
+"   ""Tests""  entries="1"  bytes=""ERR"
+"   ""build""  entries="1"  bytes=""ERR"
+"   ""wfr""  entries="1"  bytes=""ERR"
+"   "".agent-scratch""  entries="1"  bytes=""ERR"
+"   "".git""  entries="1"  bytes=""ERR"
+"   ""docs""  entries="1"  bytes=""ERR"
+"   ""Examples""  entries="1"  bytes=""ERR"
+"  (.agent-scratch is git-ignored but CreateArchive does NOT respect""   .gitignore, so a local archive would ship every scratch file too)"
+"--- 5. is there an exclusion mechanism? ---"
+"Options[PacletObject]="{}
+"Options[CreateArchive]="{Authentication -> Automatic, CompressionLevel -> Automatic, ConnectionSettings -> <|"MaxUploadSpeed" -> Automatic, "MaxDownloadSpeed" -> Automatic, "Decompress" -> Automatic|>, CookieFunction -> Automatic, CreateIntermediateDirectories -> True, Foll..TRUNC
+"=> there is NO PacletInfo field for excluding directories.  The paclet""   that ships is whatever is on disk at build time, so Tests/, build/,""   wfr/ and .agent-scratch/ must be REMOVED (or built from a clean""   staging copy) before CreateArchive."
+"Is there a Paclet build/exclude facility?  Names matching *Exclude*="{"ExcludedContexts", "ExcludedForms", "ExcludedLines", "ExcludedPhysicalQuantities", "ExcludePods"}
+"Names matching *IgnoreFile*="{"DiffIgnore", "IgnoreCase", "IgnoreDiacritics", "IgnoreIsotopes", "IgnorePunctuation", "IgnoreSpellCheck", "IgnoreStereochemistry", "$IgnoreEOF"}
+"PacletDirectoryLoad Options (no exclusion there either)="{}
+"--- 6. metadata fields the Paclet Repository may want ---"
+"Creator=""SpectralElement contributors""   <- generic; the Repository wants a real name"
+"WolframVersion=""13.0+""   <- is that a valid field? keys are "Keys[PacletObject[<|"Name" -> "SpectralElement", "Version" -> "0.1.0", "WolframVersion" -> "13.0+", "Creator" -> "SpectralElement contributors", "Description" -> "Spectral multi-domain (spectral-element) solvers for PDEs on arbitrary curved 2D domain..TRUNC
+"URL=""https://github.com/spectralelement/SpectralElement""   <- a placeholder github org/repo that does not exist"
+"License=""MIT""   (custom field, not a built-in Paclet field)"
+"Category="{"Developer Tools", "Mathematics"}"   <- singular key; the Repository uses Categories"
+"PublisherID absent="True"  (needed for submissions)"
+"--- 7. README / LICENSE ---"
+"LICENSE exists="True"  bytes="Quantity[1.085, "Kilobytes"]
+"README bytes="4017
+"README has an Install section="True
+"README documents PacletInstall="False
+"README documents the Function Repository bundle="False
+"README documents build/bundle.sh="False
+"README documents Tests/installprobe.wl="False
+"=> README (owned by agent E) still documents ONLY PacletDirectoryLoad:""   neither the .paclet-archive install route nor the WFR bundle."
+"--- 8. cleanup ---"
+"removed the audit install: dir gone="True"  archive gone="True
+"PacletFind now="0
+"================ DONE-q11probe ================"

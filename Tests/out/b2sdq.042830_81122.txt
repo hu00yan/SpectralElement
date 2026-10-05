@@ -1,0 +1,8 @@
+"ops head = List  Length = 1"
+"status = {{\"Boundary\", \"Boundary\", \"Boundary\", \"Boundary\"}}"
+"cls1 head = List"
+"Count interior = 49"
+"Count interior = 49"
+"sys head = Association"
+"sys UnknownCount = Sum[nInt$7120]"
+"DONE"

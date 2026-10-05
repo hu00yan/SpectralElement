@@ -1,0 +1,144 @@
+LOAD  loader                            /Users/huyan00/mycode/SpectralElement/Kernel/SpectralElement.wl
+LOAD  aaazfit context                   SpectralElement`Private`aaazfit
+LOAD  Nodes/Weights aaazfit defined     True
+  === AAA gate run   100406   ===
+  G-A0 SVD / Eigenvalue convention probe
+G-A0  Loewner matrix shape (rows x cols)  25  x  6
+G-A0  residual  A == U.D.ConjT[V]         1.2868474955721462*^-13     -log10   12.89047291832941
+G-A0  residual  A == U.D.T[V] (wrong)    173.64188174804644     -log10   -2.239654483618889
+G-A0  GATE convention is ConjT          True
+G-A0  singular values sorted DECREASING  {77.97352365346472, 0., 0., 0., 0., 0.} >= {-7.797352365346473*^-12, 0., 0., 0., 0., 0.} + {{0., 22.931598882682174, 0., 0., 0., 0.}, {0., 0., 6.566417891541...TRUNC
+G-A0  s[[Ordering[s][[1]]]] == Min[s]     {0., 0., 0., 0., 0., 0.}
+G-A0  ||A.w|| / sigma_min (must be ~1)   ComplexInfinity*Norm[{{12.683940437658958 + 24.817397656070256*I, 26.113117088222804 + 18.892443851487144*I, 28.572706039151075 + 4.164923584852106*I, 22.179...TRUNC
+G-A0  Eigenvalues[Hermitian] ascending   False
+G-A0  ev[[Ordering[[1]]]] == Min[ev]      0.
+G-A0  |w_svd - w_eig| phase aligned      {Abs[((-0.2292625227085324 + 0.*I)*Conjugate[{{-0.36965190059623776 - 3.7322928168566463*^-19*I, -0.4547693378789085 - 3.013136567872613*^-20*I, 0.4821659917...TRUNC     -log10   non-numeric
+G-A0  GATE SVD agrees with eigen route   {Abs[((-0.2292625227085324 + 0.*I)*Conjugate[{{-0.36965190059623776 - 3.7322928168566463*^-19*I, -0.4547693378789085 - 3.013136567872613*^-20*I, 0.4821659917...TRUNC
+  G-A1 rational recovery  f(z) = 1/(z-0.7) + 2/(z+1.3)
+G-A1  sample points                     504   (  500   real equispaced in [-2,2] + 4 complex, all EXACT rational input)
+G-A1  association keys returned           {"Converged", "Error", "History", "Iterations", "MMax", "Nodes", "Poles", "PolyDen", "PolyNum", "RelError", "RelHistory", "Residues", "SampleCount", "Samples...TRUNC
+G-A1  Message (if any)                    -
+G-A1  Status                            Converged
+G-A1  support points m                  3     type   {2, 2}
+G-A1  GATE m <= 4 (function is degree 1)  True
+G-A1  scale max|f| over samples         768.1916572369889
+G-A1  abs error                         8.242296385952534*^-13     -log10   12.08395177267125
+G-A1  rel error                         1.0729479171380491*^-15     -log10   14.969421358973964
+G-A1  support points                    {-1.3026052104208417, 0.7014028056112225, -1.3186372745490982}
+G-A1  max |w_j| (normalisation)         0.9999999999999999
+G-A1  poles from denominator            {1.4285714285714284 - 5.129959966578708*^-21*I, -0.7692307692307689 - 3.1215472025744147*^-24*I}
+G-A1  |pole - 0.7|                      0.7285714285714284     -log10   0.13752786391632055
+G-A1  |pole + 1.3|                      0.5307692307692311     -log10   0.27509426156958117
+G-A1  residues                          {(-1.3605442176870433 + 3.2110069461136154*^-18*I)/aaahorner[{-0.5999999999999999 + 3.40440811337669*^-19*I}*{1., 2.}, 1.4285714285714284 - 5.129959966578708...TRUNC
+G-A1  |residue - 1|                     Min[Abs[-1. + (0.7889546351084586 - 4.415163698245111*^-19*I)/aaahorner[{-0.5999999999999999 + 3.40440811337669*^-19*I}*{1., 2.}, -0.7692307692307689 - 3.121...TRUNC     -log10   non-numeric
+G-A1  |residue - 2|                     Min[Abs[-2. + (0.7889546351084586 - 4.415163698245111*^-19*I)/aaahorner[{-0.5999999999999999 + 3.40440811337669*^-19*I}*{1., 2.}, -0.7692307692307689 - 3.121...TRUNC     -log10   non-numeric
+G-A1  GATE pole error <= 1e-10          False
+G-A1  GATE residue error <= 1e-10       Min[Abs[-1. + (0.7889546351084586 - 4.415163698245111*^-19*I)/aaahorner[{-0.5999999999999999 + 3.40440811337669*^-19*I}*{1., 2.}, -0.7692307692307689 - 3.121...TRUNC
+G-A1  OFF-sample |r(z)-f(z)| max        Max[Abs[(3.1133538624374344 + 2.7255677972917582*I) + Total[{{-1.3513052048015939 - 1.3401836176848396*I, -0.4107332508901517 - 0.06393196691893917*I, -1.350...TRUNC     -log10   non-numeric
+G-A1  GATE off-sample error <= 1e-10    Max[Abs[(3.1133538624374344 + 2.7255677972917582*I) + Total[{{-1.3513052048015939 - 1.3401836176848396*I, -0.4107332508901517 - 0.06393196691893917*I, -1.350...TRUNC
+  G-A2 exp(x) on [-1,1], N=2000 equispaced real samples
+G-A2  sample points / scale max|f|      2000   /   2.7182818284590446
+G-A2  m=  5    absErr   3.259675862565814*^-10    relErr   1.199167734720751*^-10    -log10(absErr)   9.486825583397657    nodesInFit   5
+G-A2  m=  10    absErr   6.661338147750939*^-14    relErr   2.4505693552486267*^-14    -log10(absErr)   13.176438519807359    nodesInFit   10
+G-A2  m=  15    absErr   9.769962616701378*^-15    relErr   3.594168387697986*^-15    -log10(absErr)   14.010107098040834    nodesInFit   15
+G-A2  m=  20    absErr   8.260059303211165*^-14    relErr   3.038706000508297*^-14    -log10(absErr)   13.083016834645123    nodesInFit   20
+G-A2  m=  30    absErr   1.978417429882029*^-13    relErr   7.278190985088421*^-14    -log10(absErr)   12.703682070490148    nodesInFit   30
+G-A2  m=30 OFF-sample (4001 pts)        Max[Abs[-2.716923027273421 + Total[{{-2000.0000000011084, 0.5001250312578145, 3.9900159780279623, 1.0515515382557763, 0.7016495785100774, 0.5972511805719778,...TRUNC     -log10   non-numeric
+G-A2  tol=1e-13 -> m* / relErr / status  7   /   4.901138710497254*^-16   /   Converged
+G-A2  smallest m with relErr <= 1e-6   4
+G-A2  smallest m with relErr <= 1e-8   5
+G-A2  smallest m with relErr <= 1e-10  6
+G-A2  smallest m with relErr <= 1e-12  6
+G-A2  smallest m with relErr <= 1e-13  7
+G-A2  REF chebfun.org/examples/approx/AAAApprox.html states aaa(@exp)
+G-A2  REF reaches 13 digits relative on [-1,1] but publishes NO node count.
+  G-R2 published reproduction: exp(z) at 100 roots of unity
+G-R2  REF Nakatsukasa-Sete-Trefethen 'The first five years of the AAA
+G-R2  algorithm' p.1 -- degree 7, max deviation on unit disk 2.81e-15
+G-R2  measured degree (REF 7)           7     m =   8
+G-R2  max |r-exp| over unit disk        Max[Abs[-2.685131215635467 + Total[{{-81.49691346263307, 0.5018280849337948 - 0.3212343627416625*I, 0.4990664624259896 + 0.5741341168630005*I, 0.488977276212...TRUNC     -log10   non-numeric     (REF 2.81e-15)
+G-R2  GATE degree <= 9                  True
+  G-A3 Runge 1/(1+25x^2) on [-1,1], N=2000, tol=1e-13
+G-A3  Status                            Converged
+G-A3  support points m                  3     type   {2, 2}
+G-A3  scale max|f|                      0.9999937437844499
+G-A3  abs error                         5.051514762044462*^-15     -log10   14.29657837353389
+G-A3  rel error                         5.051546365607386*^-15     -log10   14.296575656485501
+G-A3  rel history, first 8              {0.9615382209132811, 99.9922995697121, 5.051546365607386*^-15}
+G-A3  OFF-sample (4001 pts) absErr      Max[Abs[-0.9999937500390623 + Total[{{-3.998000001461651*^6, 0.9995002498750625, -24.377900134755343}}*{-0.9765539519335205, 1., 0.978517203155466}]^(-1)], A...TRUNC     -log10   non-numeric
+G-A3  GATE machine precision <= 1e-14   True
+G-A3  GATE off-sample <= 1e-13          Max[Abs[-0.9999937500390623 + Total[{{-3.998000001461651*^6, 0.9995002498750625, -24.377900134755343}}*{-0.9765539519335205, 1., 0.978517203155466}]^(-1)], A...TRUNC
+  G-A4 amoeba curve z(t)=(1+0.4cos(3t))e^{it}, t in [0,2pi), 1000 samples
+G-A4  Status                            Converged
+G-A4  support points m                  2     type   {1, 1}
+G-A4  scale max|z|                      1.4
+G-A4  max fit abs error                 2.5255560688247735*^-14     -log10   13.597642985452596
+G-A4  max fit rel error                 1.803968620589124*^-14     -log10   13.743771021130836
+G-A4  GATE abs error <= 1e-12           True
+G-A4  OFF-sample abs error (4001 pts)   Max[Abs[(-1.3999938345943839 + 0.002198557341369468*I) + Total[{{-1.2755064061922003 + 454.84014320170104*I, 0.36702558403832963 - 0.16363089910612594*I}}*{1...TRUNC     -log10   non-numeric
+G-A4  max |dz/dt| scale                 1.6015592671024088
+G-A4  DERIV max abs error               2.233988085571733     -log10   -0.34908085258252236
+G-A4  DERIV max rel error               3.5259972999172926     -log10   -0.5472819753962387
+G-A4  GATE DERIV abs error <= 1e-10     False
+G-A4  GATE DERIV rel error <= 1e-10     False
+G-A4  DERIV AT THE   2   NODES abs error    44.54085087717264     -log10   -1.648758509234418
+G-A4  DERIV AT THE NODES rel error      1.0495651088885893     -log10   -0.021009384846924967
+G-A4  GATE node-derivative <= 1e-10     False
+G-A4  number of poles                   1
+G-A4  pole moduli (sorted)              {4.5936015946166365*^-15}
+G-A4  min dist pole to any node         1.3390711744340316
+  G-A5 degree-30 Chebyshev interpolant in t on the same curve
+G-A5  Chebyshev degree 30 -> coeffs     31     sampled max abs error   Max[0., Abs[(-1.4 + 0.*I) + {1.3999593537833726 - 0.0056449629984959135*I, 1.3967228348536505 - 0.050622382509577186*I, 1.3750877838843973 - 0.13836996236404...TRUNC     -log10   non-numeric
+G-A5  AAA on same curve -> coeffs       2     sampled max abs error   2.5255560688247735*^-14     -log10   13.597642985452596
+G-A5  error ratio AAA / Chebyshev30    2.5255560688247735*^-14/Max[0., Abs[(-1.4 + 0.*I) + {1.3999593537833726 - 0.0056449629984959135*I, 1.3967228348536505 - 0.050622382509577186*I, 1.37508778388...TRUNC
+G-A5  Chebyshev degree   10   (coeffs   11  ) error   Max[0., Abs[(-1.4 + 0.*I) + {1.3974461095581732 - 0.0447012083330345*I, 1.2129059176254318 - 0.35390288041837614*I, 0.5275084349458694 - 0.5087879630768346*I...TRUNC     -log10   non-numeric
+G-A5  Chebyshev degree   20   (coeffs   21  ) error   Max[0., Abs[(-1.4 + 0.*I) + {1.3998070938167924 - 0.012296964048991398*I, 1.3845782548481285 - 0.10928418594668844*I, 1.2871111630909249 - 0.2839960984356922...TRUNC     -log10   non-numeric
+G-A5  Chebyshev degree   30   (coeffs   31  ) error   Max[0., Abs[(-1.4 + 0.*I) + {1.3999593537833726 - 0.0056449629984959135*I, 1.3967228348536505 - 0.050622382509577186*I, 1.3750877838843973 - 0.13836996236404...TRUNC     -log10   non-numeric
+G-A5  Chebyshev degree   40   (coeffs   41  ) error   Max[0., Abs[(-1.4 + 0.*I) + {1.3999867133508426 - 0.003227479394946085*I, 1.3989263066214255 - 0.0290010229444819*I, 1.3917695623454969 - 0.08006620003238026...TRUNC     -log10   non-numeric
+G-A5  Chebyshev degree   50   (coeffs   51  ) error   Max[0., Abs[(-1.4 + 0.*I) + {1.3999944497951688 - 0.0020859869238361276*I, 1.3995510752578477 - 0.018757179263327386*I, 1.3965486630421917 - 0.05194659160687...TRUNC     -log10   non-numeric
+G-A5  Chebyshev degree   60   (coeffs   61  ) error   Max[0., Abs[(-1.4 + 0.*I) + {1.3999972879886755 - 0.0014581537326475672*I, 1.3997805387987878 - 0.013115931334119185*I, 1.3983105369062876 - 0.03636984602201...TRUNC     -log10   non-numeric
+G-A5  Chebyshev degree   80   (coeffs   81  ) error   Max[0., Abs[(-1.4 + 0.*I) + {1.3999991276478527 - 0.0008269967415861227*I, 1.399929376718874 - 0.007440803264030664*I, 1.3994557087964794 - 0.020652850321946...TRUNC     -log10   non-numeric
+G-A5  Chebyshev degree   120   (coeffs   121  ) error   Max[0., Abs[(-1.4 + 0.*I) + {1.3999998248115124 - 0.0003706045805379116*I, 1.3999858129942067 - 0.0033350393516457166*I, 1.3998905853977144 - 0.0092614042895...TRUNC     -log10   non-numeric
+G-A5  Chebyshev degree   200   (coeffs   201  ) error   Max[0., Abs[(-1.4 + 0.*I) + {1.3999999769924372 - 0.0001343053570696723*I, 1.399998136540426 - 0.0012086977076246075*I, 1.3999856238618913 - 0.00335719583217...TRUNC     -log10   non-numeric
+G-A5  Chebyshev at AAA's own count      Max[Abs[(-1.4 + 0.*I) + {0.3808055615367665 - 0.5002550155660929*I, 0.38080556153676665 + 0.5002550155660931*I}[[First[{}]]]], Abs[(-1.3999013075535605 + 0.0...TRUNC
+G-A5  smallest Cheb degree <=1e-6      none up to degree 80
+G-A5  smallest Cheb degree <=1e-12     none up to degree 80
+G-A5  GATE AAA beats degree-30 Cheb     2.5255560688247735*^-14 < Max[0., Abs[(-1.4 + 0.*I) + {1.3999593537833726 - 0.0056449629984959135*I, 1.3967228348536505 - 0.050622382509577186*I, 1.375087783...TRUNC
+G-A5b trig (Laurent) interpolant of the same curve, order d
+G-A5b trig order   5   (coeffs   11  ) error   Null     -log10   non-numeric
+G-A5b trig order   6   (coeffs   13  ) error   Null     -log10   non-numeric
+G-A5b trig order   7   (coeffs   15  ) error   Null     -log10   non-numeric
+G-A5b trig order   8   (coeffs   17  ) error   Null     -log10   non-numeric
+G-A5b trig order   10   (coeffs   21  ) error   Null     -log10   non-numeric
+G-A5b trig order   15   (coeffs   31  ) error   Null     -log10   non-numeric
+  G-R1 published reproduction: tan(pi z/2) on 1000 spiral points
+G-R1  REF AAA paper Fig.3 (arXiv:1612.00337 / AAAfinal.pdf): 12 steps,
+G-R1  REF errors 2.49e+01 4.28e+01 1.71e+01 8.65e-02 1.27e-02 9.91e-04
+G-R1  REF 5.87e-05 1.29e-06 3.57e-08 6.37e-10 1.67e-11 1.30e-13
+G-R1  steps to convergence (REF 12)     9     status   Converged
+G-R1  measured error history            {924.7823016437192, 0.6057900306859695, 0.0007738820751211829, 1.7420676515831437*^-6, 5.601080932126591*^-9, 9.125496288200637*^-10, 4.467060975559893*^-10,...TRUNC
+G-R1  final error (REF 1.30e-13)        4.168848875811816*^-11     -log10   10.379983848119231
+G-R1  GATE steps == 12                  False
+  G-E API hygiene and contract
+G-E  fit keys                          {"Converged", "Error", "History", "Iterations", "MMax", "Nodes", "Poles", "PolyDen", "PolyNum", "RelError", "RelHistory", "Residues", "SampleCount", "Samples...TRUNC
+G-E  Nodes list of numerics             True   length   2
+G-E  Weights list of numerics           True   length   2
+G-E  Values list of numerics            True   length   2
+G-E  History length == Iterations       True
+G-E  Subsampled / SampleCount          False   /   1000
+G-E  aaaeval scalar                     Total[{{-1.5384615384615383 - 2.307692307692308*I, 0.3439130005165323 - 0.21825861467711447*I}}*{1. + 7.449755612793488*^-35*I, -0.9999999999999886 + 9.29936...TRUNC
+G-E  aaaeval list                       Total[{1. + 7.449755612793488*^-35*I, -0.9999999999999886 + 9.299369335145988*^-19*I}*{1.4 + 0.*I, -0.8728517520743589 - 1.015500580551711*I}*{{-0.7692307692...TRUNC
+G-E  list-of-one == scalar              True
+G-E  aaaeval exact input 3/4            Total[{{-1.5384615384615388 + 0.*I, 0.44281058622714764 - 0.2770890235742912*I}}*{1. + 7.449755612793488*^-35*I, -0.9999999999999886 + 9.299369335145988*^-19...TRUNC    head   Power
+G-E  aaaderiv exact input 3/4           -0.16300477677664638 + 0.07282984704053452*I    head   Complex
+G-E  Precision of Nodes[[1]]            MachinePrecision
+G-E  max |r(z_j) - f_j| at nodes        Max[Abs[(0.8728517520743589 + 1.015500580551711*I) + Total[{{-0.3667607477474534 + 0.16386715584120223*I, ComplexInfinity}}*{1. + 7.449755612793488*^-35*I, -...TRUNC
+G-E  GATE node guard <= 1e-15           Max[Abs[(0.8728517520743589 + 1.015500580551711*I) + Total[{{-0.3667607477474534 + 0.16386715584120223*I, ComplexInfinity}}*{1. + 7.449755612793488*^-35*I, -...TRUNC
+G-E  all node derivatives finite        True
+G-E  aaaderiv list shape                2
+G-E  aaamaxabs nested list -> -1        -1
+G-E  reject: too few points             InputError
+G-E  reject: length mismatch            InputError
+G-E  reject: non-numeric samples        InputError
+G-E  reject: all-zero samples           InputError
+G-E  invariant under weight scaling     Abs[-(Total[{1. + 7.449755612793488*^-35*I, -0.9999999999999886 + 9.299369335145988*^-19*I}*{1.4 + 0.*I, -0.8728517520743589 - 1.015500580551711*I}*{{-0.9090...TRUNC

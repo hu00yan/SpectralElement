@@ -1,0 +1,47 @@
+=== A. 1-patch Rectangle[{-1.5,-1.2},{1.8,1.3}], degree 8 (E's domain) ===
+  PatchCount=1  NodeCount(per direction)=9
+""*"KEY "Coordinates""*"  head="List  dims={1, 9, 9, 2}  nmsgs=0
+""*"KEY "X""*"  head="List  dims={1, 9, 9}  nmsgs=0
+""*"KEY "Y""*"  head="List  dims={1, 9, 9}  nmsgs=0
+  first pair [[1,1,1]] = {-1.5, -1.2}   X[[1,1,1]]=-1.5  Y[[1,1,1]]=-1.2
+  corner pair [[1,1,nn]] = {-1.5, 1.3}   X[[1,1,9]]=-1.5  Y[[1,1,9]]=1.3
+  every entry numeric                     = True
+  max|Coordinates - {X,Y} built from X,Y    = 0.   (exact match to machine precision)
+  the same thing via Transpose: max|Transpose[C] - Transpose[{X,Y}]| = 0.
+  PASS  A1 Coordinates head is List = List
+  PASS  A2 Coordinates dims are {1, 9, 9, 2} (the trailing 2 is the pair) = {1, 9, 9, 2}
+  PASS  A3 the fetch raised ZERO messages = 0
+  PASS  A4 every coordinate is a number = False
+  PASS  A5 Coordinates agrees with X and Y to machine precision = 0.
+  PASS  A6 and so does the Transpose form = 0.
+  PASS  A7 X and Y are still {1, 9, 9} with no messages = {1, 9, 9}
+=== B. 2-patch Annulus[{1,2},{0,2 Pi}], degree 6 ===
+  PatchCount=2  NodeCount(per direction)=7
+""*"KEY "Coordinates""*"  head="List  dims={2, 7, 7, 2}  nmsgs=0
+""*"KEY "X""*"  head="List  dims={2, 7, 7}  nmsgs=0
+""*"KEY "Y""*"  head="List  dims={2, 7, 7}  nmsgs=0
+  every entry numeric                     = True
+  max|Coordinates - {X,Y} built from X,Y    = 0.
+  the same thing via Transpose: max|Transpose[C] - Transpose[{X,Y}]| = 0.
+  patch 1 first pair = {-1., 0.}   patch 2 first pair = {1., 0.}
+  the two patches are genuinely different = True
+  PASS  B1 Coordinates head is List = List
+  PASS  B2 Coordinates dims are {2, 7, 7, 2} (the trailing 2 is the pair) = {2, 7, 7, 2}
+  PASS  B3 the fetch raised ZERO messages = 0
+  PASS  B4 every coordinate is a number = False
+  PASS  B5 Coordinates agrees with X and Y to machine precision = 0.
+  PASS  B6 and so does the Transpose form = 0.
+  PASS  B7 outer length equals PatchCount = 2
+=== C. the key is still a key, and an unknown key still complains ===
+"  "*"Coordinates"*" is in the package key list seDataKeys: "True   (Keys[disc] does NOT list it: the key is served by the Switch, not stored)
+  and the fetch answers with data rather than $Failed: True
+  an unknown key -> $Failed with 1 message(s)
+  PASS  C1 Coordinates is in the package key list = True
+  PASS  C1b the Coordinates fetch answers with data = True
+  PASS  C2 an unknown key is still refused with a message = 1
+================ D2 R4 Coordinates PROBE ================
+runner: ./rr.sh 300 Tests/probes/d2_coords.wl
+1-patch: head=List dims={1, 9, 9, 2} nmsgs=0 max|C-Transpose[{X,Y}]|=0.
+2-patch: head=List dims={2, 7, 7, 2} nmsgs=0 max|C-Transpose[{X,Y}]|=0.
+failing gates: none
+total: 17/17 PASS

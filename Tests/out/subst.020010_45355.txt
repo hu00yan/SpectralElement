@@ -1,0 +1,13 @@
+VARIANT A-nothing ==> OK   [zz2 = 1;]
+VARIANT B-b-plain ==> OK   [b = 1;]
+VARIANT C-call-aaabary ==> SYNTAX-FAIL   [q = aaabary(nodes, vals, ws, zl);]
+VARIANT D-exact-original ==> SYNTAX-FAIL   [b = aaabary(nodes, vals, ws, zl);]
+VARIANT E-call-2args ==> SYNTAX-FAIL   [q = aaabary(nodes, vals);]
+VARIANT F-call-4args-other ==> SYNTAX-FAIL   [q = aaabary(nodes, vals, ws, {1});]
+VARIANT G-call-unknown-sym ==> SYNTAX-FAIL   [q = zzzzunknown(nodes, vals, ws, zl);]
+CLOSED-VARIANT J-b-plain ==> SYNTAX-FAIL   [b = 1 ; }]
+CLOSED-VARIANT K-call-aaabary ==> SYNTAX-FAIL   [q = aaabary(nodes, vals, ws, zl) ; }]
+CLOSED-VARIANT L-orig-assign ==> SYNTAX-FAIL   [b = aaabary(nodes, vals, ws, zl) ; }]
+CLOSED-VARIANT M-unknown-sym ==> SYNTAX-FAIL   [q = zzzzunknown(nodes, vals, ws, zl) ; }]
+CLOSED-VARIANT N-partial ==> SYNTAX-FAIL   [b = aaabary(nod ; }]
+SUBST-DONE

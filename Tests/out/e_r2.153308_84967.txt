@@ -1,0 +1,43 @@
+"BLOCK6 sol[0,0] = "0.4546487121705494"   (README quotes 0.4546487121705494)"
+"BLOCK6 messages = "0
+"BLOCK7 messages = "0
+"BLOCK7 Coordinates dims = "{1, 15, 15, 2}
+"BLOCK7 Coordinates[[1, 1, 1]] = "{-1., -1.}"  X[[1,1,1]] = "-1."  Y[[1,1,1]] = "-1.
+"BLOCK7 max |Coordinates - pairs built from X and Y| = "0.
+"BLOCK7 every entry numeric = "True"   scalars = "450"  = 225 pairs"
+""
+"KEY ""PatchCount""  head="Integer"  dims="{}"  nmsgs="0
+"KEY ""Degree""  head="Integer"  dims="{}"  nmsgs="0
+"KEY ""Nodes""  head="List"  dims="{15}"  nmsgs="0
+"KEY ""NodeCount""  head="Integer"  dims="{}"  nmsgs="0
+"KEY ""NodesPerPatch""  head="Integer"  dims="{}"  nmsgs="0
+"KEY ""UnknownCount""  head="Integer"  dims="{}"  nmsgs="0
+"KEY ""RowCount""  head="Integer"  dims="{}"  nmsgs="0
+"KEY ""Patches""  head="List"  dims="{1}"  nmsgs="0
+"KEY ""PatchMap""  head="List"  dims="{1}"  nmsgs="0
+"KEY ""Coordinates""  head="List"  dims="{1, 15, 15, 2}"  nmsgs="0
+"KEY ""X""  head="List"  dims="{1, 15, 15}"  nmsgs="0
+"KEY ""Y""  head="List"  dims="{1, 15, 15}"  nmsgs="0
+"KEY ""Jacobian""  head="List"  dims="{1, 15, 15}"  nmsgs="0
+"KEY ""MinJacobian""  head="List"  dims="{1}"  nmsgs="0
+"KEY ""NonPositiveJacobianCount""  head="List"  dims="{1}"  nmsgs="0
+"KEY ""CornerJacobian""  head="List"  dims="{1, 4}"  nmsgs="0
+"KEY ""FDJacobian""  head="List"  dims="{1}"  nmsgs="0
+"KEY ""InteriorRows""  head="List"  dims="{1, 169}"  nmsgs="0
+"KEY ""InteriorRowCounts""  head="List"  dims="{1}"  nmsgs="0
+"KEY ""NormalOperator""  head="List"  dims="{1, 225, 225}"  nmsgs="0
+"KEY ""InterfacePairs""  head="List"  dims="{0}"  nmsgs="0
+"KEY ""InterfaceCount""  head="Integer"  dims="{}"  nmsgs="0
+"KEY ""EdgeStatus""  head="List"  dims="{1, 4}"  nmsgs="0
+"KEY ""BoundaryEdges""  head="List"  dims="{1, 4}"  nmsgs="0
+"KEY ""BoundaryRows""  head="List"  dims="{1, 56}"  nmsgs="0
+"KEY ""FluxRows""  head="List"  dims="{0}"  nmsgs="0
+"KEY ""Class""  head="List"  dims="{1, 15, 15}"  nmsgs="0
+"KEY ""Selections""  head="List"  dims="{1, 225, 169}"  nmsgs="0
+"KEY ""Lift""  head="List"  dims="{1, 225}"  nmsgs="0
+"KEY ""Method""  head="String"  dims="{}"  nmsgs="0
+"KEY ""InterfaceTolerance""  head="Real"  dims="{}"  nmsgs="0
+"KEY ""CornerTolerance""  head="Real"  dims="{}"  nmsgs="0
+"KEY ""Junctions""  head="Integer"  dims="{}"  nmsgs="0
+"keys with messages = "0"   of "33
+"VERDICT: README blocks 6 and 7 run; all "33" keys clean"

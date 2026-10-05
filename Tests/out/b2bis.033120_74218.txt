@@ -1,0 +1,8 @@
+"minimal -> DownValues=1"
+"full -> DownValues=0"
+"no_m -> DownValues=0"
+"no_q -> DownValues=0"
+"nonames -> DownValues=0"
+"only_inits -> DownValues=0"
+"nodeps -> DownValues=1"
+"DONE"

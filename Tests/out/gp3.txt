@@ -1,0 +1,10 @@
+"messages emitted by a legitimate aaazfit: "9
+"{HoldForm[Power::infy], HoldForm[Power::infy], HoldForm[Infinity::indet], HoldForm[Power::infy], HoldForm[General::stop], HoldForm[Infinity::indet], HoldForm[Infinity::indet], HoldForm[General::stop], HoldForm[Part::partw]}"
+"Check[aaazfit] returns: ""\"TAG\""
+"CoonsPatch AAA on sinusoid bottom returned: ""\"T3\""
+"new messages: ""{}"
+"seAAAFitEdge: ""{\"Fail\", \"edge coordinate 1 could not be fit (the AAA core returned no fit association at all)\", {}}"
+"new messages: ""{}"
+"seAAAFitCoord: ""{\"Fail\", \"edge coordinate 2 could not be fit (the AAA core returned no fit association at all)\"}"
+"new messages: ""{}"
+"P3 OK"

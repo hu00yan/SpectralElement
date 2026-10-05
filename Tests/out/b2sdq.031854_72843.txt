@@ -1,0 +1,6 @@
+"attrs of seAssemble after A = {}"
+"OwnValues after A = {}"
+"eval B result = Symbol"
+"messages = {}"
+"DownValues = 1"
+"DONE"

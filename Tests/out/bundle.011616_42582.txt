@@ -1,0 +1,11 @@
+"================ bundle START ================"
+"root=""/Users/huyan00/mycode/SpectralElement/"
+"loader=""/Users/huyan00/mycode/SpectralElement/Kernel/SpectralElement.wl""  exists="True
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 1. read the loader and find the Get statements ---"
+"loader lines="117"  bytes="0
+"Get statements found="4
+"  line "110" -> Kernel/""Get[FileNameJoin[{DirectoryName[$InputFileName], \"AAA.wl\"}]]"[[1]]"  exists="False
+"  line "111" -> Kernel/""Get[FileNameJoin[{DirectoryName[$InputFileName], \"Geometry.wl\"}]]"[[1]]"  exists="False
+"  line "112" -> Kernel/""Get[FileNameJoin[{DirectoryName[$InputFileName], \"Discretization.wl\"}]]"[[1]]"  exists="False
+"  line "113" -> Kernel/""Get[FileNameJoin[{DirectoryName[$InputFileName], \"Solve.wl\"}]]"[[1]]"  exists="False

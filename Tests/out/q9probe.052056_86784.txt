@@ -1,0 +1,13 @@
+"=== q9probe START ==="
+"Head="TestObject
+"AssociationQ="False
+"number of keys="1
+"  key "1" -> ""TestObject[<|\"MetaInformation\" -> None, \"AbsoluteTime\" -> 4."
+"  "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000051257394615`15.655670541317152*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeConstraint" -> Infinity, "CreationID" -> "a3f5e33a-8..TRUNC" -> ""?"
+"--- which key is the verdict? ---"
+"  "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000051257394615`15.655670541317152*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeConstraint" -> Infinity, "CreationID" -> "a3f5e33a-8..TRUNC" === True -> "False
+"--- and for a FAILING test, for contrast ---"
+"  failing "TestObject[<|"MetaInformation" -> None, "AbsoluteTime" -> 4.000051257445717`15.6556705413227*^9, "SameTest" -> SameQ, "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> Infinity, "TimeConstraint" -> Infinity, "CreationID" -> "9ea4df44-035..TRUNC" -> ""?"
+"--- So the verdict extraction is ---"
+"vtr[test] := Lookup[test, \"REPORTED-KEY\", Indeterminate] === True"
+"=== q9probe DONE ==="

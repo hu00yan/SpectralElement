@@ -1,0 +1,12 @@
+"patch 1 radii = "{1., 1.5}"   patch 2 radii = "{1.5, 2.}"   shared circle r = "1.5
+"degree n                    = "16
+"PatchCount                  = "2
+"InterfacePairs              = "{<|"PatchA" -> 1, "EdgeA" -> "Top", "PatchB" -> 2, "EdgeB" -> "Bottom", "Orientation" -> "Same", "Deviation" -> 0., "Nodes" -> 17, "SharedNodes" -> 15|>}
+"InterfaceCount              = "1
+"FluxRows per patch          = "{16}
+"BoundaryRows per patch      = "{49, 49}
+"InteriorRows per patch      = "{225, 225}
+"UnknownCount                = "465
+"RowCount                    = "465
+"min Jacobian per patch      = "{0.39269908169871526, 0.5890486225480501}
+"2 x 17^2 = "578"  vs UnknownCount = "465

@@ -1,0 +1,12 @@
+"================ geoprobe START ================"
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"loader present="True"   internals in SpectralElement`Private`: "True
+"  ""PASS""  ""G0a public symbols respond"" = ""True"""
+"--- G-B1 corner consistency (+ negative controls) ---"
+"  ""PASS""  ""G-B1a rect CoonsPatchQ"" = ""True"""
+"  ""PASS""  ""G-B1a rect corner closure"" = ""0.""   (target \"<=\" 0.)"
+"  ""PASS""  ""G-B1a rect min |corner cross| (analytic 1)"" = ""1.0000000000012599""   (target \">=\" 1.)"
+"  ""PASS""  ""G-B1a rect non-degenerate flag"" = ""True"""
+"  ""FAIL""  ""G-B1a map reproduces all 4 edges"" = ""2.""   (target \"<=\" 0.)"
+"  ""FAIL""  ""G-B1a corner interpolation"" = ""\"NONNUM\"""   (target \"<=\" 0.)"
+"  ""FAIL""  ""G-B1a affine field exact under the blend"" = ""\"NONNUM\"""   (target \"<=\" 0.)"

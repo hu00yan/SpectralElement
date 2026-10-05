@@ -1,0 +1,5 @@
+"ToExpression whole-file head = Symbol"
+"seAssemble DownValues = 0"
+"sePatchOps DownValues = 1"
+"seBuildDomain DownValues = 1"
+"DONE"

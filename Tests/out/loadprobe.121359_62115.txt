@@ -1,0 +1,63 @@
+"================ loadprobe START ================"
+"repo=""/Users/huyan00/mycode/SpectralElement"
+"$Version=""14.3.0 for Mac OS X ARM (64-bit) (July 8, 2025)"
+"--- 0. control: the two traps above, against a throwaway package ---"
+"Context[variable] (HoldFirst trap, WRONG form)= ""Global`"
+"Context /@ {symbol} (correct form)= "{"ZZCtrl`"}
+"ValueQ of a usage-only symbol= "False
+"OwnValues of a usage-only symbol= "{}
+"--- 1. PacletInfo round-trip: PacletObject[File[dir]] ---"
+"Name=""SpectralElement"
+"Version=""0.1.0"
+"WolframVersion=""13.0+"
+"License (custom field)=""MIT"
+"Creator=""TODO-USER"
+"Description=""Spectral multi-domain (spectral-element) solvers for PDEs on arbitrary curved 2D domains."
+"Context="{"SpectralElement`"}
+"Extensions="{{"Kernel", "Root" -> "Kernel", "Context" -> {"SpectralElement`"}}}
+"Location=""/Users/huyan00/mycode/SpectralElement"
+"PacletFind before load: ""NOT-REGISTERED-YET"
+"--- 2. the load path under test ---"
+"before: on $ContextPath= "False
+"PacletDirectoryLoad returned="{"/Users/huyan00/mycode/SpectralElement"}
+"PacletFind after load= ""SpectralElement"
+"registered version= ""0.1.0"
+"on $ContextPath, before Needs= "False
+"Needs returned="Null"   (Null = success, $Failed = not found)"
+"on $ContextPath, after Needs= "True
+"position of SpectralElement` on $ContextPath (len "5")= "1
+"FindFile=""/Users/huyan00/mycode/SpectralElement/Kernel/SpectralElement.wl"
+"contexts containing 'SpectralElement'= "{"SpectralElement`", "SpectralElement`Private`"}
+"messages seen in this run's stdout:""none"
+"--- 3. $Context and Names ---"
+"$Context=""Global`"
+"Length[Names[SpectralElement`*]]="8
+"Names="{"CoonsPatch", "CoonsPatchMap", "CoonsPatchQ", "SpectralDomain", "SpectralDomainData", "SpectralDomainQ", "SpectralNDSolve", "SpectralNDSolveValue"}
+"--- 4. per symbol: SymbolName and Context (Context /@ , see trap 1) ---"
+"  Context /@ pub ="{"SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`", "SpectralElement`"}
+"  SymbolName /@ pub ="{"CoonsPatch", "CoonsPatchQ", "CoonsPatchMap", "SpectralDomain", "SpectralDomainQ", "SpectralDomainData", "SpectralNDSolve", "SpectralNDSolveValue"}
+"  evaluation check (usage-only symbols evaluate to themselves):"
+"    SpectralElement`CoonsPatchQ[1, 2] -> "CoonsPatchQ[1, 2]
+"  all eight in SpectralElement`= "True
+"--- 5. Kernel/init.m is inert once the package is loaded ---"
+"Get[Kernel/init.m]= "Null"   (Null = inert no-op)"
+"public symbol count unchanged= "8
+"--- 6. verdict ---"
+"  ""PacletDirectoryLoad registered the paclet"" -> "True
+"  ""Needs did not return $Failed"" -> "True
+"  ""context on $ContextPath"" -> "True
+"  ""FindFile resolves to Kernel/SpectralElement.wl"" -> "True
+"  ""no public symbol missing"" -> "True
+"  ""all eight in context SpectralElement`"" -> "True
+"  ""Kernel/init.m inert"" -> "True
+"missing=""NONE"
+"unexpected extras=""NONE"
+"WARNING: an extra public symbol is not a failure.  Every symbol in"
+"  Names[SpectralElement`*] must be declared with a ::usage message in"
+"  Kernel/SpectralElement.wl and documented in API.md section 4; if one"
+"  is not, its owner must add it to both.  Bare symbols written by a"
+"  subfile land in SpectralElement`Private and never show up here."
+"VERDICT=""PASS"
+"NOTE: messages raised during the load are echoed above with their file"
+"      and line; they belong to the subfile owners and do not affect it."
+"================ DONE-loadprobe ================"

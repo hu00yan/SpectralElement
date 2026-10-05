@@ -1,0 +1,12 @@
+"  ""PASS""  ""G0a loader defines SpectralNDSolve"" = ""1."StringJoin["   (target >= ", 1., ")"]
+"  ""PASS""  ""G0b loader defines SpectralNDSolveValue"" = ""1."StringJoin["   (target >= ", 1., ")"]
+"  ""PASS""  ""G0c SpectralNDSolve::nlnum has text"" = ""141."StringJoin["   (target >= ", 20., ")"]
+"  ""PASS""  ""G0d SpectralNDSolve::ncond has text"" = ""113."StringJoin["   (target >= ", 20., ")"]
+"  ""PASS""  ""G0e loading raised no message"" = ""0."StringJoin["   (target == ", 0., ")"]
+"=== P1 LINEAR on Rectangle (region shorthand) ==="
+"  ""P1-LIN-RECT-n16""  t="3.81"  nodalErr="2.49"  res="2.39"  method=""Linear""  opc="-1."  msgs=""none"
+"  ""FAIL""  ""G2 operator sign: -Laplacian+u^3 assembles with opc = -1"" = ""-1."StringJoin["   (target == ", -1., ")"]
+"  ""PASS""  ""G3 method dispatch: linear equation -> LinearSolve"" = ""\"Linear\""""
+"  ""FAIL""  ""G1 SpectralNDSolve returns {{u -> Function}}"" = ""False"StringJoin["   (target == ", 1., ")"]
+"  ""PASS""  ""G1b G0a-G0e style: loading was clean, so the solver is usable"" = ""6."StringJoin["   (target >= ", 5., ")"]
+"=== P2 NONLINEAR on Rectangle ==="

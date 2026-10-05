@@ -1,0 +1,23 @@
+"=== w10probe START ==="
+"--- 1. StringJoin with an explicit separator ---"
+"  StringJoin of three strings: newlines="1"  chars="12
+"  text=""onetwothree<NL>"
+"--- 2. a real file ---"
+"  AAA newlines="388"  split lines="389
+"  all split parts strings="True
+"  rejoin newlines="1"  chars="19911"  (orig chars="20298")"
+"--- 3. Export/Import round trip of the rejoined text ---"
+"  .txt  Export newlines="1"  chars="19911
+"  .wl   Export newlines="1"  chars="19911
+"  .wl   read-back == original="True
+"  .wl   with CharacterEncoding, file bytes="Quantity[19.911, "Kilobytes"]
+"  .wl   with CharacterEncoding, newlines="1"  chars="19911
+"--- 4. OpenWrite/WriteString: the other way to write a text file ---"
+"  OpenWrite file bytes="Quantity[19.911, "Kilobytes"]
+"  OpenWrite read-back == original="True"  newlines="1
+"--- 5. what did the ACTUAL bundle file look like ---"
+"  bundle newlines="9"  chars="76231"  file bytes="Quantity[76.231, "Kilobytes"]
+"  contains 'BeginPackage'="True" at char "{2221, 2232}
+"  contains 'aaazfit'="True" at char "{17608, 17614}
+"--- 6. cleanup ---"
+"=== w10probe DONE ==="

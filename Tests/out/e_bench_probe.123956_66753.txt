@@ -1,0 +1,19 @@
+  PASS  G0a loader defines SpectralNDSolve = 1.   (target >= 1.)
+  PASS  G0b loader defines SpectralNDSolveValue = 1.   (target >= 1.)
+  PASS  G0c SpectralNDSolve::nlnum has text = 141.   (target >= 20.)
+  PASS  G0d SpectralNDSolve::ncond has text = 113.   (target >= 20.)
+  PASS  G0e loading raised no message = 0.   (target == 0.)
+=== P1 LINEAR on Rectangle (region shorthand) ===
+  P1-LIN-RECT-n16  t=0.077268  nodalErr=4.47  res=2.16  method=Linear  public={{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[SpectralElement`Private`qy$]], Indeterminate, Module[{SpectralElement`Private`ax$, SpectralElement`Private`ay$, SpectralElement`Private`k$, SpectralElement`Private  opc=-1.  msgs=none
+  PASS  G2 operator sign: -Laplacian+u^3 assembles with opc = -1 = -1.   (target == -1.)
+  PASS  G3 method dispatch: linear equation -> LinearSolve = "Linear"
+  PASS  G1 SpectralNDSolve returns {{u -> Function}} = True
+  PASS  G1c that Rule is u -> fn = True
+  PASS  G1b G0a-G0e style: loading was clean, so the solver is usable = 9.   (target >= 5.)
+=== E BISECT ===
+F1 second identical solve, same kernel, my own helper names = 1.4157500265508414
+F2 and bench's own P1 Err                = 4.4654946407263196*^-11
+F3 the two problems print the same?       = {"             (0,2)          (2,0)                                                                      x y                                                  -8                         -8                        -8                         -8\nInputForm[{-u     [x, y] - u     [x, y] == 13 Cos[1 - 3 y]..TRUNC
+F4 boundary predicates identical?         = False
+F5 exactNodal1 vs exactNodal2 max diff    = 0.
+=== E BISECT DONE ===

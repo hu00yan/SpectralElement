@@ -1,0 +1,4 @@
+"seAssemble DownValues = 0"
+"Rect head = Association"
+"SDQ = False"
+"c1 AssociationQ = True"

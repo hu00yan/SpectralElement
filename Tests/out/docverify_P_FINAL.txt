@@ -1,0 +1,140 @@
+repo=/Users/huyan00/mycode/SpectralElement
+needs=Null
+== Definition / geometry ==
+  ok    CoonsPatch[edges]
+        -> Association  <|"Type" -> "CoonsPatch", "Edges" -> {Function[t, {2*t, -1}], Function[t, {2*t, 1}], Function[t, {-2, t}], Function[t, {2, t}]}, "Corners" -
+  ok    CornerClosure (doc: 0. exactly)
+        -> Real  0.
+  ok    Method tag (doc: Analytic)
+        -> String  "Analytic"
+  ok    CoonsPatchMap[patch, 0.3, -0.5] (doc: {0.5999999999999999, -0.5})
+        -> List  {0.5999999999999999, -0.5}
+  ok    CoonsPatchMap[patch, -1., -1.] (doc: {-2., -1.})
+        -> List  {-2., -1.}
+  ok    corner Max[Abs] (doc: 0.)
+        -> Real  0.
+  ok    interior Max[Abs] (doc: < 1e-14)
+        -> Real  1.1102230246251565*^-16
+== discretization ==
+  ok    SpectralDomain[{patch}, 8]
+        -> Association  <|"Type" -> "SpectralDiscretization", "Domain" -> "SpectralElement`", "Degree" -> 8, "NodeCount" -> 9, "Nodes" -> {-1., -0.9238795325112867,
+  ok    PatchCount (doc 1)
+        -> Integer  1
+  ok    Degree (doc 8)
+        -> Integer  8
+  ok    UnknownCount (doc 49)
+        -> Integer  49
+  ok    RowCount (doc 49)
+        -> Integer  49
+  ok    Length[Nodes] (doc 9)
+        -> Integer  9
+  ok    Length[InterfacePairs] (doc 0)
+        -> Integer  0
+  ok    MinJacobian (doc {1.9999999999999882})
+        -> List  {1.9999999999999882}
+  ok    Rectangle PatchCount (doc 1)
+        -> Integer  1
+  ok    Annulus Pi PatchCount (doc 1)
+        -> Integer  1
+
+SpectralDomain::iface: SpectralDomain::iface -- 1; edges matched within InterfaceTolerance but the same pair of patches was matched along two different edges.
+  ok    Annulus 2Pi PatchCount (doc 2)
+        -> Integer  2
+
+SpectralDomain::nreg: SpectralDomain: the region Disk[{0, 0}] is not supported: only a CoonsPatch list, Rectangle or Annulus are supported
+  ok    SpectralDomain[Disk[], 6] (doc $Failed) (correct answer is $Failed)
+        -> Symbol  $Failed
+
+SpectralDomain::key: SpectralDomainData: NoSuchKey is not a key of a SpectralDiscretization.  Known keys: {"PatchCount", "Degree", "Nodes", "NodeCount", "NodesPerPatch", "UnknownCount", "RowCount", "Patches", "PatchMap", "Coordinates", "X", "Y", "Jacobian", "MinJacobian", "NonPositiveJacobianCount", "CornerJacobian", "FDJacobian", "Laplacian", "InteriorRows", "InteriorRowCounts", "NormalOperator", "Inte.
+  ok    SpectralDomainData[disc, "NoSuchKey"] (doc $Failed) (correct answer is $Failed)
+        -> Symbol  $Failed
+== AAA ==
+  ok    CoonsPatch[edges, Method -> "AAA"]
+        -> Association  <|"Type" -> "CoonsPatch", "Edges" -> {Function[{SpectralElement`Private`tt$}, {SpectralElement`Private`aaaeval[<|"Status" -> "Converged", "N
+  ok    aaa Method tag (doc: AAA)
+        -> String  "AAA"
+  ok    CoonsPatchQ[aaa] (doc True)
+        -> Symbol  True
+  ok    CoonsPatchQ[patch] (doc True)
+        -> Symbol  True
+  ok    aaa Samples (doc 65)
+        -> Integer  65
+  ok    aaa CornerClosure (doc 2.22e-16)
+        -> Real  2.220446049250313*^-16
+  ok    aaa first edge fit X (doc: 2-point, ~1e-15)
+        -> Association  <|"Status" -> "Converged", "Type" -> {1, 1}, "RelError" -> 1.019762463258548*^-15, "SupportSize" -> 2, "Support" -> {1.00025, -1.00025}|>
+
+CoonsPatch::method: CoonsPatch: Method -> NoSuchMethod cannot produce a patch. Reason: unrecognised method name. The two implemented methods are "Analytic", which evaluates the four edge curves exactly, and "AAA", which samples each edge on an equispaced grid and fits it with the AAA rational core. An unrecognised method name, an edge that does not sample to a finite real numeric vector, and an AAA fit that fails or is not finite on its own sample interval are all REJECTIONS: the patch is refused rather than silently downgraded to "Analytic", because a fallback would pass off a bad boundary as a good one.
+  ok    CoonsPatch[edges, Method -> "NoSuchMethod"] (doc $Failed) (correct answer is $Failed)
+        -> Symbol  $Failed
+
+CoonsPatch::edges: CoonsPatch[{bottom, top, left, right}] wants FOUR pure functions of one variable returning {x, y}: bottom and top take xi in [-1,1] (bottom sits at eta = -1, top at eta = +1), left and right take eta in [-1,1] (left sits at xi = -1, right at xi = +1).
+  ok    CoonsPatch[Take[edges, 3]] (doc $Failed) (correct answer is $Failed)
+        -> Symbol  $Failed
+
+                                                                                                                                  -12
+CoonsPatch::corners: CoonsPatch: the four edges do not close at the corners: max corner mismatch = 0.5 exceeds the tolerance 1. 10   . The transfinite (Coons) map needs exactly closing edges.
+  ok    CoonsPatch non-closing (doc $Failed, mismatch 0.5) (correct answer is $Failed)
+        -> Symbol  $Failed
+== solver, degree 16 ==
+  ok    SpectralNDSolve[eqLin, ..., 16] (doc: {{u -> Function}})
+        -> List  {{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[Spe
+  ok    MatchQ[sol, {{u -> _Function}}]
+        -> Symbol  True
+  ok    {uf[-0.5, 0.3], N[uexz[-0.5, 0.3]]}  <-- the doc quotes this PAIR
+        -> List  {-0.02999999999604433, -0.03}
+  ok    five-point errors at degree 16  <-- the doc quotes this NUMBER
+        -> Real  2.7444280181754266*^-10
+  ok    SpectralNDSolve[eqNl, ..., 16] (Newton)
+        -> List  {{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[Spe
+  ok    Newton step norms (doc quotes 1.39, 0.059, 7.1e-4, 1.2e-7, 4.1e-15)
+        -> List  {1.3901856145602998, 0.05936846235455953, 0.0007124357869786121, 1.1716958224295765*^-7, 4.053547543959682*^-15}
+  ok    Newton iterations (doc 5)
+        -> Integer  5
+  ok    SpectralNDSolveValue[eqLin, ..., 16] head is Function
+        -> Symbol  Function
+== annulus ==
+  ok    SpectralNDSolve on Annulus[{1,2},{0,Pi}], 16
+        -> List  {{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[Spe
+  ok    annulus error at three interior points (bench: 7.88e-4 nodal)
+        -> Real  0.0020031934162613174
+== solver, degree 12: the Tests-section gates ==
+  ok    SpectralNDSolve[eqLin, ..., 12]
+        -> List  {{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[Spe
+  ok    degree-12 linear error, three points (doc: < 1e-5)
+        -> Real  1.2541848011249357*^-6
+  ok    SpectralNDSolve[eqNl, ..., 12]
+        -> List  {{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[Spe
+  ok    degree-12 nonlinear error, five points (doc: ~1.25e-6)
+        -> Real  1.2506850232130162*^-6
+
+                                                                                                                               -13                                              -13
+SpectralNDSolve::nlnum: SpectralNDSolve: Newton did not converge -- 1 iteration(s) run, last step norm 1.35281 (tolerance 1. 10   ), last residual norm 2.47574 (tolerance 1. 10   ).
+  ok    MaxIterations -> 1 (doc $Failed) (correct answer is $Failed)
+        -> Symbol  $Failed
+
+SpectralNDSolve::method: SpectralNDSolve: Method -> NoSuchMethod is unknown; use "Automatic", "Newton" or "Linear".
+  ok    Method -> "NoSuchMethod" (doc $Failed) (correct answer is $Failed)
+        -> Symbol  $Failed
+  ok    Method -> "Newton" accepted
+        -> List  {{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[Spe
+  ok    Method -> "Newton" MINUS Automatic (doc: 0.)
+        -> Real  0.
+  ok    SpectralDomain[rect, 12] reused as-is
+        -> Association  <|"Type" -> "SpectralDiscretization", "Domain" -> "SpectralElement`", "Degree" -> 12, "NodeCount" -> 13, "Nodes" -> {-1., -0.965925826289068
+  ok    SpectralNDSolve on the pre-built discretization
+        -> List  {{u -> Function[{SpectralElement`Private`qx$, SpectralElement`Private`qy$}, If[ !TrueQ[NumericQ[SpectralElement`Private`qx$] && NumericQ[Spe
+  ok    reused-discretization MINUS from-scratch (doc: 0.)
+        -> Real  0.
+== bundle integrity ==
+  ok    Import[wfr/SpectralNDSolve.wl, "Text"]
+        -> String  "(* ::Package:: *)\n\n(* ====================================================================\n   GENERATED FILE -- DO NOT EDIT.\n   \n   Th
+  ok    SyntaxQ[bundleText] (doc True)
+        -> Symbol  True
+  ok    StringFreeQ[bundleText, escaped dollar] (doc True)
+        -> Symbol  True
+  ok    StringFreeQ[bundleText, bare dollar] (doc False)
+        -> Symbol  False
+================================================
+doc examples ok=55  failed=0
+DOCVERIFY-ALL-PASS
