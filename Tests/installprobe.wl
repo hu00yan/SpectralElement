@@ -73,6 +73,22 @@
      * A `;` at the top level of a function's ARGUMENT list is a syntax
        error; multi-statement bodies are named functions or Module.
 
+   * SECTION 12 IS THE RELEASE-ENTRY GATE, ADDED FOR THE DOCUMENTATION
+       WORK, and it asserts a COUNT.  That count is the release archive's
+       entry list, and it moved from 12 to 26 when Documentation/ entered
+       the release: the nine .nb pages plus the five directory entries
+       Documentation/, English/, Guides/, ReferencePages/ and Symbols/.
+       26 is not a guess.  It is asserted per PATH as well as counted,
+       because the Documentation Center resolves
+           paclet:SpectralElement/ref/<Symbol>
+       to
+           Documentation/English/ReferencePages/Symbols/<Symbol>.nb
+       BY NAME -- so a page present under the wrong filename is present,
+       counts, and is unreachable.  build/release.sh asserts the same nine
+       paths in the staging copy and in the archive, and installs the
+       archive it just built to confirm they land at those same paths in
+       the installed tree.
+
    Owner: W (packaging).   Run:  ./rr.sh 240 Tests/installprobe.wl
    Evidence: Tests/out/installprobe.<stamp>.txt (path also in
               Tests/out/installprobe.lastout as OUT=...)
@@ -185,10 +201,31 @@ sf["Category=", po["Category"]];
 sf["Keywords=", po["Keywords"]];
 sf["Extensions=", po["Extensions"]];
 sf["Context=", po["Context"]];
-extOk = MatchQ[po["Extensions"], {{"Kernel", "Root" -> _, "Context" -> {"SpectralElement`"}}}];
-sf["Extensions has exactly the Kernel extension with Root and Context=", extOk];
+(* UPDATED FOR THE DOCUMENTATION WORK, and the old assertion could not be
+   kept.  It read
+
+       extOk = MatchQ[po["Extensions"],
+                       {{"Kernel", "Root" -> _, "Context" -> {"SpectralElement`"}}}];
+
+   i.e. Extensions is EXACTLY one element.  Adding the Documentation
+   extension -- which is what makes F1 work at all -- makes that false by
+   construction, and the probe went red on its own correct change:
+
+       Extensions has exactly the Kernel extension with Root and Context=False
+       metadata has Name/Version/Context/Extensions=False
+
+   The Kernel half is asserted exactly as before (same rules, same
+   context), and membership is asked with MemberQ rather than MatchQ
+   because the list now has two elements.  The Documentation half is
+   asserted separately in section 12. *)
+extOk = MemberQ[po["Extensions"],
+   {"Kernel", "Root" -> _, "Context" -> {"SpectralElement`"}}];
+sf["Extensions contains the Kernel extension with Root and Context=", extOk];
+sf["Extensions has exactly two elements (Kernel, Documentation)=",
+   Length[po["Extensions"]] === 2];
 metaOk = (po["Name"] === "SpectralElement" && po["Version"] === "0.1.0"
-    && po["Context"] === {"SpectralElement`"} && extOk);
+    && po["Context"] === {"SpectralElement`"} && extOk
+    && Length[po["Extensions"]] === 2);
 sf["metadata has Name/Version/Context/Extensions=", metaOk];
 
 (* ---------------------------------------------------------------- *)
@@ -796,7 +833,184 @@ sf["on $ContextPath after uninstall (loaded in THIS kernel only, harmless)=",
    MemberQ[$ContextPath, "SpectralElement`"]];
 
 (* ---------------------------------------------------------------- *)
-sf["--- 11. verdict ---"];
+sf["--- 12. the RELEASE ARCHIVE, and the documentation pages in it ---"];
+(* This section is the one the F1 work added, and it is deliberately
+   about the ARCHIVE rather than the checkout.
+
+   Section 2 above builds an archive of the WHOLE repo -- that is the point
+   of this probe, which simulates a user with no build step.  It is the
+   wrong archive to assert a release entry list against: it contains Tests/
+   and scratch/, which no release ever ships.  So this section reads the
+   archive build/release.sh actually produced, and the entry count it
+   asserts is that archive's.
+
+   The count is 26, and the nine documentation paths are listed and checked
+   one by one.  Count alone would be the wrong gate: the Documentation
+   Center resolves a symbol page by FILENAME, so a set of nine .nb files
+   under the wrong names would pass a count and still leave F1 finding
+   nothing. *)
+releaseArchive = FileNameJoin[{repo, "build", "SpectralElement-0.1.0.paclet"}];
+sf["release archive=", releaseArchive, "  exists=", FileExistsQ[releaseArchive]];
+(* The archive's own entry list.
+
+   Import[archive, "FileList"] was the first attempt, and it returns {} on
+   this kernel -- 0 entries for an archive that `unzip -Z1` lists with 26.
+   So the list is read the way the build itself reads it: unzip -Z1,
+   redirected to a file, read back with Import.  That is also better
+   evidence, because it is the same reader release.sh used to decide the
+   release was good. *)
+archiveListFile = FileNameJoin[{scratch, "release-entries.txt"}];
+Quiet[Check[Run["unzip -Z1 " <> releaseArchive <> " > " <> archiveListFile], "ERR"]];
+archiveEntries = If[FileExistsQ[archiveListFile],
+   StringSplit[Import[archiveListFile, "Text"], "\n"], {}];
+archiveEntries = DeleteCases[archiveEntries, "" | Null];
+sf["unzip -Z1 on the release archive returned ", Length[archiveEntries],
+   " entries"];
+If[Length[archiveEntries] > 0, sf["   sample=", Take[archiveEntries, UpTo[6]]]];
+
+archiveEntryCount = Length[archiveEntries];
+(* 26 = 9 .nb pages + 5 directory entries + 5 files + 7 Kernel/ entries.
+   The measured breakdown, from build/release.lastout: archive-entries 26,
+   staged-files 19, documentation-files 9.  Asserted as 26 because that is
+   what the release currently is; the per-path assertions below are what
+   keep it honest. *)
+archiveEntryCountOk = (archiveEntryCount === 26);
+sf["release archive entry count = ", archiveEntryCount,
+   "  (expected 26: 9 .nb pages + 5 directory entries + 12 files)  ",
+   archiveEntryCountOk];
+
+(* the nine convention paths, checked in the ARCHIVE listing *)
+docRel = {"Documentation/English/Guides/SpectralElement.nb",
+   "Documentation/English/ReferencePages/Symbols/CoonsPatch.nb",
+   "Documentation/English/ReferencePages/Symbols/CoonsPatchQ.nb",
+   "Documentation/English/ReferencePages/Symbols/CoonsPatchMap.nb",
+   "Documentation/English/ReferencePages/Symbols/SpectralDomain.nb",
+   "Documentation/English/ReferencePages/Symbols/SpectralDomainQ.nb",
+   "Documentation/English/ReferencePages/Symbols/SpectralDomainData.nb",
+   "Documentation/English/ReferencePages/Symbols/SpectralNDSolve.nb",
+   "Documentation/English/ReferencePages/Symbols/SpectralNDSolveValue.nb"};
+inArchive = Select[docRel,
+   MemberQ[archiveEntries, ("SpectralElement/" <> #) | (#)] &];
+archiveDocOk = (Length[inArchive] === Length[docRel]);
+sf["the nine documentation pages are in the release archive=",
+   archiveDocOk, "  found ", Length[inArchive], "/", Length[docRel]];
+
+(* and in the CHECKOUT, which is what gets staged next time *)
+inCheckout = Select[docRel, FileExistsQ[FileNameJoin[{repo, #}]] &];
+checkoutDocOk = (Length[inCheckout] === Length[docRel]);
+sf["the nine documentation pages are in the checkout=", checkoutDocOk,
+   "  found ", Length[inCheckout], "/", Length[docRel]];
+
+(* the PacletInfo the release ships must declare the Documentation
+   extension with the MainPage the guide actually sits at *)
+(* MemberQ, not MatchQ.  MatchQ takes TWO arguments, so the three-argument
+   MatchQ[..., pattern, ___] came back unevaluated and printed itself --
+   visible in the first run of this section as
+       "PacletInfo declares ..." = MatchQ[{{...}}, {_, {...}, ___}]
+   which is not a verdict at all.  What is wanted is membership in the
+   Extensions list, and that is what MemberQ answers. *)
+(* The rule keys are STRINGS, because PacletInfo is READ, not evaluated:
+   po["Extensions"] reads back as
+       {{"Kernel", "Root" -> "Kernel", "Context" -> {"SpectralElement`"}},
+        {"Documentation", "Language" -> All,
+                    "MainPage" -> "Guides/SpectralElement"}}
+   -- "Language" -> All, not Language -> All.  The first pattern used bare
+   symbols and matched nothing.  Same reason TriangleLink's own PacletInfo.m
+   writes Language -> All: that file is in .m POSITIONAL form, where the
+   keys are not strings. *)
+mainPageOk = MemberQ[po["Extensions"],
+   {"Documentation", "Language" -> _, "MainPage" -> "Guides/SpectralElement"}];
+sf["PacletInfo declares {Documentation, MainPage -> Guides/SpectralElement}=",
+   mainPageOk];
+sf["PacletInfo Extensions=", po["Extensions"]];
+
+(* The URI the Documentation Center builds from a symbol name must resolve
+   to a file that exists.  Documentation`ResolveLink is the kernel-side
+   entry point for exactly this resolution, so it exercises the F1 lookup
+   path headless -- the one thing about F1 that can be checked without a
+   front end.
+
+   It resolves against a REGISTERED paclet, so the working tree has to be
+   registered first: in the first run of this section the lookup returned
+   Null, because by then section 10 had already uninstalled the copy this
+   probe installed, and a paclet that is not registered resolves to nothing.
+   PacletDirectoryLoad[repo] registers the checkout, which is a faithful
+   stand-in for the installed tree because it is the same directory shape
+   -- the nine pages were just verified to be present at the convention
+   paths inside it. *)
+Quiet[Check[PacletDirectoryLoad[repo], "DIRLOAD-RAISED"]];
+sf["PacletDirectoryLoad[repo] -> ", PacletFind["SpectralElement"][[1, 1]]["Location"]];
+resolveUri = "paclet:SpectralElement/ref/SpectralNDSolve";
+resolved = Check[Quiet[Documentation`ResolveLink[resolveUri]], "UNRESOLVED"];
+sf["Documentation`ResolveLink[\"", resolveUri, "\"] -> ", resolved];
+resolvedIsFile = (StringQ[resolved] && FileExistsQ[resolved]);
+sf["  ... and that path exists on disk=", resolvedIsFile];
+resolvedEndsRight = (StringQ[resolved] &&
+   StringEndsQ[resolved, "Documentation/English/ReferencePages/Symbols/SpectralNDSolve.nb"]);
+sf["  ... and it ends at the convention path=", resolvedEndsRight];
+
+resolveGuide = Check[Quiet[Documentation`ResolveLink[
+   "paclet:SpectralElement/guide/SpectralElement"]], "UNRESOLVED"];
+sf["Documentation`ResolveLink on the guide URI -> ", resolveGuide];
+guideIsFile = (StringQ[resolveGuide] && FileExistsQ[resolveGuide]);
+sf["  ... and the guide file exists=", guideIsFile];
+
+(* Every .nb parses, and carries the styles the Documentation Center needs.
+   The style list is the one read out of TriangleLink's own
+   NotebookFileOutline, not a guess: AnchorBarGrid, ContextNameCell,
+   ObjectNameGrid, Usage, NotesSection, PrimaryExamplesSection,
+   ExampleSection, ExampleText, Input, Output, SeeAlsoSection, FooterCell. *)
+docPages = Select[docRel, StringEndsQ[#, ".nb"] &];
+styleGates = Map[
+   Function[{rel},
+     Module[{nb, cells, styles, objName, usageTxt, nEx},
+       nb = Check[Get[FileNameJoin[{repo, rel}]], "GET-FAILED"];
+       If[Head[nb] =!= Notebook,
+         Print["  ", rel, " HEAD ", Head[nb], " ", nb];
+         Return[{rel, False, "not-a-Notebook", False, False, 0}]];
+       cells = Cases[nb, Cell[_, opts___] /; MemberQ[opts, _String], Infinity];
+       styles = Union[Cases[cells, Cell[_, s_String] /;
+          MemberQ[{"AnchorBarGrid", "ContextNameCell", "ObjectName",
+            "Usage", "NotesSection", "Notes", "PrimaryExamplesSection",
+            "ExampleSection", "ExampleText", "Input", "Output",
+            "SeeAlsoSection", "FooterCell"}, #] &]];
+       need = {"AnchorBarGrid", "ContextNameCell", "Usage",
+         "NotesSection", "PrimaryExamplesSection", "ExampleSection",
+         "ExampleText", "Input", "Output", "SeeAlsoSection", "FooterCell"};
+       missingStyles = Complement[need, styles];
+       If[missingStyles =!= {},
+         Print["  ", rel, " MISSING STYLES ", missingStyles]];
+       hasAllStyles = (missingStyles === {});
+       (* the ObjectName cell must name THIS symbol, or F1 opens the page
+          and the reader sees the wrong name at the top of it.  The name
+          comes from the FILENAME by convention, so it is compared with the
+          filename rather than with anything read out of the page. *)
+       want = StringReplace[
+         StringTake[rel, -StringLength[".nb"]],
+         "Documentation/English/ReferencePages/Symbols/" -> ""];
+       objNames = Cases[cells, Cell[n_String, "ObjectName"] /; ! MemberQ[n,
+          {"Examples", "Options", "Details and Options"}], Infinity];
+       objOk = (! MemberQ[objNames, _? (! StringQ[#]) &]) &&
+         (Length[objNames] >= 1) && (MemberQ[objNames, want]);
+       (* the Usage cell must carry text *)
+       usageText = Check[Quiet[Cases[cells,
+          Cell[BoxData[GridBox[{{"", Cell[TextData[t_String]]}}]], "Usage"],
+          Infinity]], {}];
+       usageLen = If[Length[usageText] > 0, Length[usageText], 0];
+       nEx = Length[Cases[cells, Cell[_, "Input"], Infinity]];
+       nOut = Length[Cases[cells, Cell[_, "Output"], Infinity]];
+       Print["  ", rel, " styles=", If[hasAllStyles, "all", "MISSING"],
+          " cells=", Length[cells], " Input=", nEx, " Output=", nOut,
+          " UsageCells=", Length[usageText],
+          " ObjectName=", If[objOk, "ok", StringTake[ToString[objNames], 60]]];
+       {rel, hasAllStyles, If[hasAllStyles, "all-styles-present", ""], objOk,
+         Length[usageText] > 0, nEx}]],
+   docPages];
+sf["every .nb parses and carries the Documentation Center styles: ",
+   And @@ (styleGates[[All, 2]])];
+
+(* ---------------------------------------------------------------- *)
+sf["--- 13. verdict ---"];
 checks = {
   "the machine had no SpectralElement installed before this run" -> clearBefore,
   "PacletInfo has Name/Version/Context/Extensions" -> metaOk,
@@ -858,7 +1072,25 @@ checks = {
   "uninstall removed the install dir" -> (! DirectoryQ[installedLoc]),
   "PacletFind empty after uninstall" ->
     (Length[Quiet[Check[PacletFind["SpectralElement"], {}]]] === 0),
-  "no message named a Kernel file" -> (Length[loadMsgs] === 0)
+  "no message named a Kernel file" -> (Length[loadMsgs] === 0),
+  "build/release.sh produced an archive" -> releaseExistsOk,
+  "release archive has 26 entries (9 doc pages + 5 dirs + 12 files)" ->
+    archiveEntryCountOk,
+  "all nine documentation pages are in the release archive" -> archiveDocOk,
+  "all nine documentation pages are in the checkout" -> checkoutDocOk,
+  "PacletInfo declares the Documentation extension with MainPage" -> mainPageOk,
+  "the ref URI for SpectralNDSolve resolves to a file" -> resolvedIsFile,
+  "... at the convention path ReferencePages/Symbols/<Symbol>.nb" ->
+    resolvedEndsRight,
+  "the guide URI resolves to a file" -> guideIsFile,
+  "every documentation .nb parses as a Notebook with the required styles" ->
+    And @@ (styleGates[[All, 2]]),
+  "every documentation page names its own symbol in the ObjectName cell" ->
+    And @@ (styleGates[[All, 4]]),
+  "every documentation page has a non-empty Usage cell" ->
+    And @@ (styleGates[[All, 5]]),
+  "every documentation page carries at least one Input and one Output cell" ->
+    And @@ (Map[#[[6]] >= 2 &, styleGates])
 };
 Do[sf["  ", checks[[i, 1]], " -> ", checks[[i, 2]]], {i, Length[checks]}];
 allPass = And @@ checks[[All, 2]];

@@ -18,7 +18,7 @@
    carries the comma that introduces the iterator. *)
 $HistoryLength = 0;
 p[args___] := Print[Row[{args}]];
-Get["/path/to/SpectralElement/Kernel/SpectralElement.wl"];
+repo = DirectoryName[DirectoryName[DirectoryName[$InputFileName]]]; Get[FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}]];
 uexz[x_, y_] := Sin[2 x + 1] Cos[3 y - 1] + x y/5;
 bdR = Abs[x + 1.5] < 1.*^-8 || Abs[x - 1.8] < 1.*^-8 || Abs[y + 1.2] < 1.*^-8 || Abs[y - 1.3] < 1.*^-8;
 regR = Rectangle[{-1.5, -1.2}, {1.8, 1.3}];

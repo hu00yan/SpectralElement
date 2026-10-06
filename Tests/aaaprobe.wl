@@ -4,7 +4,7 @@
    Tests/aaaprobe.wl -- acceptance gates for Kernel/AAA.wl
    ---------------------------------------------------------------------
    Run through the repo guard:
-       cd /path/to/SpectralElement && ./r.sh 300 Tests/aaaprobe.wl
+       ./rr.sh 300 Tests/aaaprobe.wl   (from the repo root)
 
    Every number printed below is MEASURED in this run.  The only
    hardcoded quantities are the exact functions under test and the
@@ -29,7 +29,9 @@ $HistoryLength = 0;
    evidence plumbing.  r.sh supplies a UNIQUE $SPECF_OUT; we also keep a
    repo-local copy under Tests/out/ so the evidence lives with the code.
    --------------------------------------------------------------------- *)
-outDir = "/path/to/SpectralElement/Tests/out";
+(* this file lives in Tests/, so the repo root is two levels up from it *)
+repoRoot = DirectoryName[DirectoryName[$InputFileName]];
+outDir = FileNameJoin[{repoRoot, "Tests", "out"}];
 If[!TrueQ[DirectoryQ[outDir]], CreateDirectory[outDir]];
 dl = DateList[];
 p2[x_] := If[TrueQ[NumericQ[x] && IntegerQ[x]], StringPadRight[ToString[IntegerString[x, 10, 2]], 2, "0"], "00"];
@@ -65,7 +67,6 @@ dg[e_] := Module[{v = Quiet[Check[N[e, MachinePrecision], $Failed]]},
    SpectralElement`Private INSIGHT contract is exercised.  The fallback
    reproduces the same INSIGHT context explicitly.
    --------------------------------------------------------------------- *)
-repoRoot = "/path/to/SpectralElement";
 loaderPath = FileNameJoin[{repoRoot, "Kernel", "SpectralElement.wl"}];
 aaaPath = FileNameJoin[{repoRoot, "Kernel", "AAA.wl"}];
 If[FileExistsQ[loaderPath],

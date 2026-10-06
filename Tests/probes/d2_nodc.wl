@@ -41,7 +41,8 @@ sfClose[] := Module[{Close[sfStream]}];
 $pass = 0; $fail = 0; $failNames = {};
 gate[name_, value_, target_, op_String] := Module[{v = value, ok = False, sent = TrueQ[NumericQ[value] && N[value] === -999.]}, ok = Switch[op, "<=", TrueQ[NumericQ[v] && N[v] <= N[target]], "<", TrueQ[NumericQ[v] && N[v] < N[target]], ">=", TrueQ[NumericQ[v] && N[v] >= N[target]], ">", TrueQ[NumericQ[v] && N[v] > N[target]], "==", TrueQ[v === target || v == target], True, False]; If[sent, ok = False]; If[! TrueQ[ok], AppendTo[$failNames, name]; $fail++, $pass++]; sf["  ", If[! TrueQ[ok], "FAIL", "PASS"], "  ", name, " = ", sfSafe[v], If[! TrueQ[ok], "   (want ", op, " ", sfSafe[target], ")"]; ok]];
 
-repo = "/path/to/SpectralElement";
+(* this file lives in Tests/probes/, so the repo root is three levels up *)
+repo = DirectoryName[DirectoryName[DirectoryName[$InputFileName]]];
 Get[FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}]];
 gp = SpectralElement`Private`seGather;
 lp = SpectralElement`Private`seLiftFrom;

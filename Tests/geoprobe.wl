@@ -1,7 +1,7 @@
 (* =====================================================================
    Tests/geoprobe.wl -- Wave-1 GEOMETRY + DISCRETIZATION gate probe.
    Owner: B (Kernel/Geometry.wl, Kernel/Discretization.wl).
-   Run:   cd /path/to/SpectralElement && ./rr.sh 600 Tests/geoprobe.wl
+   Run:   ./rr.sh 600 Tests/geoprobe.wl   (from the repo root)
    Evidence: Tests/out/geoprobe.<stamp>.txt  (path in Tests/out/geoprobe.lastout)
 
    HOW THIS PROBE LOADS THE FILES (loader-independent)
@@ -76,7 +76,8 @@ gate[name_, value_, target_, op_String] := Module[{v = value, ok, sent},
 say[args___] := sf[args];
 
 (* ---------------- load (rationale in the header) --------------------- *)
-repo = "/path/to/SpectralElement";
+(* this file lives in Tests/, so the repo root is two levels up from it *)
+repo = DirectoryName[DirectoryName[$InputFileName]];
 loader = FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}];
 If[FileExistsQ[loader], Get[loader]];
 If[! TrueQ[NameQ["SpectralElement`Private`seCGL"]],

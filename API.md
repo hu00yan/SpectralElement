@@ -177,10 +177,10 @@ These are not style preferences. Each one exists because it cost a run.
    writing evidence to `Tests/out/`.
 
    The specF `r.sh` that was copied to the repo root `cd`s into
-   `/path/to/wl-verify/specF` and resolves both the script
-   path and `$SPECF_OUT` relative to *that* directory. It therefore cannot
-   run a script in this repo without writing into the read-only reference
-   tree. **Do not modify `r.sh`** (other agents depend on it); use `rr.sh`.
+   `wl-verify/specF` and resolves both the script path and `$SPECF_OUT`
+   relative to *that* directory. It therefore cannot run a script in this
+   repo without writing into the read-only reference tree. **Do not modify
+   `r.sh`** (other agents depend on it); use `rr.sh`.
 
 2. **`pgrep -fl WolframKernel` after every run.** If your run was killed by
    the guard, the kernel is gone, but confirm it.
@@ -222,9 +222,9 @@ These are not style preferences. Each one exists because it cost a run.
    to a `Tests/out/*.txt` produced by an `rr.sh` run. If you did not run it,
    do not write it. Mark projections as projections.
 
-7. **Never write to `/path/to/wl-verify/`.** It is the
-   read-only reference implementation (`specF/p11.wl`). Read it, quote it,
-   cite its evidence files; never modify anything under it.
+7. **Never write to `wl-verify/`.** It is the read-only reference
+   implementation (`specF/p11.wl`). Read it, quote it, cite its evidence
+   files; never modify anything under it.
 
 8. **Do not run `git` commands.** The repo is shared by three parallel
    agents; the integrator commits.
@@ -324,8 +324,12 @@ CoonsPatchMap[patch, \[Xi], \[Eta]]
     b0 bottom[\[Xi]] + b1 top[\[Xi]] + a0 left[\[Eta]] + a1 right[\[Eta]]
      - (a0 b0 V1 + a1 b0 V2 + a0 b1 V3 + a1 b1 V4)]
   ```
-  where `V1 = bottom[\[Minus]1]`, `V2 = top[\[Minus]1]`, `V3 = bottom[1]`,
-  `V4 = top[1]` are the four corners. It is exposed as
+  where `V1 = bottom[\[Minus]1]`, `V2 = bottom[1]`, `V3 = top[\[Minus]1]`,
+  `V4 = top[1]` are the four corners, in `(xi, eta)` order
+  `(-1,-1), (1,-1), (-1,1), (1,1)` — so the bilinear weights
+  `a0 b0`, `a1 b0`, `a0 b1`, `a1 b1` above pick up `V1..V4` in that
+  order. (`Kernel/Geometry.wl` `seCorners` / `seTransfinite` is the
+  authority.) It is exposed as
   `SpectralElement`CoonsPatchMap[patch, \[Xi], \[Eta]]`, which **is public**
   and whose usage message lives in `Kernel/SpectralElement.wl` (definition
   owner: B).
@@ -491,7 +495,7 @@ warning at the call site — that is a test failure, not a cosmetic issue.
 ### 4.5 Verified reference numbers (do not restate as our own)
 
 These come from the **reference implementation**,
-`/path/to/wl-verify/specF/p11.wl`, evidence file
+`wl-verify/specF/p11.wl`, evidence file
 `wl-verify/specF/p11.191455_3044.txt`. They establish that the method works;
 they are **not** yet results of this package. When the package reproduces
 them, cite the package's own `Tests/out/*.txt`.

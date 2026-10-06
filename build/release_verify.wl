@@ -26,6 +26,10 @@
        UNKNOWN-COUNT n                    the assembled unknown count
        AFTER-UNINSTALL-FOUND n            0 expected
        INSTALL-DIR-GONE True/False        install directory removed
+       DOC-INSTALLED-FILES n              documentation pages found
+       DOC-INSTALLED-MISSING ...          convention paths that did NOT land
+       DOC-PACLET-INFO-OK True/False      the installed PacletInfo declares
+                                          the Documentation extension
    ===================================================================== *)
 $HistoryLength = 0;
 
@@ -39,6 +43,26 @@ If[! StringQ[arc] || ! StringQ[name],
 If[! FileExistsQ[arc],
    Print["INSTALL-FAILED archive missing: ", arc];
    Quit[1]];
+
+(* PRE-CLEAN.  PacletInstall refuses to replace an already-installed copy of
+   the same version -- PacletInstall::samevers -- and then the code below
+   goes on to measure the copy that was already there, which is the one
+   built by the previous run and has no Documentation/ at all.  That is
+   what produced, on the first run of this gate:
+       INSTALL-FAILED
+       DOC-INSTALLED-FILES 0
+       DOC-INSTALLED-MISSING {all nine}
+   against an archive whose listing ten lines earlier shows all nine.  So
+   the machine is cleared first, and the clear is itself checked, or the
+   measurement is still of the wrong tree.  Only SpectralElement is
+   touched. *)
+pre = Quiet[Check[PacletFind[name], {}]];
+If[Length[pre] > 0,
+  Module[{ploc},
+    ploc = pre[[1, 1]]["Location"];
+    Quiet[Check[PacletUninstall[name], Print]];
+    If[StringQ[ploc] && ploc != "", If[DirectoryQ[ploc], Run["rm -rf " <> ploc]]]]];
+Print["PRE-CLEAN-FOUND ", Length[Quiet[Check[PacletFind[name], {}]]]];
 
 Quiet[Check[PacletInstall[arc], Print["INSTALL-FAILED"]]];
 
@@ -63,6 +87,48 @@ Print["PATCH-OK ", AssociationQ[patch]];
 disc = Quiet[SpectralElement`SpectralDomain[{patch}, 8]];
 Print["DISC-OK ", AssociationQ[disc]];
 Print["UNKNOWN-COUNT ", Quiet[SpectralElement`SpectralDomainData[disc, "UnknownCount"]]];
+
+(* THE DOCUMENTATION TREE, in the INSTALLED copy.  Listing the archive
+   shows the pages were packed; this shows they were UNPACKED to the paths
+   the Documentation Center resolves against.  Those two facts are
+   separate, and only the second one is what F1 depends on.
+
+   The nine paths are spelled out rather than counted, because the
+   resolution is by convention:
+       paclet:SpectralElement/ref/<Symbol>
+         -> Documentation/English/ReferencePages/Symbols/<Symbol>.nb
+       MainPage -> "Guides/SpectralElement"
+         -> Documentation/English/Guides/SpectralElement.nb
+   so a page present under the wrong name or one directory too deep
+   counts as missing, and a bare count would have called that a pass. *)
+docRel = {"Documentation/English/Guides/SpectralElement.nb",
+  "Documentation/English/ReferencePages/Symbols/CoonsPatch.nb",
+  "Documentation/English/ReferencePages/Symbols/CoonsPatchQ.nb",
+  "Documentation/English/ReferencePages/Symbols/CoonsPatchMap.nb",
+  "Documentation/English/ReferencePages/Symbols/SpectralDomain.nb",
+  "Documentation/English/ReferencePages/Symbols/SpectralDomainQ.nb",
+  "Documentation/English/ReferencePages/Symbols/SpectralDomainData.nb",
+  "Documentation/English/ReferencePages/Symbols/SpectralNDSolve.nb",
+  "Documentation/English/ReferencePages/Symbols/SpectralNDSolveValue.nb"};
+
+docFound = Select[docRel, FileExistsQ[FileNameJoin[{loc, #}]] &];
+docMissing = Complement[docRel, docFound];
+Print["DOC-INSTALLED-FILES ", Length[docFound]];
+Print["DOC-INSTALLED-MISSING ", If[docMissing === {}, "NONE", docMissing]];
+
+(* and the installed metadata must actually declare the extension *)
+exts = Quiet[Check[PacletObject[File[loc]]["Extensions"], {}]];
+docExt = Select[exts, MatchQ[#, {"Documentation", __}] &];
+Print["DOC-PACLET-INFO-OK ", Length[docExt] == 1];
+
+(* and the kernel must resolve a symbol page to the installed file.  This
+   is the F1 navigation path, exercised headless: ResolveLink is what the
+   Documentation Center calls on the URI it builds from the symbol name. *)
+resolved = Quiet[Check[Documentation`ResolveLink[
+   "paclet:" <> name <> "/ref/SpectralNDSolve"], "UNRESOLVED"]];
+Print["DOC-RESOLVE-SpectralNDSolve ", resolved];
+Print["DOC-RESOLVE-MATCHES-INSTALLED ",
+  StringQ[resolved] && StringStartsQ[resolved, loc]];
 
 Quiet[Check[PacletUninstall[name], Print]];
 Print["AFTER-UNINSTALL-FOUND ", Length[Quiet[Check[PacletFind[name], {}]]]];

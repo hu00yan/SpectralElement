@@ -34,9 +34,10 @@
         "PublisherID" -> "Wolfram"
         "Creator"     -> "Connor Gray, Theodore Gray, ..."
         "Creator"     -> { ... }
-      Both are declared below as TODO-USER placeholders because they need
-      the submitting user.  THE PLACEHOLDERS MUST BE REPLACED BEFORE
-      SUBMISSION -- see the TODO-USER block below.
+      Both are declared below.  "Creator" is filled with the git author
+      identity on every commit in this repository.  "PublisherID" was
+      removed: it identifies a group submitting on its behalf, and this is an
+      individual repository -- see the submission-values block below.
 
    3. Category vs Categories is genuinely AMBIGUOUS and could not be
       settled offline.  No shipped paclet on this machine uses "Category",
@@ -72,21 +73,18 @@
    package. *)
 
 (* ====================================================================
-   TODO-USER -- MUST BE FILLED BEFORE SUBMISSION.
+   SUBMISSION VALUES.
 
-   Three values below are deliberately the literal string "TODO-USER"
-   rather than invented placeholders.  A plausible-looking fake name or
-   URL is worse than an obvious TODO: it can pass review and reach users.
-   Each needs an answer only the submitting user has.
+   Creator and URL were filled from facts already established for this
+   repository: Creator is the git author identity on both existing commits,
+   and URL is the repository the code actually lives in.
 
-     * Creator     -- the real, attributable author name(s).
-     * PublisherID -- the Wolfram publisher identifier, needed to submit
-                     on behalf of a group.  "Wolfram" is what shipped
-                     first-party paclets use.
-     * URL         -- the real repository URL.  The previous value pointed
-                     at a GitHub organisation that does not exist.
+   PublisherID was removed rather than filled.  It is the Wolfram publisher
+   identifier used when submitting on behalf of a group; this is an
+   individual repository, and a plausible-looking fake identifier is worse
+   than none -- it can pass review and then reach users.
 
-   Search this file for TODO-USER to find them.
+   No placeholder values remain in this file.
    ==================================================================== *)
 
 PacletObject[<|
@@ -96,11 +94,12 @@ PacletObject[<|
     (* Free-text version range; see finding (1) in the header. *)
     "WolframVersion" -> "13.0+",
 
-    (* TODO-USER: replace with the real author name(s).  May be a list. *)
-    "Creator" -> "TODO-USER",
+    (* The git author identity on every commit in this repository. *)
+    "Creator" -> "Tenghu Zhang",
 
-    (* TODO-USER: the submitting user's publisher identifier. *)
-    "PublisherID" -> "TODO-USER",
+    (* No "PublisherID".  That field is for submitting on behalf of a group;
+   this is an individual repository, and a plausible-looking fake identifier
+   is worse than none -- it can pass review and then reach users. *)
 
     "Description" -> "Spectral multi-domain (spectral-element) solvers for PDEs on arbitrary curved 2D domains.",
 
@@ -113,10 +112,58 @@ PacletObject[<|
 
     "License" -> "MIT",
 
-    (* TODO-USER: the real repository URL. *)
-    "URL" -> "TODO-USER",
+    (* The repository this code actually lives in. *)
+    "URL" -> "https://github.com/hu00yan/SpectralElement",
 
+    (* TWO extensions, and both are load-bearing.
+
+       "Kernel" is NOT the default root of a Kernel extension (kept for
+       backward compatibility), so "Root" -> "Kernel" is required when the
+       .wl files live in a Kernel subdirectory.  With this declaration the
+       context "SpectralElement`" resolves straight to
+       Kernel/SpectralElement.wl, so
+
+           PacletDirectoryLoad[dir]; Needs["SpectralElement`"]
+
+       works with no $Path fiddling and no init.m trick.  See API.md.
+
+       "Documentation" is what makes F1 work.  Without it the paclet
+       loads and every symbol is usable, but pressing F1 -- or entering
+       the symbol name at the Documentation Center -- finds nothing,
+       because nothing declares that the paclet ships documentation.
+
+       The three-field form below is the shape Wolfram's own shipped
+       paclets use, verified on this machine against
+
+           ~/Library/Wolfram/Paclets/Repository/TriangleLink-14.3.0/
+             PacletInfo.m
+
+       which declares
+
+           Extensions -> {
+               {"Application", Context -> "TriangleLink`"},
+               {"Documentation", Language -> All,
+                MainPage -> "Guides/TriangleLink"}}
+
+       MainPage is a PACLET-RELATIVE path, not an absolute one, and it
+       must name a file that exists under Documentation/<language>/:
+       here Documentation/English/Guides/SpectralElement.nb.  A wrong
+       path here is the failure that leaves the Documentation Center
+       unable to reach the guide even though the reference pages are all
+       present and individually reachable.
+
+       Language -> All is what the official paclet uses; the alternative
+       Language -> "English" is also valid.  "All" is kept so that the
+       declaration does not have to change when another language is
+       added, and so that a reader without an English localization is
+       pointed at the pages rather than at nothing.
+
+       Spelling note: the key is "Root", capital R -- Kernel's extension
+       key is "Root" while the documentation one is "MainPage", and the
+       two are not interchangeable. *)
     "Extensions" -> {
-        {"Kernel", "Root" -> "Kernel", "Context" -> {"SpectralElement`"}}
+        {"Kernel", "Root" -> "Kernel", "Context" -> {"SpectralElement`"}},
+        {"Documentation", Language -> All,
+         MainPage -> "Guides/SpectralElement"}
     }
 |>]

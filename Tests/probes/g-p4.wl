@@ -1,6 +1,8 @@
 (* scratch probe 4: message-capture semantics + what the AAA branch really returns *)
 $HistoryLength = 0;
-sfLog = FileNameJoin[{"/path/to/SpectralElement", "Tests", "out", "gp4.txt"}];
+(* this file lives in Tests/probes/, so the repo root is three levels up *)
+repo = DirectoryName[DirectoryName[DirectoryName[$InputFileName]]];
+sfLog = FileNameJoin[{repo, "Tests", "out", "gp4.txt"}];
 st = OpenWrite[sfLog];
 sfSafe[e_] := Module[{s = ToString[e, InputForm]}, If[StringLength[s] > 300, StringTake[s, 300] <> "..TRUNC", s]];
 sf[args___] := (WriteString[st, StringJoin[sfSafe /@ {args}] <> "\n"]; Flush[st]; Print[args]);
@@ -27,7 +29,6 @@ sf["after Quiet[Check[Message]]: +", Length[$MessageList] - nq, "  (check fired=
 $MessageList = {};
 sf["after clearing: len=", Length[$MessageList]];
 
-repo = "/path/to/SpectralElement";
 Get[FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}]];
 sf["after Get loader: len=", Length[$MessageList], " names=", sfSafe[cnt[$MessageList]]];
 $ContextPath = Join[{"SpectralElement`", "SpectralElement`Private`", "System`"}, $ContextPath];

@@ -1,11 +1,12 @@
 (* scratch probe 3: which messages does a LEGITIMATE AAA fit emit? *)
 $HistoryLength = 0;
-sfLog = FileNameJoin[{"/path/to/SpectralElement", "Tests", "out", "gp3.txt"}];
+(* this file lives in Tests/probes/, so the repo root is three levels up *)
+repo = DirectoryName[DirectoryName[DirectoryName[$InputFileName]]];
+sfLog = FileNameJoin[{repo, "Tests", "out", "gp3.txt"}];
 st = OpenWrite[sfLog];
 sfSafe[e_] := Module[{s = ToString[e, InputForm]}, If[StringLength[s] > 300, StringTake[s, 300] <> "..TRUNC", s]];
 sf[args___] := (WriteString[st, StringJoin[sfSafe /@ {args}] <> "\n"]; Flush[st]; Print[args]);
 
-repo = "/path/to/SpectralElement";
 Get[FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}]];
 $ContextPath = Join[{"SpectralElement`", "SpectralElement`Private`", "System`"}, $ContextPath];
 

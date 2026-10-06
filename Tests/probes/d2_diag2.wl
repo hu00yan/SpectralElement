@@ -1,7 +1,7 @@
 (* D2 diagnostic 2: literal context spelling vs shorthand PR. *)
 $HistoryLength = 0;
 p[args___] := Print[Row[{args}]];
-Get["/path/to/SpectralElement/Kernel/SpectralElement.wl"];
+repo = DirectoryName[DirectoryName[DirectoryName[$InputFileName]]]; Get[FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}]];
 PR = SpectralElement`Private;
 p["1 ToString PR = ", ToString[PR, InputForm]];
 p["2 Context PR = ", Context[PR]];

@@ -1,7 +1,7 @@
 (* =====================================================================
    Tests/metricprobe.wl -- METRIC / GEOMETRIC-COEFFICIENT gate probe.
    Owner: B3 (Kernel/Discretization.wl).
-   Run:   cd /path/to/SpectralElement && ./rr.sh 900 Tests/metricprobe.wl
+   Run:   ./rr.sh 900 Tests/metricprobe.wl   (from the repo root)
    Evidence: Tests/out/metricprobe.<stamp>.txt  (path in
               Tests/out/metricprobe.lastout)
 
@@ -71,7 +71,8 @@ gate[name_, value_, target_, op_String] := Module[{v = value, ok, sent},
 say[args___] := sf[args];
 
 (* ---------------- load ------------------------------------------------ *)
-repo = "/path/to/SpectralElement";
+(* this file lives in Tests/, so the repo root is two levels up from it *)
+repo = DirectoryName[DirectoryName[$InputFileName]];
 loader = FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}];
 If[FileExistsQ[loader], Get[loader]];
 $ContextPath = Join[{"SpectralElement`", "SpectralElement`Private`", "System`"},

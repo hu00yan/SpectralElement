@@ -2,7 +2,7 @@
    Tests/aaageom.wl -- ANALYTIC vs AAA boundary: the quantitative A/B test
    ---------------------------------------------------------------------
    Wave 2, agent G.  Run:
-     cd /path/to/SpectralElement && ./rr.sh 1800 Tests/aaageom.wl
+     ./rr.sh 1800 Tests/aaageom.wl   (from the repo root)
    Evidence: Tests/out/aaageom.<stamp>.txt  (path in Tests/out/aaageom.lastout)
 
    THE QUESTION.  CoonsPatch has two methods.  "Analytic" evaluates the four
@@ -79,7 +79,8 @@ gate[name_, value_, target_, op_String] := Module[{v = value, ok, sent},
 say[args___] := sf[args];
 
 (* ---------------- load (rationale in the header) --------------------- *)
-repo = "/path/to/SpectralElement";
+(* this file lives in Tests/, so the repo root is two levels up from it *)
+repo = DirectoryName[DirectoryName[$InputFileName]];
 loader = FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}];
 nMsg0 = Length[$MessageList];
 If[FileExistsQ[loader], Get[loader]];

@@ -46,7 +46,8 @@ f3[e_] := Module[{v = Quiet[Check[N[e], $Failed]], m = 0., ex = 0}, If[! TrueQ[N
 $pass = 0; $fail = 0; $failNames = {};
 gate[name_, value_, target_, op_String] := Module[{v = value, ok = False, sent = TrueQ[NumericQ[value] && N[value] === -999.]}, ok = Switch[op, "<=", TrueQ[NumericQ[v] && N[v] <= N[target]], "<", TrueQ[NumericQ[v] && N[v] < N[target]], ">=", TrueQ[NumericQ[v] && N[v] >= N[target]], ">", TrueQ[NumericQ[v] && N[v] > N[target]], "==", TrueQ[v === target || v == target], True, False]; If[sent, ok = False]; If[TrueQ[ok], $pass++, $fail++]; If[! TrueQ[ok], AppendTo[$failNames, name]]; sf["  ", If[TrueQ[ok], "PASS", "FAIL"], "  ", name, " = ", tst[gn[v]], If[TrueQ[NumericQ[target]], StringJoin["   (target ", op, " ", ToString[gn[target], InputForm], ")"], ""]]; ok];
 
-repo = "/path/to/SpectralElement";
+(* this file lives in Tests/, so the repo root is two levels up from it *)
+repo = DirectoryName[DirectoryName[$InputFileName]];
 Get[FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}]];
 gate["G0a loader defines SpectralNDSolve", Length[DownValues[SpectralElement`SpectralNDSolve]], 1, ">="];
 gate["G0b loader defines SpectralNDSolveValue", Length[DownValues[SpectralElement`SpectralNDSolveValue]], 1, ">="];

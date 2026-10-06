@@ -714,7 +714,7 @@ aaainfo[fit_Association] := "AAA " <> fit["Status"] <> "  type (" <>
        symbols, which share the same SpectralElement`Private` context.
 
    NUMERICAL PROVENANCE (copied verbatim from the verified reference
-   /path/to/wl-verify/specF/p11.wl + helpers.wl):
+   wl-verify/specF/p11.wl + helpers.wl):
      cgl / chebD1 : Chebyshev-Gauss-Lobatto grid and 1st derivative matrix
                     at machine precision (Trefethen `cheb` trick).
      transfinite  : p11 `mkMap4`, i.e. 4-edge Coons / blend map

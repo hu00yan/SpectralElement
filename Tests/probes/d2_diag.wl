@@ -1,7 +1,7 @@
 (* D2 diagnostic: do the Private symbols resolve and apply? *)
 $HistoryLength = 0;
 p[args___] := Print[Row[{args}]];
-Get["/path/to/SpectralElement/Kernel/SpectralElement.wl"];
+repo = DirectoryName[DirectoryName[DirectoryName[$InputFileName]]]; Get[FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}]];
 PR = SpectralElement`Private;
 p["1 ContextPath = ", ContextPath];
 p["2 nNames = ", Length[Names[PR]]];

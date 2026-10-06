@@ -11,7 +11,7 @@
 #
 # Differences, both deliberate:
 #   * the working directory is THIS repo, not wl-verify/specF.  The specF
-#     r.sh cd's into /path/to/wl-verify/specF and resolves both
+#     r.sh cd's into wl-verify/specF and resolves both
 #     the script path and $SPECF_OUT relative to THAT directory, so it
 #     cannot run a script in this repo without writing into the read-only
 #     reference tree.  r.sh is left untouched (other agents depend on it).
@@ -44,4 +44,7 @@ wait $pid; rc=$?
 kill $gp 2>/dev/null
 echo "RC=$rc"
 echo "OUT=$SPECF_OUT"
-exit 0
+# Propagate the kernel's exit status.  An unconditional `exit 0` here made
+# every guarded run look green to any caller that checked the status, so a
+# failing example was indistinguishable from a passing one.
+exit $rc

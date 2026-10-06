@@ -25,3 +25,25 @@ scratch/
 
 # ---- built paclet archive (rebuild via ./build/release.sh) ----
 build/*.paclet
+
+# ---- Python bytecode ----
+# Tools/ ships helper scripts (e.g. Tools/brscan2.py), and CPython writes a
+# compiled __pycache__/<name>.cpython-<ver>.pyc beside each one it imports.
+# That file is a build artefact: it is interpreter-version-specific,
+# machine-generated, and must never be committed.  It was tracked once
+# (Tools/__pycache__/brscan2.cpython-314.pyc) and has been untracked; these
+# two rules keep it that way.  The .py sources are tracked normally.
+__pycache__/
+*.pyc
+
+# ---- agent harness artefacts ----
+# .agent-usage.json is written by the coding harness, not by the project.
+.agent-usage.json
+
+# ---- per-run evidence artifacts ----
+# Tests/<probe>.<stamp>_<pid>.txt is a fresh file on EVERY run of a probe.
+# Unlike the named evidence in Tests/out/ (which backs a specific claim in
+# API.md / README.md and is deliberately committed), these accumulate as noise
+# and leak the absolute path of whoever ran them.  Committing them by accident
+# via `git add -A` is how a private home directory got published once.
+Tests/*.txt

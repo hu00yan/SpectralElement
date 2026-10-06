@@ -1,6 +1,8 @@
 (* scratch probe 5: WHERE is the fitted edge non-finite? *)
 $HistoryLength = 0;
-sfLog = FileNameJoin[{"/path/to/SpectralElement", "Tests", "out", "gp5.txt"}];
+(* this file lives in Tests/probes/, so the repo root is three levels up *)
+repo = DirectoryName[DirectoryName[DirectoryName[$InputFileName]]];
+sfLog = FileNameJoin[{repo, "Tests", "out", "gp5.txt"}];
 st = OpenWrite[sfLog];
 sfSafe[e_] := Module[{s = ToString[e, InputForm]}, If[StringLength[s] > 260, StringTake[s, 260] <> "..TRUNC", s]];
 sf[args___] := (WriteString[st, StringJoin[sfSafe /@ {args}] <> "\n"]; Flush[st]; Print[args]);
@@ -8,7 +10,6 @@ fin[q_] := AllTrue[q, (TrueQ[NumericQ[#]] && Abs[#] < Infinity) &];
 emx[v_] := If[TrueQ[VectorQ[v, NumericQ]], N[Max[Abs[v]]], -1.];
 nfidx[pg_, pv_] := Select[Range[Length[pg]], Not[TrueQ[fin[pv[[#]]]]] &];
 
-repo = "/path/to/SpectralElement";
 Get[FileNameJoin[{repo, "Kernel", "SpectralElement.wl"}]];
 $ContextPath = Join[{"SpectralElement`", "SpectralElement`Private`", "System`"}, $ContextPath];
 CP = SpectralElement`CoonsPatch;

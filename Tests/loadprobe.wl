@@ -44,7 +44,8 @@ sf[args___] := (WriteString[sfStream, StringJoin[sfSafe /@ {args}] <> "\n"];
    Flush[sfStream]; Print[Row[{args}]]);
 sfClose[] := (Close[sfStream]; Null);
 
-repo = "/path/to/SpectralElement";
+(* this file lives in Tests/, so the repo root is two levels up from it *)
+repo = DirectoryName[DirectoryName[$InputFileName]];
 pub = {SpectralElement`CoonsPatch, SpectralElement`CoonsPatchQ,
    SpectralElement`CoonsPatchMap, SpectralElement`SpectralDomain,
    SpectralElement`SpectralDomainQ, SpectralElement`SpectralDomainData,
