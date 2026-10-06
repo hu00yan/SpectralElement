@@ -16,7 +16,7 @@
      3. Only the PUBLIC API and the se* internals (bare names, resolved via
         $ContextPath) are used below.
 
-   REFERENCE numerics (READ ONLY, wl-verify/specF, never restated as ours):
+   REFERENCE numerics (READ ONLY, Tests/reference/specF, never restated as ours):
      p11m4: rect lapErr 3.6e-9 @n=16, 1.0e-11 @n=24; pinc6 minJ 0.32,
             Jcorners 0.42, fdJ 9.3e-11, lapErr 4.5e-9 @n=16; starA2 minJ
             -2.0e-11 with 2 non-positive nodes (documented NEGATIVE);

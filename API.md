@@ -171,16 +171,17 @@ These are not style preferences. Each one exists because it cost a run.
    cd /path/to/SpectralElement
    ./rr.sh 120 Tests/<name>.wl
    ```
-   `rr.sh` is the repo-local guarded runner: same semantics as the specF
-   `r.sh` (timeout + `SIGKILL`, unique per-run output path, writes
-   `<name>.lastout` containing `OUT=<path>`), but rooted in this repo and
-   writing evidence to `Tests/out/`.
+   `rr.sh` is the repo-local guarded runner: same semantics as the reference
+   implementation's `r.sh` (timeout + `SIGKILL`, unique per-run output path,
+   writes `<name>.lastout` containing `OUT=<path>`), but rooted in this repo
+   and writing evidence to `Tests/out/`.
 
-   The specF `r.sh` that was copied to the repo root `cd`s into
-   `wl-verify/specF` and resolves both the script path and `$SPECF_OUT`
-   relative to *that* directory. It therefore cannot run a script in this
-   repo without writing into the read-only reference tree. **Do not modify
-   `r.sh`** (other agents depend on it); use `rr.sh`.
+   `Tests/reference/specF/r.sh` is the guarded runner for the reference
+   implementation. It `cd`s into its own directory and resolves both the
+   script path and `$SPECF_OUT` relative to *that* directory, so it is
+   self-contained and works from wherever the repository is checked out. Use
+   `rr.sh` for this repo's own tests; use `r.sh` only to re-run the reference
+   implementation.
 
 2. **`pgrep -fl WolframKernel` after every run.** If your run was killed by
    the guard, the kernel is gone, but confirm it.
@@ -222,9 +223,15 @@ These are not style preferences. Each one exists because it cost a run.
    to a `Tests/out/*.txt` produced by an `rr.sh` run. If you did not run it,
    do not write it. Mark projections as projections.
 
-7. **Never write to `wl-verify/`.** It is the read-only reference
-   implementation (`specF/p11.wl`). Read it, quote it, cite its evidence
-   files; never modify anything under it.
+7. **Treat `Tests/reference/specF/` as read-only.** It is the reference
+   implementation — an independent second implementation of the same method,
+   used to cross-check this package against Wolfram's built-in FEM. It lives
+   in this repository (it used to be an external tree, which is how the
+   absolute path of whoever developed it leaked into this repository's
+   history). Read it, quote it, and run it to reproduce its numbers; do not
+   edit it to make this package look better, and do not restate its results as
+   ours. Its run output is deliberately not committed — re-running `r.sh`
+   regenerates it.
 
 8. **Do not run `git` commands.** The repo is shared by three parallel
    agents; the integrator commits.
@@ -495,10 +502,16 @@ warning at the call site — that is a test failure, not a cosmetic issue.
 ### 4.5 Verified reference numbers (do not restate as our own)
 
 These come from the **reference implementation**,
-`wl-verify/specF/p11.wl`, evidence file
-`wl-verify/specF/p11.191455_3044.txt`. They establish that the method works;
-they are **not** yet results of this package. When the package reproduces
-them, cite the package's own `Tests/out/*.txt`.
+`Tests/reference/specF/p11.wl`. Run it to reproduce them:
+
+```sh
+cd Tests/reference/specF && ./r.sh 300 p11.wl
+```
+
+Its output is not committed; the numbers below are the recorded results of
+that run. They establish that the method works; they are **not** yet results
+of this package. When the package reproduces them, cite the package's own
+`Tests/out/*.txt`.
 
 - PDE `-Laplacian[u] + u^3 = f` with manufactured solution
   `uex = Sin[2x+1] Cos[3y-1] + xy/5` on a **pincushion** domain (single

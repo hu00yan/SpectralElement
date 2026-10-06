@@ -47,3 +47,12 @@ __pycache__/
 # and leak the absolute path of whoever ran them.  Committing them by accident
 # via `git add -A` is how a private home directory got published once.
 Tests/*.txt
+Tests/**/*.stdout
+Tests/**/*.stderr
+Tests/**/*.lastout
+# The reference oracle under Tests/reference/specF writes its evidence beside
+# the scripts.  It is reproducible by running r.sh, so it is not committed.
+Tests/reference/specF/*.txt
+Tests/reference/specF/*.stdout
+Tests/reference/specF/*.stderr
+Tests/reference/specF/*.lastout

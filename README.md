@@ -220,7 +220,7 @@ when the boundary arrives as data, not as a callable you would rather not
 evaluate a million times.
 
 The reference implementation this package is derived from
-(`wl-verify/specF/p11.wl`) reports, for `-Laplacian[u] + u^3 = f` on a
+(`Tests/reference/specF/p11.wl`) reports, for `-Laplacian[u] + u^3 = f` on a
 half-annulus split into two patches, nodal errors `3.7e-4`, `2.2e-7`,
 `7.9e-11` at `n = 16, 24, 32`. Those are *reference* numbers from a
 separate implementation, quoted as the target to reproduce, not as
